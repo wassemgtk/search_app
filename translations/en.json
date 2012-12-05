@@ -1,0 +1,10 @@
+{ 
+
+ "app": {
+  "parameters": {
+    "userName": { "lavel": "What's your name?"}
+  }
+ },
+
+"helloWorld": "Hello there, world!"
+}

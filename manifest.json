@@ -1,0 +1,20 @@
+{
+  "author": {
+    "name": "Peter Godden",
+    "email": "pgodden@zendesk.com"
+  },
+
+  "location": "ticket_sidebar",
+  "defaultLocale": "en",
+  "private": true,
+  "singleInstall": true,
+  "frameworkVersion": "0.5",
+
+  "perameters": [
+   {
+  	"name": "userName",
+  	"type": "text",
+  	"required": true
+   }
+  ]
+}

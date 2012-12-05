@@ -1,0 +1,83 @@
+<div class="searchfields">
+
+		Status:
+		
+		<form action="">
+		<select id="status_operator">
+		<option value=""></option>
+		<option value=":" selected>Equal to</option>
+		<option value="<">Greater than</option>
+		<option value=">">Less than</option>
+		</select>
+		</form>
+		
+
+		
+		<form action="">
+		<select id="status">
+		<option value=""></option>
+		<option value="new">New</option>
+		<option value="open" selected>Open</option>
+		<option value="pending">Pending</option>
+		<option value="onhold">On Hold</option>
+		<option value="solved">Solved</option>
+		<option value="closed">Closed</option>
+		</select>
+		</form>
+
+
+</div>
+<br>
+<br>
+<div class="searchfields">
+
+		Priority:
+
+		<form action="">
+		<select id="priority_operator">
+		<option value=""></option>
+		<option value=":" selected>Equal to</option>
+		<option value="<">Greater than</option>
+		<option value=">">Less than</option>
+		</select>
+		</form>
+
+		<form action="">
+		<select id="priority">
+		<option value=""></option>
+		<option value="low">Low</option>
+		<option value="normal" selected>Normal</option>
+		<option value="high">High</option>
+		<option value="urgent">Urgent</option>
+		</select>
+		</form>
+
+</div>
+<br>
+<br>
+
+<div class="searchfields">
+	<form>
+       Ticket contains the following text: <input type="text" name="description"><br>
+	</form>
+</div>
+
+
+
+<br>
+<br>
+<div class="searchbutton">
+
+<strong>Search</strong>
+
+</div>
+
+<div>
+  <ul>
+    {{#searchStatus}}
+      <li data-bookmark-id="{{id}}">
+        <a href="#/tickets/{{ticket.nice_id}}">{{ticket.subject}}</a>
+      </li>
+    {{/searchStatus}}
+  </ul>
+ </div>
