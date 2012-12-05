@@ -22,3 +22,23 @@ form {
 select {
 border: #666 solid 1px;
 }
+
+.tips {
+    background-image: app-asset-url("greenorb.png");
+    height: 30px;
+    width:30px;
+    position: absolute;
+}
+
+.tooltip {
+    background-image: app-asset-url("black_arrow.png");
+    font-size:10px;
+    height:80px;
+    width:180px;
+    padding:15px 20px 27px 18px;
+    color:#eee;
+    top: 80px;
+    left: 130px;
+    position: absolute;
+    opacity: .9;
+  }

@@ -5,6 +5,7 @@
     events: {
       'app.activated': 'displaySearch',
       'click .searchbutton': 'doTheSearch'
+      'mouseover .tips': 'showToolTip' */
     },
     
     requests: {
@@ -59,7 +60,13 @@
 
      var data = 'type:ticket' + ' ' + status + ' ' + priority + ' ' + endDescription;
      this.ajax('searchDesk',data);
+   },
+
+   showToolTip: function () {
+    this.$('.tooltip').fadeTo('slow',1);
    }
+
+
 
   };
 
