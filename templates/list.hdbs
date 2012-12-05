@@ -57,8 +57,17 @@
 <br>
 
 <div class="searchfields">
+	Ticket contains
 	<form>
-       Ticket contains the following text: <input type="text" name="description"><br>
+       	<form action="">
+		<select id="text_operator">
+		<option value=""></option>
+		<option value="plus" selected>ALL</option>
+		<option value="minus">NONE</option> 
+		<option value="any">ANY</option>
+	</select>
+		of the following words: 
+		<input type="text" id="description">
 	</form>
 </div>
 
