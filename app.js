@@ -4,8 +4,8 @@
 
     events: {
       'app.activated': 'displaySearch',
-      'click .searchbutton': 'doTheSearch'
-      'mouseover .tips': 'showToolTip' */
+      'click .searchbutton': 'doTheSearch',
+      'mouseover .tips': 'showToolTip'
     },
     
     requests: {
