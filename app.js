@@ -39,25 +39,25 @@
 
       var getDescription = this.$('#description').val();
       var descOperator = this.$('#text_operator').val();
-      
+      var endDescription = 0;
 
       if (descOperator === "plus") {
-        var endDescription1 = "+" + getDescription.replace ( / /g, " +");
-      console.log(endDescription1);
-      this.ajax ('searchDesk',endDescription1);
+        endDescription = "+" + getDescription.replace ( / /g, " +");
+      console.log(endDescription);
+      this.ajax ('searchDesk',endDescription);
       } else if (descOperator === "minus") {
-        var endDescription2 = "-" + getDescription.replace ( / /g, " -");
-      console.log(endDescription2);
-      this.ajax ('searchDesk',endDescription2);
+        endDescription = "-" + getDescription.replace ( / /g, " -");
+      console.log(endDescription);
+      this.ajax ('searchDesk',endDescription);
       } else {
-        var endDescription3 = getDescription;
-      console.log(endDescription3);
-      this.ajax ('searchDesk',endDescription3);
+        endDescription = getDescription;
+      console.log(endDescription);
+      this.ajax ('searchDesk',endDescription);
       }
   
 
 
-     var data = 'type:ticket' + ' ' + status + ' ' + priority; 
+     var data = 'type:ticket' + ' ' + status + ' ' + priority + ' ' + endDescription;
      this.ajax('searchDesk',data);
    }
 
