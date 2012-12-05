@@ -5,7 +5,8 @@
     events: {
       'app.activated': 'displaySearch',
       'click .searchbutton': 'doTheSearch',
-      'mouseover .tips': 'showToolTip'
+      'mouseenter .tips': 'showToolTip',
+      'mouseoout .tips': 'hideToolTip'
     },
     
     requests: {
@@ -64,6 +65,12 @@
 
    showToolTip: function () {
     this.$('.tooltip').fadeTo('slow',1);
+    console.log("mouse goes in");
+   },
+
+   hideToolTip: function () {
+    this.$('.tooltip').fadeTo('slow',0);
+    console.log("mouse goes out");
    }
 
 
