@@ -38,6 +38,10 @@
      this.ajax ('searchDesk',priority);
 
 
+     var dateRange = this.$('#date_action_operator').val() + '>' + this.$('#from_date').val() + ' ' + this.$('#date_action_operator').val() + '<' + this.$('#to_date').val();
+     console.log(dateRange);
+     this.ajax ('searchDesk',dateRange);
+
 
      
 
@@ -72,8 +76,9 @@
 
    hideToolTip: function () {
     this.$('.tooltip').fadeOut('fast');
-    console.log("mouse goes out");
-   }
+    console.log("mouse goes out");   
+
+   } 
 
 
 

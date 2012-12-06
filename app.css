@@ -21,6 +21,7 @@ form {
 
 select {
     border: #666 solid 1px;
+    margin: 2px;
 }
 
 input {

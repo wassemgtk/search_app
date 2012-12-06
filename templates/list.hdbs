@@ -6,8 +6,8 @@
 		<select id="status_operator">
 		<option value=""></option>
 		<option value=":" selected>Equal to</option>
-		<option value="<">Greater than</option>
-		<option value=">">Less than</option>
+		<option value=">">Greater than</option>
+		<option value="<">Less than</option>
 		</select>
 		</form>
 		
@@ -28,7 +28,6 @@
 
 </div>
 <br>
-<br>
 <div class="searchfields">
 
 		Priority:
@@ -37,8 +36,8 @@
 		<select id="priority_operator">
 		<option value=""></option>
 		<option value=":" selected>Equal to</option>
-		<option value="<">Greater than</option>
-		<option value=">">Less than</option>
+		<option value=">">Greater than</option>
+		<option value="<">Less than</option>
 		</select>
 		</form>
 
@@ -54,6 +53,22 @@
 
 </div>
 <br>
+<br>
+<div class="searchfields">
+
+		<form action="">
+		<select id="date_action_operator">
+		<option value=""></option>
+		<option value="created" selected>Created</option>
+		<option value="updated">Updated</option>
+		<option value="solved">Solved</option>
+		<option value="due_date">Due date</option>
+		</select>
+		</form>
+
+		between these dates...
+
+</div>
 <br>
 <div class="searchfields">
 From:
