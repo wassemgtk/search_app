@@ -6,7 +6,7 @@
       'app.activated': 'displaySearch',
       'click .searchbutton': 'doTheSearch',
       'mouseenter .tips': 'showToolTip',
-      'mouseoout .tips': 'hideToolTip'
+      'mouseleave .tips': 'hideToolTip'
     },
     
     requests: {
@@ -64,13 +64,13 @@
    },
 
    showToolTip: function () {
-    this.$('.tooltip').fadeTo('slow',1);
-    console.log("mouse goes in");
+    this.$('.tooltip').fadeTo('fast',1);
+    console.log("mouse goes in2");
    },
 
    hideToolTip: function () {
-    this.$('.tooltip').fadeTo('slow',0);
-    console.log("mouse goes out");
+    this.$('.tooltip').fadeTo('fast',0);
+    console.log("mouse goes out2");
    }
 
 
