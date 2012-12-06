@@ -55,6 +55,12 @@
 </div>
 <br>
 <br>
+<div class="searchfields">
+From:
+<input type="date" id="from_date"/><br>To: <input type="date" id="to_date"/>
+</div>
+<br>
+<br>
 
 <div class="searchfields">
 	Ticket contains

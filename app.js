@@ -37,6 +37,8 @@
      console.log(priority);
      this.ajax ('searchDesk',priority);
 
+
+
      
 
       var getDescription = this.$('#description').val();
@@ -64,13 +66,13 @@
    },
 
    showToolTip: function () {
-    this.$('.tooltip').fadeTo('fast',1);
-    console.log("mouse goes in2");
+    this.$('.tooltip').fadeIn('fast');
+    console.log("mouse goes in");
    },
 
    hideToolTip: function () {
-    this.$('.tooltip').fadeTo('fast',0);
-    console.log("mouse goes out2");
+    this.$('.tooltip').fadeOut('fast');
+    console.log("mouse goes out");
    }
 
 
