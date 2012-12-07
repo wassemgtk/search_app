@@ -2,13 +2,28 @@
 
   return {
 
+    data: '',
+    listArray: [],
+
     events: {
       'app.activated': 'displaySearch',
       'click .searchbutton': 'doTheSearch',
       'mouseenter .tips': 'showToolTip',
-      'mouseleave .tips': 'hideToolTip'
+      'mouseleave .tips': 'hideToolTip',
+      'searchDesk.done': function(data) {
+      /* services.notify(data.results); */
+      _.each(data.results, this.list, this);
+    }
     },
-    
+
+    list: function(item) { 
+      // services.notify('#' + item.id + ' ' + item.subject);
+      this.listArray.push({'id': '' + item.id + '','test': + '' + item.subject + ''});
+      this.displaySearch();
+      console.log(1234);
+      },
+
+
     requests: {
 
       searchDesk: function(data) {
@@ -21,26 +36,39 @@
     },
 
     displaySearch: function() {
-      this.switchTo('list');
+      this.switchTo('list', {
+        listArray: this.listArray
+      });
     },
 
-    'searchDesk.always': function(data) {
-      services.notify(data.responseText);
-    },
+    
 
    doTheSearch: function(){
-     var status = 'status'+this.$('#status_operator').val() + this.$('#status').val();
-     console.log(status);
-     this.ajax ('searchDesk',status);
 
-     var priority = 'priority'+this.$('#priority_operator').val() + this.$('#priority').val();
-     console.log(priority);
-     this.ajax ('searchDesk',priority);
+
+    var status = null;
+
+    if (this.$('#status').val() != 'none') {
+           status = 'status'+this.$('#status_operator').val() + this.$('#status').val();
+     console.log(status);
+     
+    } else {
+           status = null;
+    }
+
+    var priority = null;
+
+    if (this.$('#piority').val() != 'none') {
+      priority = 'priority'+this.$('#priority_operator').val() + this.$('#priority').val();
+      console.log(priority);
+    } else {
+      priority = null;
+    }     
 
 
      var dateRange = this.$('#date_action_operator').val() + '>' + this.$('#from_date').val() + ' ' + this.$('#date_action_operator').val() + '<' + this.$('#to_date').val();
      console.log(dateRange);
-     this.ajax ('searchDesk',dateRange);
+     
 
 
      
@@ -52,21 +80,20 @@
       if (descOperator === "plus") {
         endDescription = "+" + getDescription.replace ( / /g, " +");
       console.log(endDescription);
-      this.ajax ('searchDesk',endDescription);
+      
       } else if (descOperator === "minus") {
         endDescription = "-" + getDescription.replace ( / /g, " -");
       console.log(endDescription);
-      this.ajax ('searchDesk',endDescription);
+      
       } else {
         endDescription = getDescription;
       console.log(endDescription);
-      this.ajax ('searchDesk',endDescription);
       }
   
 
 
-     var data = 'type:ticket' + ' ' + status + ' ' + priority + ' ' + endDescription;
-     this.ajax('searchDesk',data);
+     this.data = 'type:ticket' + ' ' + status + ' ' + priority + ' ' + dateRange + ' ' + endDescription;
+     this.runSearchNow();
    },
 
    showToolTip: function () {
@@ -76,9 +103,12 @@
 
    hideToolTip: function () {
     this.$('.tooltip').fadeOut('fast');
-    console.log("mouse goes out");   
+    console.log("mouse goes out 20 ");   
+   }, 
 
-   } 
+   runSearchNow: function () {
+    this.ajax('searchDesk',this.data);
+   }
 
 
 

@@ -15,7 +15,7 @@
 		
 		<form action="">
 		<select id="status">
-		<option value=""></option>
+		<option value="none"></option>
 		<option value="new">New</option>
 		<option value="open" selected>Open</option>
 		<option value="pending">Pending</option>
@@ -43,7 +43,7 @@
 
 		<form action="">
 		<select id="priority">
-		<option value=""></option>
+		<option value="none"></option>
 		<option value="low">Low</option>
 		<option value="normal" selected>Normal</option>
 		<option value="high">High</option>
@@ -102,6 +102,18 @@ From:
 
 <strong>Search</strong>
 
+</div>
+
+<br>
+<br>
+
+<div class="results">
+	RESULTS
+<ul class="results_list">
+  {{#each listArray}}
+  <li>{{test}}</li>
+  {{/each}}
+</ul>
 </div>
 
 <div>
