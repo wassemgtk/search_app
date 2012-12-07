@@ -1,0 +1,12 @@
+<div class="backsearchbutton">
+<strong>< Back to Search</strong>
+</div>
+<br>
+<h3>Results...</h3>
+<div class="results">
+<ul class="results_list">
+  {{#each listArray}}
+  <li><a href="#/tickets/{{PassId}}"><b>#{{PassId}}</b> {{PassSubject}}</a></li>
+  {{/each}}
+</ul>
+</div>

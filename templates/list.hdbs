@@ -54,7 +54,7 @@
 </div>
 <br>
 <br>
-<div class="searchfields">
+<div class="datesearchfields">
 
 		<form action="">
 		<select id="date_action_operator">
@@ -72,7 +72,7 @@
 <br>
 <div class="searchfields">
 From:
-<input type="date" id="from_date"/><br>To: <input type="date" id="to_date"/>
+<input type="date" id="from_date"/><br>Before: <input type="date" id="to_date"/>
 </div>
 <br>
 <br>
@@ -105,16 +105,6 @@ From:
 </div>
 
 <br>
-<br>
-
-<div class="results">
-	RESULTS
-<ul class="results_list">
-  {{#each listArray}}
-  <li>{{test}}</li>
-  {{/each}}
-</ul>
-</div>
 
 <div>
   <ul>

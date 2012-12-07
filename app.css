@@ -1,6 +1,6 @@
 div.searchbutton {
     height: 17px;
-    width: 80px;
+    width: 100px;
     border-radius: 5px;
     background-color: #000;
     text-align: center;
@@ -8,11 +8,35 @@ div.searchbutton {
     font-family: Verdana, Arial, Sans-Serif;
     opacity: 0.5;
     padding: 5px 0 5px 0;
+    cursor: hand; 
+    cursor: pointer;
+    margin-right: 30px;
+    margin-left: auto;
+}
+
+div.backsearchbutton {
+    height: 17px;
+    width: 300px;
+    border-radius: 5px;
+    background-color: #000;
+    text-align: center;
+    color: #FFFFFF;
+    font-family: Verdana, Arial, Sans-Serif;
+    opacity: 0.5;
+    padding: 5px 0 5px 0;
+    cursor: hand; 
+    cursor: pointer;
 }
 
 div.searchfields {
 	display: inline-block;
 	font-weight: bold;
+}
+
+div.datesearchfields {
+    display: inline-block;
+    font-weight: bold;
+    text-align: right;
 }
 
 form {
@@ -45,13 +69,16 @@ input {
     width:170px;
     padding:15px 20px 27px 18px;
     color:#eee;
-    top: 160px;
+    top: 180px;
     left: 130px;
     position: absolute;
     opacity: 1;
   }
 
   div.results {
-    border: #000 solid 1px;
+    border: #999 solid 1px;
     padding: 3px;
+    border-radius: 5px;
+    max-height:350px;
+    overflow-x: auto;
   }
