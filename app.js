@@ -71,24 +71,25 @@
       priority = null;
     }     
 
-    var dateRange = null;
+    
+    var firstDate = null;
+    var secondDate = null;
 
-    if (this.$('from_date').val() === undefined && this.$('to_date').val() === undefined) {
-      dateRange = null;
-      console.log(dateRange);
-    } else if (this.$('from_date').val() !== undefined && this.$('to_date').val() === undefined) {
-      dateRange = this.$('#date_action_operator').val() + '>' + this.$('#from_date').val();
-      console.log(dateRange);
-    } else if (this.$('from_date').val() === undefined && this.$('to_date').val() !== undefined) {
-      dateRange = this.$('#date_action_operator').val() + '<' + this.$('#to_date').val();
-      console.log(dateRange);
+    if (this.$('from_date').val() === undefined) {
+      firstDate = '';
     } else {
-      dateRange = this.$('#date_action_operator').val() + '>' + this.$('#from_date').val() + ' ' + this.$('#date_action_operator').val() + '<' + this.$('#to_date').val();
-     console.log(dateRange);
+      firstDate = this.$('#date_action_operator').val() + '>' + this.$('#from_date').val();
     }
 
+    if (this.$('to_date').val() === undefined) {
+      secondDate = '';
+    } else {
+      secondDate = this.$('#date_action_operator').val() + '<' + this.$('#to_date').val();
+    }
 
-     
+    var dateRange = firstDate + ' ' + secondDate;
+    console.log(dateRange);
+
 
       var getDescription = this.$('#description').val();
       var descOperator = this.$('#text_operator').val();
