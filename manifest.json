@@ -15,6 +15,21 @@
   	"name": "userName",
   	"type": "text",
   	"required": true
+   },
+   {
+    "Custom Feild Title": "CustomIDTitle",
+    "type": "text",
+    "required": false
+    },
+    {
+    "Custom Feild ID": "CustomID",
+    "type": "text",
+    "required": false
    }
+
+
+
+
+
   ]
 }

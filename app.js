@@ -1,5 +1,13 @@
 (function() {
 
+/*  var displayTickedID = function() {
+    return this.settings.CustomID;
+  };
+
+  var displayTickedIDTitle = function() {
+    return this.settings.CustomIDTitle;
+  }; */
+
   return {
 
     data: '',
@@ -75,13 +83,13 @@
     var firstDate = null;
     var secondDate = null;
 
-    if (this.$('from_date').val() === undefined) {
+    if (this.$('#from_date').val() === '') {
       firstDate = '';
     } else {
       firstDate = this.$('#date_action_operator').val() + '>' + this.$('#from_date').val();
     }
 
-    if (this.$('to_date').val() === undefined) {
+    if (this.$('#to_date').val() === '') {
       secondDate = '';
     } else {
       secondDate = this.$('#date_action_operator').val() + '<' + this.$('#to_date').val();
@@ -122,7 +130,7 @@
 
    hideToolTip: function () {
     this.$('.tooltip').fadeOut('fast');
-    console.log("mouse goes out 25 ");   
+    console.log("mouse goes out 35 ");   
    }, 
 
    fadeSearchUp: function () {

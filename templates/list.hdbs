@@ -74,9 +74,11 @@
 After:
 <input type="date" id="from_date"/><br>Before: <input type="date" id="to_date"/>
 </div>
-<br>
-<br>
 
+
+
+<br>
+<br>
 <div class="searchfields">
 	Ticket contains
 	<form>
