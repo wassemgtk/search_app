@@ -71,11 +71,21 @@
       priority = null;
     }     
 
+    var dateRange = null;
 
-
-     var dateRange = this.$('#date_action_operator').val() + '>' + this.$('#from_date').val() + ' ' + this.$('#date_action_operator').val() + '<' + this.$('#to_date').val();
+    if (this.$('from_date').val() === undefined && this.$('to_date').val() === undefined) {
+      dateRange = null;
+      console.log(dateRange);
+    } else if (this.$('from_date').val() !== undefined && this.$('to_date').val() === undefined) {
+      dateRange = this.$('#date_action_operator').val() + '>' + this.$('#from_date').val();
+      console.log(dateRange);
+    } else if (this.$('from_date').val() === undefined && this.$('to_date').val() !== undefined) {
+      dateRange = this.$('#date_action_operator').val() + '<' + this.$('#to_date').val();
+      console.log(dateRange);
+    } else {
+      dateRange = this.$('#date_action_operator').val() + '>' + this.$('#from_date').val() + ' ' + this.$('#date_action_operator').val() + '<' + this.$('#to_date').val();
      console.log(dateRange);
-     
+    }
 
 
      
@@ -111,7 +121,7 @@
 
    hideToolTip: function () {
     this.$('.tooltip').fadeOut('fast');
-    console.log("mouse goes out 22 ");   
+    console.log("mouse goes out 25 ");   
    }, 
 
    fadeSearchUp: function () {
