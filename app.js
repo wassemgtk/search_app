@@ -10,11 +10,12 @@
 
   return {
 
+
     data: '',
     listArray: [],
 
     events: {
-      'app.activated': 'displaySearch',
+      'click .makesearch': 'displaySearch',
       'click .searchbutton': 'doTheSearch',
       'mouseenter .tips': 'showToolTip',
       'mouseleave .tips': 'hideToolTip',
@@ -25,18 +26,15 @@
       'searchDesk.done': function(data) {
       /* services.notify(data.results); */
       _.each(data.results, this.list, this);
-
-            this.switchTo('results',{
-          listArray: this.listArray
-      });
       },
       'click .backsearchbutton': 'getBackToSearch'
     },
 
     list: function(item) { 
       // services.notify('#' + item.id + ' ' + item.subject);
+      console.log('#' + item.id + ' ' + item.subject);
       this.listArray.push({'PassURL': '' + item.url + '', 'PassId': '' + item.id + '','PassSubject': item.subject });
-      this.displaySearch();
+      this.goToResultsPage();
       },
 
 
@@ -54,11 +52,13 @@
 
     displaySearch: function() {
       this.switchTo('list');
+      console.log('I am firing');
     },
 
     
 
    doTheSearch: function(){
+    this.listArray = [];
 
     var status = null;
 
@@ -121,6 +121,7 @@
      this.data = 'type:ticket' + ' ' + status + ' ' + priority + ' ' + dateRange + ' ' + endDescription;
      this.runSearchNow();
 
+
    },
 
    showToolTip: function () {
@@ -130,7 +131,7 @@
 
    hideToolTip: function () {
     this.$('.tooltip').fadeOut('fast');
-    console.log("mouse goes out 35 ");   
+    console.log("mouse goes out 49 ");   
    }, 
 
    fadeSearchUp: function () {
@@ -157,14 +158,18 @@
     this.ajax('searchDesk',this.data);
    },
 
-   goToResultsNow: function () {
+
+         goToResultsPage: function () {
           this.switchTo('results',{
           listArray: this.listArray
+
       });
+
    },
 
    getBackToSearch: function () {
     this.switchTo('list');
+    
    }
 
 

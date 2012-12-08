@@ -33,6 +33,11 @@ div.searchfields {
 	font-weight: bold;
 }
 
+div.makesearch { 
+    cursor: hand; 
+    cursor: pointer;
+}
+
 div.datesearchfields {
     display: inline-block;
     font-weight: bold;
