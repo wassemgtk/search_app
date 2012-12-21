@@ -1,89 +1,39 @@
-div.searchbutton {
-    height: 17px;
-    width: 100px;
-    border-radius: 5px;
-    background-color: #000;
-    text-align: center;
-    color: #FFFFFF;
-    font-family: Verdana, Arial, Sans-Serif;
-    opacity: 0.5;
-    padding: 5px 0 5px 0;
-    cursor: hand; 
-    cursor: pointer;
-    margin-right: 30px;
-    margin-left: auto;
+.options {
+  *zoom: 1;
 }
 
-div.backsearchbutton {
-    height: 17px;
-    width: 320px;
-    border-radius: 5px;
-    background-color: #000;
-    text-align: center;
-    color: #FFFFFF;
-    font-family: Verdana, Arial, Sans-Serif;
-    opacity: 0.5;
-    padding: 5px 0 5px 0;
-    cursor: hand; 
-    cursor: pointer;
+.options:before,
+.options:after {
+  display: table;
+  line-height: 0;
+  content: "";
 }
 
-div.searchfields {
-	display: inline-block;
-	font-weight: bold;
+.options:after {
+  clear: both;
 }
 
-div.makesearch { 
-    cursor: hand; 
-    cursor: pointer;
+.left {
+  float: left;
 }
 
-div.datesearchfields {
-    display: inline-block;
-    font-weight: bold;
-    text-align: right;
+.right {
+  float: right;
 }
 
-form {
-	display: inline;
-}
+.search-wrapper {
+  position: relative;
+  width: 300px;
+  margin: 10px 0 5px 0;
 
-select {
-    border: #666 solid 1px;
-    margin: 2px;
-}
-
-input {
-    border: #666 solid 1px;
-    padding: 2px;
-    margin: 3px;
-}
-
-.tips {
-    background-image: app-asset-url("greenorb.png");
-    height: 30px;
-    width:30px;
+  .search-icon {
+    background: url(/console/assets/icons/globals-s54b9a09d1f.png) no-repeat;
     position: absolute;
-}
-
-.tooltip {
-    display:none;
-    background-image: app-asset-url("black_arrow.png");
-    font-size:10px;
-    height:80px;
-    width:170px;
-    padding:15px 20px 27px 18px;
-    color:#eee;
-    top: 180px;
-    left: 130px;
-    position: absolute;
-    opacity: 1;
+    background-position: 0 -377px;
+    top: 8px;
+    right: 0px;
+    width: 20px;
+    height: 20px;
   }
 
-  div.results {
-    border: #999 solid 1px;
-    padding: 3px;
-    border-radius: 5px;
-    max-height:350px;
-    overflow-x: auto;
-  }
+}

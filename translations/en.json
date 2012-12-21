@@ -1,10 +1,34 @@
-{ 
+{
+  "app": {
+    "description": "Search",
+    "title": "Search"
+  },
 
- "app": {
-  "parameters": {
-    "userName": { "lavel": "What's your name?"}
+  "global": {
+    "error": {
+      "title"             : "An error occurred",
+      "message"           : "Please try the previous action again.",
+      "data"              : "Data could not be read."
+    },
+    "loading"     : "Initialising app...",
+    "searching"   : "Searching...",
+    "no_results"  : "No results found."
+  },
+
+  "ticket": {
+    "id"      : "ID",
+    "subject" : "SUBJECT"
+  },
+
+  "search": {
+    "keywords"     : "Type in some keywords...",
+    "type"         : {
+      "ticket"       : "ticket",
+      "comment"      : "comment",
+      "user"         : "user",
+      "organization" : "organization",
+      "group"        : "group",
+      "forums"       : "forums"
+    }
   }
- },
-
-"helloWorld": "Hello there, world!"
 }

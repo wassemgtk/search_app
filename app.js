@@ -1,21 +1,13 @@
 (function() {
 
-/*  var displayTickedID = function() {
-    return this.settings.CustomID;
-  };
-
-  var displayTickedIDTitle = function() {
-    return this.settings.CustomIDTitle;
-  }; */
-
   return {
 
-
+    defaultState: 'loading',
     data: '',
     listArray: [],
 
     events: {
-      'click .makesearch': 'displaySearch',
+      'app.activated': 'init',
       'click .searchbutton': 'doTheSearch',
       'mouseenter .tips': 'showToolTip',
       'mouseleave .tips': 'hideToolTip',
@@ -30,12 +22,6 @@
       'click .backsearchbutton': 'getBackToSearch'
     },
 
-    list: function(item) { 
-      // services.notify('#' + item.id + ' ' + item.subject);
-      console.log('#' + item.id + ' ' + item.subject);
-      this.listArray.push({'PassURL': '' + item.url + '', 'PassId': '' + item.id + '','PassSubject': item.subject });
-      this.goToResultsPage();
-      },
 
 
     requests: {
@@ -50,12 +36,18 @@
 
     },
 
-    displaySearch: function() {
-      this.switchTo('list');
+    init: function() {
+      this.switchTo('search');
       console.log('I am firing');
     },
 
     
+    list: function(item) { 
+      // services.notify('#' + item.id + ' ' + item.subject);
+      console.log('#' + item.id + ' ' + item.subject);
+      this.listArray.push({'PassURL': '' + item.url + '', 'PassId': '' + item.id + '','PassSubject': item.subject });
+      this.goToResultsPage();
+      },
 
    doTheSearch: function(){
     this.listArray = [];

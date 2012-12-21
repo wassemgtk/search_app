@@ -1,0 +1,34 @@
+<div>
+	<form action="" class="search">
+		<div class="options">
+			<div class="left">
+				<span>Search</span>
+				<select name="" id="">
+					<option value="ticket">{{t "search.type.ticket"}}</option>
+					<option value="comment">{{t "search.type.comment"}}</option>
+					<option value="user">{{t "search.type.user"}}</option>
+					<option value="organization">{{t "search.type.organization"}}</option>
+					<option value="group">{{t "search.type.group"}}</option>
+					<option value="forums">{{t "search.type.forums"}}</option>
+				</select>
+				<span>for:</span>
+			</div>
+			<div class="right">
+				<a href="#">Advanced</a>
+			</div>
+		</div>
+		<div class="advanced-options"></div>
+		<div class="search-bar">
+			<div class="search-wrapper">
+				<input type="text">
+				<span class="search-icon"></span>
+			</div>
+			<div class="suggestions">
+				<a href="#">4325</a>
+				<a href="#">bla bla</a>
+				<a href="#">custom field value</a>
+				<a href="#">custom value 2</a>
+			</div>
+		</div>
+	</form>
+</div>
