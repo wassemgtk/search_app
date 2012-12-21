@@ -9,17 +9,10 @@
     events: {
       'app.activated': 'init',
       'click .searchbutton': 'doTheSearch',
-      'mouseenter .tips': 'showToolTip',
-      'mouseleave .tips': 'hideToolTip',
-      'mouseenter .searchbutton': 'fadeSearchUp',
-      'mouseleave .searchbutton': 'fadeSearchDown',
-      'mouseenter .backsearchbutton': 'fadebackUp',
-      'mouseleave .backsearchbutton': 'fadebackDown',
       'searchDesk.done': function(data) {
       /* services.notify(data.results); */
       _.each(data.results, this.list, this);
       },
-      'click .backsearchbutton': 'getBackToSearch',
       'click .options a': 'toggleAdvanced'
     },
 
@@ -55,7 +48,7 @@
       }
     },
 
-    list: function(item) { 
+    list: function(item) {
       // services.notify('#' + item.id + ' ' + item.subject);
       console.log('#' + item.id + ' ' + item.subject);
       this.listArray.push({'PassURL': '' + item.url + '', 'PassId': '' + item.id + '','PassSubject': item.subject });
