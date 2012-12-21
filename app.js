@@ -19,7 +19,8 @@
       /* services.notify(data.results); */
       _.each(data.results, this.list, this);
       },
-      'click .backsearchbutton': 'getBackToSearch'
+      'click .backsearchbutton': 'getBackToSearch',
+      'click .options a': 'toggleAdvanced'
     },
 
 
@@ -41,15 +42,27 @@
       console.log('I am firing');
     },
 
-    
+    toggleAdvanced: function(e){
+      var $advancedOptions = this.$('.advanced-options');
+      if($advancedOptions.is(':hidden')){
+        this.$('.options .basic').show();
+        this.$('.options .advanced').hide();
+        $advancedOptions.slideDown();
+      } else {
+        $advancedOptions.slideUp();
+        this.$('.options .advanced').show();
+        this.$('.options .basic').hide();
+      }
+    },
+
     list: function(item) { 
       // services.notify('#' + item.id + ' ' + item.subject);
       console.log('#' + item.id + ' ' + item.subject);
       this.listArray.push({'PassURL': '' + item.url + '', 'PassId': '' + item.id + '','PassSubject': item.subject });
       this.goToResultsPage();
-      },
+    },
 
-   doTheSearch: function(){
+    doTheSearch: function(){
     this.listArray = [];
 
     var status = null;

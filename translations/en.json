@@ -22,6 +22,17 @@
 
   "search": {
     "keywords"     : "Type in some keywords...",
+
+    "options"      : {
+      "advanced": "Advanced",
+      "basic": "Basic"
+    },
+
+    "user"         : {
+      "loading"     : "loading",
+      "assignee"    : "Assignee:"
+    },
+
     "type"         : {
       "ticket"       : "ticket",
       "comment"      : "comment",
@@ -29,6 +40,27 @@
       "organization" : "organization",
       "group"        : "group",
       "forums"       : "forums"
+    },
+
+    "filter": {
+      "status": "Status",
+      "created": "Created",
+      "updated": "Updated"
+    },
+
+    "condition": {
+      "equal": "Equal",
+      "greater": "Greater than",
+      "less": "Less than"
+    },
+
+    "value": {
+      "new": "New",
+      "open": "Open",
+      "pending": "Pending",
+      "onhold": "On-hold",
+      "solved": "Solved",
+      "closed": "Closed"
     }
   }
 }

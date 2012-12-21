@@ -17,8 +17,9 @@
   float: left;
 }
 
-.right {
+.toggle-advanced a {
   float: right;
+  margin-top: 5px;
 }
 
 .search-wrapper {
@@ -36,4 +37,29 @@
     height: 20px;
   }
 
+}
+
+.basic {
+  display: none;
+}
+
+.advanced-options {
+  display: none;
+
+  .advanced-option {
+    margin-top: 10px;
+  }
+
+  .assignee-label {
+    display: inline;
+  }
+
+}
+
+select {
+  border: 1px solid lightGrey;
+}
+
+input[type=date] {
+  width: 103px;
 }
