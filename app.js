@@ -16,8 +16,6 @@
       'click .options a': 'toggleAdvanced'
     },
 
-
-
     requests: {
 
       searchDesk: function(data) {
@@ -56,46 +54,44 @@
     },
 
     doTheSearch: function(){
-    this.listArray = [];
+      this.listArray = [];
 
-    var status = null;
+      var status = null;
 
-    if (this.$('#status').val() != 'none') {
-           status = 'status'+this.$('#status_operator').val() + this.$('#status').val();
-     console.log(status);
-     
-    } else {
-           status = null;
-    }
+      if (this.$('#status').val() != 'none') {
+             status = 'status'+this.$('#status_operator').val() + this.$('#status').val();
+       console.log(status);
+      } else {
+             status = null;
+      }
 
-    var priority = null;
+      var priority = null;
 
-    if (this.$('#piority').val() != 'none') {
-      priority = 'priority'+this.$('#priority_operator').val() + this.$('#priority').val();
-      console.log(priority);
-    } else {
-      priority = null;
-    }     
+      if (this.$('#piority').val() != 'none') {
+        priority = 'priority'+this.$('#priority_operator').val() + this.$('#priority').val();
+        console.log(priority);
+      } else {
+        priority = null;
+      }
 
-    
-    var firstDate = null;
-    var secondDate = null;
 
-    if (this.$('#from_date').val() === '') {
-      firstDate = '';
-    } else {
-      firstDate = this.$('#date_action_operator').val() + '>' + this.$('#from_date').val();
-    }
+      var firstDate = null;
+      var secondDate = null;
 
-    if (this.$('#to_date').val() === '') {
-      secondDate = '';
-    } else {
-      secondDate = this.$('#date_action_operator').val() + '<' + this.$('#to_date').val();
-    }
+      if (this.$('#from_date').val() === '') {
+        firstDate = '';
+      } else {
+        firstDate = this.$('#date_action_operator').val() + '>' + this.$('#from_date').val();
+      }
 
-    var dateRange = firstDate + ' ' + secondDate;
-    console.log(dateRange);
+      if (this.$('#to_date').val() === '') {
+        secondDate = '';
+      } else {
+        secondDate = this.$('#date_action_operator').val() + '<' + this.$('#to_date').val();
+      }
 
+      var dateRange = firstDate + ' ' + secondDate;
+      console.log(dateRange);
 
       var getDescription = this.$('#description').val();
       var descOperator = this.$('#text_operator').val();
@@ -104,73 +100,62 @@
       if (descOperator === "plus") {
         endDescription = "+" + getDescription.replace ( / /g, " +");
       console.log(endDescription);
-      
+
       } else if (descOperator === "minus") {
         endDescription = "-" + getDescription.replace ( / /g, " -");
-      console.log(endDescription);
-      
+        console.log(endDescription);
       } else {
         endDescription = getDescription;
-      console.log(endDescription);
+        console.log(endDescription);
       }
-  
 
 
-     this.data = 'type:ticket' + ' ' + status + ' ' + priority + ' ' + dateRange + ' ' + endDescription;
-     this.runSearchNow();
+      this.data = 'type:ticket' + ' ' + status + ' ' + priority + ' ' + dateRange + ' ' + endDescription;
+      this.runSearchNow();
 
+    },
 
-   },
+    showToolTip: function () {
+      this.$('.tooltip').fadeIn('fast');
+      console.log("mouse goes in");
+    },
 
-   showToolTip: function () {
-    this.$('.tooltip').fadeIn('fast');
-    console.log("mouse goes in");
-   },
+    hideToolTip: function () {
+      this.$('.tooltip').fadeOut('fast');
+      console.log("mouse goes out 49 ");
+    },
 
-   hideToolTip: function () {
-    this.$('.tooltip').fadeOut('fast');
-    console.log("mouse goes out 49 ");   
-   }, 
+    fadeSearchUp: function () {
+      this.$('.searchbutton').fadeTo('fast',1);
+      console.log("mouse goes in search");
+    },
 
-   fadeSearchUp: function () {
-    this.$('.searchbutton').fadeTo('fast',1);
-    console.log("mouse goes in search");
-   },
+    fadeSearchDown: function () {
+      this.$('.searchbutton').fadeTo('fast',0.5);
+      console.log("mouse goes out search ");
+    },
 
-   fadeSearchDown: function () {
-    this.$('.searchbutton').fadeTo('fast',0.5);
-    console.log("mouse goes out search ");   
-   }, 
+    fadebackUp: function () {
+      this.$('.backsearchbutton').fadeTo('fast',1);
+      console.log("mouse goes in back");
+    },
 
-   fadebackUp: function () {
-    this.$('.backsearchbutton').fadeTo('fast',1);
-    console.log("mouse goes in back");
-   },
+    fadebackDown: function () {
+      this.$('.backsearchbutton').fadeTo('fast',0.5);
+      console.log("mouse goes out back ");
+    },
 
-   fadebackDown: function () {
-    this.$('.backsearchbutton').fadeTo('fast',0.5);
-    console.log("mouse goes out back ");   
-   }, 
+    runSearchNow: function () {
+      this.ajax('searchDesk',this.data);
+    },
 
-   runSearchNow: function () {
-    this.ajax('searchDesk',this.data);
-   },
+    goToResultsPage: function () {
+      this.switchTo('results', { listArray: this.listArray });
+    },
 
-
-         goToResultsPage: function () {
-          this.switchTo('results',{
-          listArray: this.listArray
-
-      });
-
-   },
-
-   getBackToSearch: function () {
-    this.switchTo('list');
-    
-   }
-
-
+    getBackToSearch: function () {
+      this.switchTo('list');
+    }
 
   };
 

@@ -1,7 +1,7 @@
 {
   "author": {
-    "name": "Peter Godden",
-    "email": "pgodden@zendesk.com"
+    "name": "Zendesk",
+    "email": "support@zendesk.com"
   },
 
   "location": "ticket_sidebar",
@@ -11,25 +11,20 @@
   "frameworkVersion": "0.5",
 
   "perameters": [
-   {
-  	"name": "userName",
-  	"type": "text",
-  	"required": true
-   },
-   {
-    "Custom Feild Title": "CustomIDTitle",
-    "type": "text",
-    "required": false
+    {
+  	  "name": "userName",
+  	  "type": "text",
+  	  "required": true
     },
     {
-    "Custom Feild ID": "CustomID",
-    "type": "text",
-    "required": false
+      "Custom Feild Title": "CustomIDTitle",
+      "type": "text",
+      "required": false
+    },
+    {
+      "Custom Feild ID": "CustomID",
+      "type": "text",
+      "required": false
    }
-
-
-
-
-
   ]
 }
