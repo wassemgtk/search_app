@@ -130,40 +130,6 @@
         }
       }, this);
       return newSearchType;
-    },
-
-    showToolTip: function () {
-      this.$('.tooltip').fadeIn('fast');
-      console.log("mouse goes in");
-    },
-
-    hideToolTip: function () {
-      this.$('.tooltip').fadeOut('fast');
-      console.log("mouse goes out 49 ");
-    },
-
-    fadeSearchUp: function () {
-      this.$('.searchbutton').fadeTo('fast',1);
-      console.log("mouse goes in search");
-    },
-
-    fadeSearchDown: function () {
-      this.$('.searchbutton').fadeTo('fast',0.5);
-      console.log("mouse goes out search ");
-    },
-
-    fadebackUp: function () {
-      this.$('.backsearchbutton').fadeTo('fast',1);
-      console.log("mouse goes in back");
-    },
-
-    fadebackDown: function () {
-      this.$('.backsearchbutton').fadeTo('fast',0.5);
-      console.log("mouse goes out back ");
-    },
-
-    getBackToSearch: function () {
-      this.switchTo('list');
     }
 
   };
