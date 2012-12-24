@@ -45,19 +45,23 @@
 
 			<div class="advanced-option">
 				<select name="range" id="range">
+					<option value="">-</option>
 					<option value="created">{{t "search.filter.created"}}</option>
 					<option value="updated">{{t "search.filter.updated"}}</option>
 				</select>
-				<input type="date">
-				<input type="date">
+				<input type="date" id="from">
+				to
+				<input type="date" id="to">
 			</div>
 
+			<!--
 			<div class="advanced-option">
 				<label class="assignee-label" for="assignee">{{t "search.user.assignee"}}</label>
 				<select name="assignee" id="assignee">
 					<option value="loading">{{t "search.user.loading"}}</option>
 				</select>
 			</div>
+			-->
 		</div>
 
 		<div class="search-bar">

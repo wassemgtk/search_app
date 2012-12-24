@@ -86,7 +86,7 @@
 
     searchParams: function(){
       var $search = this.$('.search');
-      var params = "";
+      var params = [];
       var searchType = this._updateSearchType( $search.find('#type').val() );
       var searchTerm = $search.find('.search-box').val();
 
@@ -98,18 +98,26 @@
         var value = $search.find('#value').val();
 
         if ( filter && condition && value ) {
-          params = params + helpers.fmt('%@%@%@', filter, condition, value) + ' ';
+          params.push( helpers.fmt('%@%@%@', filter, condition, value) );
         }
 
         // Created
+        var range = $search.find('#range').val();
+        var from = $search.find('#from').val();
+        var to = $search.find('#to').val();
 
-
-        // Assignee
-
+        if ( range && (from || to) ) {
+          if (from) {
+            params.push( helpers.fmt('%@>%@', range, from) );
+          }
+          if (to) {
+            params.push( helpers.fmt('%@<%@', range, to) );
+          }
+        }
 
       }
 
-      return helpers.fmt('type:%@ %@ %@', searchType, searchTerm, params);
+      return helpers.fmt('type:%@ %@ %@', searchType, searchTerm, params.join(" "));
     },
 
     doTheSearch: function(){
