@@ -1,7 +1,7 @@
 <header>
   <span class="logo"/>
   <div class="makesearch">
-  <h3>Search Tickets</h3>
+  <h3>{{setting "title"}}</h3>
   <div>
 </header>
 
