@@ -62,7 +62,7 @@ select {
 }
 
 input[type=date] {
-  width: 103px;
+  width: 80px;
 }
 
 .results {

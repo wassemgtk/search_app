@@ -14,8 +14,8 @@
 
     events: {
       'app.activated': 'init',
-      'click .searchbutton': 'doTheSearch',
       'searchDesk.done': 'handleResults',
+      'searchDesk.fail': 'handleFail',
       'click .options a': 'toggleAdvanced',
       'click .suggestion': 'suggestionClicked',
       'click .search-icon': 'doTheSearch'
@@ -102,6 +102,11 @@
 
       this.$('.searching').hide();
       this.$('.results').html(results);
+    },
+
+    handleFail: function ( ) {
+      this.$('.searching').hide();
+      this.$('.results').html( this.renderTemplate('error') );
     },
 
     _updateSearchType: function(newSearchType){
