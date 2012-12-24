@@ -33,7 +33,11 @@
 
     },
 
-    init: function() {
+    init: function(data) {
+      if(!data.firstLoad){
+        return;
+      }
+
       this.switchTo('search', { searchSuggestions: this.loadSearchSuggestions() });
     },
 
