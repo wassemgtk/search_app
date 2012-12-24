@@ -137,10 +137,15 @@
     },
 
     handleResults: function (data) {
-      var results = this.renderTemplate('results', { results: data.results, searchType: this.searchType } );
+      var results = data.results;
+      if ( results.length > 10 ) {
+        results = results.slice(0, 10);
+      }
+
+      var resultsTemplate = this.renderTemplate('results', { results: results, searchType: this.searchType } );
 
       this.$('.searching').hide();
-      this.$('.results').html(results);
+      this.$('.results').html(resultsTemplate);
     },
 
     handleFail: function ( ) {
