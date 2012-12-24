@@ -90,6 +90,25 @@
       var searchType = this._updateSearchType( $search.find('#type').val() );
       var searchTerm = $search.find('.search-box').val();
 
+      if ( this.$('.advanced-options').is(':visible') ) {
+
+        // Status
+        var filter = $search.find('#filter').val();
+        var condition = $search.find('#condition').val();
+        var value = $search.find('#value').val();
+
+        if ( filter && condition && value ) {
+          params = params + helpers.fmt('%@%@%@', filter, condition, value) + ' ';
+        }
+
+        // Created
+
+
+        // Assignee
+
+
+      }
+
       return helpers.fmt('type:%@ %@ %@', searchType, searchTerm, params);
     },
 
