@@ -22,15 +22,18 @@
 		<div class="advanced-options">
 			<div class="advanced-option">
 				<select name="filter" id="filter">
+					<option value="">-</option>
 					<option value="status">{{t "search.filter.status"}}</option>
 					<!-- option value="priority">{{t "search.filter.priority"}}</option -->
 				</select>
 				<select name="condition" id="condition">
-					<option value="=">{{t "search.condition.equal"}}</option>
+					<option value="">-</option>
+					<option value=":">{{t "search.condition.equal"}}</option>
 					<option value=">">{{t "search.condition.greater"}}</option>
 					<option value="<">{{t "search.condition.less"}}</option>
 				</select>
 				<select name="value" id="value">
+				  <option value="">-</option>
 					<option value="new">{{t "search.value.new"}}</option>
 					<option value="open">{{t "search.value.open"}}</option>
 					<option value="pending">{{t "search.value.pending"}}</option>
