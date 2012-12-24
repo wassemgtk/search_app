@@ -37,7 +37,7 @@
       if (_.isUndefined(this.settings.custom_fields)){
         return [];
       }
-      var customFieldIDs = this.settings.custom_fields.replace(" ","").split(",");
+      var customFieldIDs = this.settings.custom_fields.match(/\d+/g);
       var searchSuggestions = [];
 
       _.each(customFieldIDs, function(customFieldID){
@@ -50,8 +50,6 @@
         }
 
       }, this);
-
-      console.log(searchSuggestions);
 
       return searchSuggestions;
 
