@@ -1,7 +1,10 @@
 {
   "app": {
     "description": "Search",
-    "title": "Search"
+    "title": "Search",
+    "parameters": {
+      "custom_fields": { "label": "Custom Field IDs" }
+    }
   },
 
   "global": {

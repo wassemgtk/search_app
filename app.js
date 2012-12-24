@@ -13,7 +13,8 @@
       /* services.notify(data.results); */
       _.each(data.results, this.list, this);
       },
-      'click .options a': 'toggleAdvanced'
+      'click .options a': 'toggleAdvanced',
+      'click .suggestion': 'suggestionClicked'
     },
 
     requests: {
@@ -29,8 +30,39 @@
     },
 
     init: function() {
-      this.switchTo('search');
-      console.log('I am firing');
+      this.switchTo('search', { searchSuggestions: this.loadSearchSuggestions() });
+    },
+
+    loadSearchSuggestions: function(){
+      if (_.isUndefined(this.settings.custom_fields)){
+        return [];
+      }
+      var customFieldIDs = this.settings.custom_fields.replace(" ","").split(",");
+      var searchSuggestions = [];
+
+      _.each(customFieldIDs, function(customFieldID){
+
+        var customFieldName = 'custom_field_' + customFieldID;
+        var customFieldValue = this.ticket().customField(customFieldName);
+
+        if ( customFieldValue ) {
+          searchSuggestions.push( customFieldValue );
+        }
+
+      }, this);
+
+      console.log(searchSuggestions);
+
+      return searchSuggestions;
+
+    },
+
+    suggestionClicked: function(e){
+      this.$('.search-box').val(this.$(e.target).text());
+
+      this.doTheSearch();
+
+      return false;
     },
 
     toggleAdvanced: function(e){

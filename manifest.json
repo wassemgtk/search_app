@@ -10,19 +10,9 @@
   "singleInstall": true,
   "frameworkVersion": "0.5",
 
-  "perameters": [
+  "parameters": [
     {
-  	  "name": "userName",
-  	  "type": "text",
-  	  "required": true
-    },
-    {
-      "Custom Feild Title": "CustomIDTitle",
-      "type": "text",
-      "required": false
-    },
-    {
-      "Custom Feild ID": "CustomID",
+      "name": "custom_fields",
       "type": "text",
       "required": false
    }

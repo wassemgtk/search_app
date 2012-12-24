@@ -59,14 +59,13 @@
 
 		<div class="search-bar">
 			<div class="search-wrapper">
-				<input type="text">
+				<input class="search-box" type="text">
 				<span class="search-icon"></span>
 			</div>
 			<div class="suggestions">
-				<a href="#">4325</a>
-				<a href="#">bla bla</a>
-				<a href="#">custom field value</a>
-				<a href="#">custom value 2</a>
+				{{#each searchSuggestions}}
+				<a class="suggestion" href="#">{{this}}</a>
+				{{/each}}
 			</div>
 		</div>
 	</form>
