@@ -18,7 +18,8 @@
       'searchDesk.fail': 'handleFail',
       'click .options a': 'toggleAdvanced',
       'click .suggestion': 'suggestionClicked',
-      'click .search-icon': 'doTheSearch'
+      'click .search-icon': 'doTheSearch',
+      'keydown .search-box': 'handleKeydown'
     },
 
     requests: {
@@ -95,6 +96,13 @@
 
       this.ajax('searchDesk', this.searchParams() );
 
+    },
+
+    handleKeydown: function(e){
+      if (e.which === 13) {
+        this.doTheSearch();
+        return false;
+      }
     },
 
     handleResults: function (data) {
