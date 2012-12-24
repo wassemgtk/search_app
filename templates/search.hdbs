@@ -1,15 +1,15 @@
-<div>
+<div class="search-wrapper">
 	<form action="" class="search">
 		<div class="options">
 			<div class="left">
 				<span>Search</span>
-				<select name="" id="">
-					<option value="ticket">{{t "search.type.ticket"}}</option>
-					<option value="comment">{{t "search.type.comment"}}</option>
-					<option value="user">{{t "search.type.user"}}</option>
-					<option value="organization">{{t "search.type.organization"}}</option>
-					<option value="group">{{t "search.type.group"}}</option>
-					<option value="forums">{{t "search.type.forums"}}</option>
+				<select name="type" id="type">
+					<option value="ticket">{{t "search.type.tickets"}}</option>
+					<option value="comment">{{t "search.type.comments"}}</option>
+					<option value="user">{{t "search.type.users"}}</option>
+					<option value="organization">{{t "search.type.organizations"}}</option>
+					<option value="group">{{t "search.type.groups"}}</option>
+					<option value="entry">{{t "search.type.topics"}}</option>
 				</select>
 				<span>for:</span>
 			</div>
@@ -69,4 +69,10 @@
 			</div>
 		</div>
 	</form>
+</div>
+<div class="results-wrapper">
+	<hr>
+	<div class="searching">{{t "global.searching"}}</div>
+	<div class="results">
+	</div>
 </div>

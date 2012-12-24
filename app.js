@@ -3,18 +3,22 @@
   return {
 
     defaultState: 'loading',
-    data: '',
-    listArray: [],
+    searchType: {
+      ticket: true,
+      comment: false,
+      user: false,
+      organization: false,
+      group: false,
+      entry: false
+    },
 
     events: {
       'app.activated': 'init',
       'click .searchbutton': 'doTheSearch',
-      'searchDesk.done': function(data) {
-      /* services.notify(data.results); */
-      _.each(data.results, this.list, this);
-      },
+      'searchDesk.done': 'handleResults',
       'click .options a': 'toggleAdvanced',
-      'click .suggestion': 'suggestionClicked'
+      'click .suggestion': 'suggestionClicked',
+      'click .search-icon': 'doTheSearch'
     },
 
     requests: {
@@ -24,7 +28,6 @@
           url: '/api/v2/search.json?query=' + data,
           type: 'GET'
         };
-
       }
 
     },
@@ -76,73 +79,40 @@
       }
     },
 
-    list: function(item) {
-      // services.notify('#' + item.id + ' ' + item.subject);
-      console.log('#' + item.id + ' ' + item.subject);
-      this.listArray.push({'PassURL': '' + item.url + '', 'PassId': '' + item.id + '','PassSubject': item.subject });
-      this.goToResultsPage();
+    searchParams: function(){
+      var $search = this.$('.search');
+      var params = "";
+      var searchType = this._updateSearchType( $search.find('#type').val() );
+      var searchTerm = $search.find('.search-box').val();
+
+      return helpers.fmt('type:%@ %@ %@', searchType, searchTerm, params);
     },
 
     doTheSearch: function(){
-      this.listArray = [];
 
-      var status = null;
+      this.$('.results').empty();
+      this.$('.searching').show();
 
-      if (this.$('#status').val() != 'none') {
-             status = 'status'+this.$('#status_operator').val() + this.$('#status').val();
-       console.log(status);
-      } else {
-             status = null;
-      }
+      this.ajax('searchDesk', this.searchParams() );
 
-      var priority = null;
+    },
 
-      if (this.$('#piority').val() != 'none') {
-        priority = 'priority'+this.$('#priority_operator').val() + this.$('#priority').val();
-        console.log(priority);
-      } else {
-        priority = null;
-      }
+    handleResults: function (data) {
+      var results = this.renderTemplate('results', { results: data.results, searchType: this.searchType } );
 
+      this.$('.searching').hide();
+      this.$('.results').html(results);
+    },
 
-      var firstDate = null;
-      var secondDate = null;
-
-      if (this.$('#from_date').val() === '') {
-        firstDate = '';
-      } else {
-        firstDate = this.$('#date_action_operator').val() + '>' + this.$('#from_date').val();
-      }
-
-      if (this.$('#to_date').val() === '') {
-        secondDate = '';
-      } else {
-        secondDate = this.$('#date_action_operator').val() + '<' + this.$('#to_date').val();
-      }
-
-      var dateRange = firstDate + ' ' + secondDate;
-      console.log(dateRange);
-
-      var getDescription = this.$('#description').val();
-      var descOperator = this.$('#text_operator').val();
-      var endDescription = 0;
-
-      if (descOperator === "plus") {
-        endDescription = "+" + getDescription.replace ( / /g, " +");
-      console.log(endDescription);
-
-      } else if (descOperator === "minus") {
-        endDescription = "-" + getDescription.replace ( / /g, " -");
-        console.log(endDescription);
-      } else {
-        endDescription = getDescription;
-        console.log(endDescription);
-      }
-
-
-      this.data = 'type:ticket' + ' ' + status + ' ' + priority + ' ' + dateRange + ' ' + endDescription;
-      this.runSearchNow();
-
+    _updateSearchType: function(newSearchType){
+      _.each(this.searchType, function(val, key){
+        if ( key === newSearchType ) {
+          this.searchType[key] = true;
+        } else {
+          this.searchType[key] = false;
+        }
+      }, this);
+      return newSearchType;
     },
 
     showToolTip: function () {
@@ -173,14 +143,6 @@
     fadebackDown: function () {
       this.$('.backsearchbutton').fadeTo('fast',0.5);
       console.log("mouse goes out back ");
-    },
-
-    runSearchNow: function () {
-      this.ajax('searchDesk',this.data);
-    },
-
-    goToResultsPage: function () {
-      this.switchTo('results', { listArray: this.listArray });
     },
 
     getBackToSearch: function () {

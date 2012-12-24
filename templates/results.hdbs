@@ -1,14 +1,38 @@
-<hr>
+<ul class="results-list">
+  {{#if searchType.ticket}}
+    {{#each results}}
+      <li><a class="ticket" href="#/tickets/{{this.id}}"><b>#{{this.id}}</b> {{this.subject}}</a></li>
+    {{/each}}
+  {{/if}}
 
-<div class="backsearchbutton">
-<strong> < Back to Search </strong>
-</div>
-<br>
-<h3>Results...</h3>
-<div class="results">
-<ul class="results_list">
-  {{#each listArray}}
-  <li><a href="#/tickets/{{PassId}}"><b>#{{PassId}}</b> {{PassSubject}}</a></li>
-  {{/each}}
+  {{#if searchType.comment}}
+    {{#each results}}
+      <li><a class="ticket" href="#/tickets/{{this.id}}"><b>#{{this.id}}</b> {{this.subject}}</a></li>
+    {{/each}}
+  {{/if}}
+
+  {{#if searchType.user}}
+    {{#each results}}
+      <li><a class="ticket" href="#/users/{{this.id}}">{{this.name}}</a></li>
+    {{/each}}
+  {{/if}}
+
+  {{#if searchType.organization}}
+    {{#each results}}
+      <li><a class="ticket" href="#/organizations/{{this.id}}/tickets">{{this.name}}</a></li>
+    {{/each}}
+  {{/if}}
+
+  {{#if searchType.group}}
+    {{#each results}}
+      <li><a class="ticket" href="#/tickets/{{this.id}}"><b>#{{this.id}}</b> {{this.name}}</a></li>
+    {{/each}}
+  {{/if}}
+
+  {{#if searchType.entry}}
+    {{#each results}}
+      <li><a class="ticket" href="#/tickets/{{this.id}}"><b>#{{this.id}}</b> {{this.name}}</a></li>
+    {{/each}}
+  {{/if}}
+
 </ul>
-</div>

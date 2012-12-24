@@ -37,12 +37,12 @@
     },
 
     "type"         : {
-      "ticket"       : "ticket",
-      "comment"      : "comment",
-      "user"         : "user",
-      "organization" : "organization",
-      "group"        : "group",
-      "forums"       : "forums"
+      "tickets"       : "tickets",
+      "comments"      : "comments",
+      "users"         : "users",
+      "organizations" : "organizations",
+      "groups"        : "groups",
+      "topics"        : "topics"
     },
 
     "filter": {
