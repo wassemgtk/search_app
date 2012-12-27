@@ -3,17 +3,23 @@
   return {
 
     defaultState: 'loading',
-    data: '',
-    listArray: [],
+    searchType: {
+      ticket: true,
+      comment: false,
+      user: false,
+      organization: false,
+      group: false,
+      entry: false
+    },
 
     events: {
       'app.activated': 'init',
-      'click .searchbutton': 'doTheSearch',
-      'searchDesk.done': function(data) {
-      /* services.notify(data.results); */
-      _.each(data.results, this.list, this);
-      },
-      'click .options a': 'toggleAdvanced'
+      'searchDesk.done': 'handleResults',
+      'searchDesk.fail': 'handleFail',
+      'click .options a': 'toggleAdvanced',
+      'click .suggestion': 'suggestionClicked',
+      'click .search-icon': 'doTheSearch',
+      'keydown .search-box': 'handleKeydown'
     },
 
     requests: {
@@ -23,14 +29,46 @@
           url: '/api/v2/search.json?query=' + data,
           type: 'GET'
         };
-
       }
 
     },
 
-    init: function() {
-      this.switchTo('search');
-      console.log('I am firing');
+    init: function(data) {
+      if(!data.firstLoad){
+        return;
+      }
+
+      this.switchTo('search', { searchSuggestions: this.loadSearchSuggestions() });
+    },
+
+    loadSearchSuggestions: function(){
+      if (_.isUndefined(this.settings.custom_fields)){
+        return [];
+      }
+      var customFieldIDs = this.settings.custom_fields.match(/\d+/g);
+      var searchSuggestions = [];
+
+      _.each(customFieldIDs, function(customFieldID){
+
+        var customFieldName = 'custom_field_' + customFieldID;
+        var customFieldValue = this.ticket().customField(customFieldName);
+
+        if ( customFieldValue ) {
+          searchSuggestions.push( customFieldValue );
+        }
+
+      }, this);
+
+      return searchSuggestions;
+
+    },
+
+    suggestionClicked: function(e){
+      this.$('.search-box').val(this.$(e.target).text());
+
+      this.doTheSearch();
+
+      return false;
     },
 
     toggleAdvanced: function(e){
@@ -46,115 +84,84 @@
       }
     },
 
-    list: function(item) {
-      // services.notify('#' + item.id + ' ' + item.subject);
-      console.log('#' + item.id + ' ' + item.subject);
-      this.listArray.push({'PassURL': '' + item.url + '', 'PassId': '' + item.id + '','PassSubject': item.subject });
-      this.goToResultsPage();
+    searchParams: function(){
+      var $search = this.$('.search');
+      var params = [];
+      var searchType = this._updateSearchType( $search.find('#type').val() );
+      var searchTerm = $search.find('.search-box').val();
+
+      if ( this.$('.advanced-options').is(':visible') ) {
+
+        // Status
+        var filter = $search.find('#filter').val();
+        var condition = $search.find('#condition').val();
+        var value = $search.find('#value').val();
+
+        if ( filter && condition && value ) {
+          params.push( helpers.fmt('%@%@%@', filter, condition, value) );
+        }
+
+        // Created
+        var range = $search.find('#range').val();
+        var from = $search.find('#from').val();
+        var to = $search.find('#to').val();
+
+        if ( range && (from || to) ) {
+          if (from) {
+            params.push( helpers.fmt('%@>%@', range, from) );
+          }
+          if (to) {
+            params.push( helpers.fmt('%@<%@', range, to) );
+          }
+        }
+
+      }
+
+      return helpers.fmt('type:%@ %@ %@', searchType, searchTerm, params.join(" "));
     },
 
     doTheSearch: function(){
-      this.listArray = [];
 
-      var status = null;
+      this.$('.results').empty();
+      this.$('.searching').show();
 
-      if (this.$('#status').val() != 'none') {
-             status = 'status'+this.$('#status_operator').val() + this.$('#status').val();
-       console.log(status);
-      } else {
-             status = null;
+      this.ajax('searchDesk', this.searchParams() );
+
+    },
+
+    handleKeydown: function(e){
+      if (e.which === 13) {
+        this.doTheSearch();
+        return false;
+      }
+    },
+
+    handleResults: function (data) {
+      var results = data.results;
+      if ( results.length > 10 ) {
+        results = results.slice(0, 10);
       }
 
-      var priority = null;
+      var resultsTemplate = this.renderTemplate('results', { results: results, searchType: this.searchType } );
 
-      if (this.$('#piority').val() != 'none') {
-        priority = 'priority'+this.$('#priority_operator').val() + this.$('#priority').val();
-        console.log(priority);
-      } else {
-        priority = null;
-      }
-
-
-      var firstDate = null;
-      var secondDate = null;
-
-      if (this.$('#from_date').val() === '') {
-        firstDate = '';
-      } else {
-        firstDate = this.$('#date_action_operator').val() + '>' + this.$('#from_date').val();
-      }
-
-      if (this.$('#to_date').val() === '') {
-        secondDate = '';
-      } else {
-        secondDate = this.$('#date_action_operator').val() + '<' + this.$('#to_date').val();
-      }
-
-      var dateRange = firstDate + ' ' + secondDate;
-      console.log(dateRange);
-
-      var getDescription = this.$('#description').val();
-      var descOperator = this.$('#text_operator').val();
-      var endDescription = 0;
-
-      if (descOperator === "plus") {
-        endDescription = "+" + getDescription.replace ( / /g, " +");
-      console.log(endDescription);
-
-      } else if (descOperator === "minus") {
-        endDescription = "-" + getDescription.replace ( / /g, " -");
-        console.log(endDescription);
-      } else {
-        endDescription = getDescription;
-        console.log(endDescription);
-      }
-
-
-      this.data = 'type:ticket' + ' ' + status + ' ' + priority + ' ' + dateRange + ' ' + endDescription;
-      this.runSearchNow();
-
+      this.$('.searching').hide();
+      this.$('.results').html(resultsTemplate);
     },
 
-    showToolTip: function () {
-      this.$('.tooltip').fadeIn('fast');
-      console.log("mouse goes in");
+    handleFail: function ( ) {
+      this.$('.searching').hide();
+      this.$('.results').html( this.renderTemplate('error') );
     },
 
-    hideToolTip: function () {
-      this.$('.tooltip').fadeOut('fast');
-      console.log("mouse goes out 49 ");
-    },
-
-    fadeSearchUp: function () {
-      this.$('.searchbutton').fadeTo('fast',1);
-      console.log("mouse goes in search");
-    },
-
-    fadeSearchDown: function () {
-      this.$('.searchbutton').fadeTo('fast',0.5);
-      console.log("mouse goes out search ");
-    },
-
-    fadebackUp: function () {
-      this.$('.backsearchbutton').fadeTo('fast',1);
-      console.log("mouse goes in back");
-    },
-
-    fadebackDown: function () {
-      this.$('.backsearchbutton').fadeTo('fast',0.5);
-      console.log("mouse goes out back ");
-    },
-
-    runSearchNow: function () {
-      this.ajax('searchDesk',this.data);
-    },
-
-    goToResultsPage: function () {
-      this.switchTo('results', { listArray: this.listArray });
-    },
-
-    getBackToSearch: function () {
-      this.switchTo('list');
+    _updateSearchType: function(newSearchType){
+      _.each(this.searchType, function(val, key){
+        if ( key === newSearchType ) {
+          this.searchType[key] = true;
+        } else {
+          this.searchType[key] = false;
+        }
+      }, this);
+      return newSearchType;
     }
 
   };

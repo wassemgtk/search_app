@@ -1,15 +1,15 @@
-<div>
+<div class="search-container">
 	<form action="" class="search">
 		<div class="options">
 			<div class="left">
 				<span>Search</span>
-				<select name="" id="">
-					<option value="ticket">{{t "search.type.ticket"}}</option>
-					<option value="comment">{{t "search.type.comment"}}</option>
-					<option value="user">{{t "search.type.user"}}</option>
-					<option value="organization">{{t "search.type.organization"}}</option>
-					<option value="group">{{t "search.type.group"}}</option>
-					<option value="forums">{{t "search.type.forums"}}</option>
+				<select name="type" id="type">
+					<option value="ticket">{{t "search.type.tickets"}}</option>
+					<option value="comment">{{t "search.type.comments"}}</option>
+					<option value="user">{{t "search.type.users"}}</option>
+					<option value="organization">{{t "search.type.organizations"}}</option>
+					<option value="group">{{t "search.type.groups"}}</option>
+					<option value="entry">{{t "search.type.topics"}}</option>
 				</select>
 				<span>for:</span>
 			</div>
@@ -22,15 +22,18 @@
 		<div class="advanced-options">
 			<div class="advanced-option">
 				<select name="filter" id="filter">
+					<option value="">-</option>
 					<option value="status">{{t "search.filter.status"}}</option>
 					<!-- option value="priority">{{t "search.filter.priority"}}</option -->
 				</select>
 				<select name="condition" id="condition">
-					<option value="=">{{t "search.condition.equal"}}</option>
+					<option value="">-</option>
+					<option value=":">{{t "search.condition.equal"}}</option>
 					<option value=">">{{t "search.condition.greater"}}</option>
 					<option value="<">{{t "search.condition.less"}}</option>
 				</select>
 				<select name="value" id="value">
+				  <option value="">-</option>
 					<option value="new">{{t "search.value.new"}}</option>
 					<option value="open">{{t "search.value.open"}}</option>
 					<option value="pending">{{t "search.value.pending"}}</option>
@@ -42,32 +45,41 @@
 
 			<div class="advanced-option">
 				<select name="range" id="range">
+					<option value="">-</option>
 					<option value="created">{{t "search.filter.created"}}</option>
 					<option value="updated">{{t "search.filter.updated"}}</option>
 				</select>
-				<input type="date">
-				<input type="date">
+				<input type="date" id="from">
+				to
+				<input type="date" id="to">
 			</div>
 
+			<!--
 			<div class="advanced-option">
 				<label class="assignee-label" for="assignee">{{t "search.user.assignee"}}</label>
 				<select name="assignee" id="assignee">
 					<option value="loading">{{t "search.user.loading"}}</option>
 				</select>
 			</div>
+			-->
 		</div>
 
 		<div class="search-bar">
 			<div class="search-wrapper">
-				<input type="text">
+				<input class="search-box" type="text">
 				<span class="search-icon"></span>
 			</div>
 			<div class="suggestions">
-				<a href="#">4325</a>
-				<a href="#">bla bla</a>
-				<a href="#">custom field value</a>
-				<a href="#">custom value 2</a>
+				{{#each searchSuggestions}}
+				<a class="suggestion" href="#">{{this}}</a>
+				{{/each}}
 			</div>
 		</div>
 	</form>
+</div>
+<div class="results-wrapper">
+	<hr>
+	<div class="searching">{{t "global.searching"}}</div>
+	<div class="results">
+	</div>
 </div>

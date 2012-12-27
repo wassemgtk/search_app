@@ -1,7 +1,10 @@
 {
   "app": {
     "description": "Search",
-    "title": "Search"
+    "title": "Search",
+    "parameters": {
+      "custom_fields": { "label": "Custom Field IDs" }
+    }
   },
 
   "global": {
@@ -34,12 +37,12 @@
     },
 
     "type"         : {
-      "ticket"       : "ticket",
-      "comment"      : "comment",
-      "user"         : "user",
-      "organization" : "organization",
-      "group"        : "group",
-      "forums"       : "forums"
+      "tickets"       : "tickets",
+      "comments"      : "comments",
+      "users"         : "users",
+      "organizations" : "organizations",
+      "groups"        : "groups",
+      "topics"        : "topics"
     },
 
     "filter": {
