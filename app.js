@@ -248,6 +248,13 @@
         results = results.slice(0, 10);
       }
 
+      var ticketId = this.ticket().id();
+
+      // remove current ticket from results
+      results = _.reject(results, function(result) {
+        return result.result_type === "ticket" && result.id === ticketId;
+      });
+
       var resultsTemplate = this.renderTemplate('results', { results: results, searchType: this.searchType } );
 
       this.$('.searching').hide();
