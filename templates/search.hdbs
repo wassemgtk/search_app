@@ -54,14 +54,12 @@
 				<input type="date" id="to">
 			</div>
 
-			<!--
 			<div class="advanced-option">
 				<label class="assignee-label" for="assignee">{{t "search.user.assignee"}}</label>
 				<select name="assignee" id="assignee">
 					<option value="loading">{{t "search.user.loading"}}</option>
 				</select>
 			</div>
-			-->
 		</div>
 
 		<div class="search-bar">

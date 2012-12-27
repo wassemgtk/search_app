@@ -16,6 +16,7 @@
       'app.activated': 'init',
       'searchDesk.done': 'handleResults',
       'searchDesk.fail': 'handleFail',
+      'getUsers.done': 'handleUsers',
       'click .options a': 'toggleAdvanced',
       'click .suggestion': 'suggestionClicked',
       'click .search-icon': 'doTheSearch',
@@ -23,6 +24,13 @@
     },
 
     requests: {
+
+      getUsers: function(data) {
+        return {
+          url: '/api/v2/users.json',
+          type: 'GET'
+        };
+      },
 
       searchDesk: function(data) {
         return {
@@ -76,12 +84,32 @@
       if($advancedOptions.is(':hidden')){
         this.$('.options .basic').show();
         this.$('.options .advanced').hide();
+
+        // Load users when advanced is clicked
+        this.ajax('getUsers');
+
         $advancedOptions.slideDown();
       } else {
         $advancedOptions.slideUp();
         this.$('.options .advanced').show();
         this.$('.options .basic').hide();
       }
+    },
+
+    handleUsers: function(data) {
+      var agents = [];
+      var options = '<option value="">-</option>';
+
+      agents = _.reject(data.users, function(user) {
+        return user.role !== 'admin' && user.role !== 'agent';
+      });
+
+      // populate the assignee drop down
+      _.each(agents, function(agent) {
+          options += '<option value="' + agent.name + '">' + agent.name + '</option>';
+      });
+
+      if (options) this.$('#assignee').html(options);
     },
 
     searchParams: function(){
@@ -113,6 +141,13 @@
           if (to) {
             params.push( helpers.fmt('%@<%@', range, to) );
           }
+        }
+
+        // Assignee
+        var assignee = $search.find('#assignee').val();
+
+        if (assignee) {
+          params.push( helpers.fmt('assignee:"%@"', assignee) );
         }
 
       }
