@@ -164,6 +164,20 @@
 
     },
 
+    extractKeywords: function(text) {
+      // strip punctuation and extra spaces
+      text = text.toLowerCase().replace(/[\.,-\/#!$?%\^&\*;:{}=\-_`~()]/g,"").replace(/\s{2,}/g," ");
+
+      // split by spaces
+      var words = text.split(" ");
+
+      var exclusions = this.I18n.t('stopwords.exclusions').split(",");
+
+      var keywords = _.difference(words, exclusions);
+
+      return keywords;
+    },
+
     handleKeydown: function(e){
       if (e.which === 13) {
         this.doTheSearch();
