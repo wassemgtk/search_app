@@ -109,7 +109,7 @@
           options += '<option value="' + agent.name + '">' + agent.name + '</option>';
       });
 
-      if (options) this.$('#assignee').html(options);
+      this.$('#assignee').html(options);
     },
 
     searchParams: function(){
