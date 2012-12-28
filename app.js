@@ -78,7 +78,7 @@
     },
 
     suggestionClicked: function(e){
-      this.$('.search-box').val(this.$(e.target).text());
+      this.$('.search-box').val(this.$('.search-box').val() + ' ' + this.$(e.target).text());
 
       this.doTheSearch();
 
