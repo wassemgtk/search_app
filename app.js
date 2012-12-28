@@ -2,6 +2,10 @@
 
   return {
 
+    currAttempt: 0,
+
+    MAX_ATTEMPTS: 20,
+
     defaultState: 'loading',
     searchType: {
       ticket: true,
