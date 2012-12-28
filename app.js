@@ -279,7 +279,7 @@
 
     handleFail: function ( ) {
       this.$('.searching').hide();
-      this.$('.results').html( this.renderTemplate('error') );
+      this.$('.results').html( this.I18n.t('global.error.title') );
     },
 
     showError: function(title, msg) {
