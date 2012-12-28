@@ -24,7 +24,7 @@
 
 .search-wrapper {
   position: relative;
-  width: 309px;
+  width: 280px;
   margin: 10px 0 5px 0;
 
   .search-icon {
@@ -32,10 +32,14 @@
     position: absolute;
     background-position: 0 -377px;
     top: 8px;
-    right: 0px;
+    right: -30px;
     width: 20px;
     height: 20px;
     cursor: pointer;
+  }
+
+  .search-box {
+    padding-right: 30px;
   }
 
 }
