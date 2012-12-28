@@ -269,7 +269,7 @@
       var suggestions = this.loadSearchSuggestions();
 
       // add keywords as suggestion links
-      this.switchTo('search', { searchSuggestions: keywords.concat(suggestions) });
+      this.switchTo('search', { searchSuggestions: suggestions.concat(keywords) });
     },
 
     handleFail: function ( ) {
