@@ -20,7 +20,8 @@
       'click .options a': 'toggleAdvanced',
       'click .suggestion': 'suggestionClicked',
       'click .search-icon': 'doTheSearch',
-      'keydown .search-box': 'handleKeydown'
+      'keydown .search-box': 'handleKeydown',
+      'requiredProperties.ready': 'handleRequiredProperties'
     },
 
     requiredProperties : [
@@ -52,8 +53,6 @@
       }
 
       this.allRequiredPropertiesExist();
-
-      this.switchTo('search', { searchSuggestions: this.loadSearchSuggestions() });
     },
 
     loadSearchSuggestions: function(){
@@ -259,6 +258,14 @@
 
       this.$('.searching').hide();
       this.$('.results').html(resultsTemplate);
+    },
+
+    handleRequiredProperties: function() {
+      var keywords = this.extractKeywords(this.ticket().subject()).join(" ");
+      var suggestions = this.loadSearchSuggestions();
+
+      // add keywords as suggestion links
+      this.switchTo('search', { searchSuggestions: keywords.concat(suggestions) });
     },
 
     handleFail: function ( ) {
