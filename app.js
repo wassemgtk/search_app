@@ -273,6 +273,13 @@
       this.$('.results').html( this.renderTemplate('error') );
     },
 
+    showError: function(title, msg) {
+      this.switchTo('error', {
+        title: title || this.I18n.t('global.error.title'),
+        message: msg || this.I18n.t('global.error.message')
+      });
+    },
+
     _updateSearchType: function(newSearchType){
       _.each(this.searchType, function(val, key){
         if ( key === newSearchType ) {
