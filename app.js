@@ -3,10 +3,7 @@
   return {
 
     currAttempt: 0,
-
     MAX_ATTEMPTS: 20,
-
-    defaultState: 'loading',
     searchType: {
       ticket: true,
       comment: false,
@@ -15,6 +12,8 @@
       group: false,
       entry: false
     },
+
+    defaultState: 'loading',
 
     events: {
       'app.activated': 'init',
@@ -56,7 +55,7 @@
         return;
       }
 
-      this.allRequiredPropertiesExist();
+      this._allRequiredPropertiesExist();
     },
 
     loadSearchSuggestions: function(){
@@ -189,56 +188,6 @@
       return keywords;
     },
 
-    allRequiredPropertiesExist: function() {
-      if (this.requiredProperties.length > 0) {
-        var valid = this.validateRequiredProperty(this.requiredProperties[0]);
-
-        // prop is valid, remove from array
-        if (valid) {
-          this.requiredProperties.shift();
-        }
-
-        if (this.requiredProperties.length > 0 && this.currAttempt < this.MAX_ATTEMPTS) {
-          if (!valid) {
-            ++this.currAttempt;
-          }
-
-          _.delay(_.bind(this.allRequiredPropertiesExist, this), 100);
-          return;
-        }
-      }
-
-      if (this.currAttempt < this.MAX_ATTEMPTS) {
-        this.trigger('requiredProperties.ready');
-      } else {
-        this.showError(null, this.I18n.t('global.error.data'));
-      }
-    },
-
-    validateRequiredProperty: function(property) {
-      var parts = property.split('.');
-      var part = '', obj = this;
-
-      while (parts.length) {
-        part = parts.shift();
-        try {
-          obj = obj[part]();
-        } catch (e) {
-          return false;
-        }
-        // check if property is invalid
-        if (parts.length > 0 && !_.isObject(obj)) {
-          return false;
-        }
-        // check if value returned from property is invalid
-        if (parts.length === 0 && (_.isNull(obj) || _.isUndefined(obj) || obj === '' || obj === 'no')) {
-          return false;
-        }
-      }
-
-      return true;
-    },
-
     handleKeydown: function(e){
       if (e.which === 13) {
         this.doTheSearch();
@@ -298,6 +247,56 @@
         }
       }, this);
       return newSearchType;
+    },
+
+    _allRequiredPropertiesExist: function() {
+      if (this.requiredProperties.length > 0) {
+        var valid = this._validateRequiredProperty(this.requiredProperties[0]);
+
+        // prop is valid, remove from array
+        if (valid) {
+          this.requiredProperties.shift();
+        }
+
+        if (this.requiredProperties.length > 0 && this.currAttempt < this.MAX_ATTEMPTS) {
+          if (!valid) {
+            ++this.currAttempt;
+          }
+
+          _.delay(_.bind(this.allRequiredPropertiesExist, this), 100);
+          return;
+        }
+      }
+
+      if (this.currAttempt < this.MAX_ATTEMPTS) {
+        this.trigger('requiredProperties.ready');
+      } else {
+        this.showError(null, this.I18n.t('global.error.data'));
+      }
+    },
+
+    _validateRequiredProperty: function(property) {
+      var parts = property.split('.');
+      var part = '', obj = this;
+
+      while (parts.length) {
+        part = parts.shift();
+        try {
+          obj = obj[part]();
+        } catch (e) {
+          return false;
+        }
+        // check if property is invalid
+        if (parts.length > 0 && !_.isObject(obj)) {
+          return false;
+        }
+        // check if value returned from property is invalid
+        if (parts.length === 0 && (_.isNull(obj) || _.isUndefined(obj) || obj === '' || obj === 'no')) {
+          return false;
+        }
+      }
+
+      return true;
     }
 
   };
