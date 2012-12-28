@@ -3,7 +3,8 @@
     "description": "Search",
     "title": "Search",
     "parameters": {
-      "custom_fields": { "label": "Custom Field IDs" }
+      "custom_fields": { "label": "Custom Field IDs" },
+      "related_tickets": { "label": "Show keywords from subject as search suggestion?" }
     }
   },
 

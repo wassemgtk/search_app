@@ -82,7 +82,8 @@
     },
 
     suggestionClicked: function(e){
-      this.$('.search-box').val(this.$('.search-box').val() + ' ' + this.$(e.target).text());
+      var $searchBox = this.$('.search-box');
+      $searchBox.val( $searchBox.val() + ' ' + this.$(e.target).text() );
 
       this.doTheSearch();
 
@@ -265,11 +266,15 @@
     },
 
     handleRequiredProperties: function() {
-      var keywords = this.extractKeywords(this.ticket().subject()).join(" ");
-      var suggestions = this.loadSearchSuggestions();
+      var keywords;
+      var searchSuggestions = this.loadSearchSuggestions();
 
-      // add keywords as suggestion links
-      this.switchTo('search', { searchSuggestions: suggestions.concat(keywords) });
+      if ( this.settings.related_tickets ) {
+        keywords = this.extractKeywords(this.ticket().subject()).join(" ");
+        searchSuggestions = searchSuggestions.concat(keywords);
+      }
+
+      this.switchTo('search', { searchSuggestions: searchSuggestions });
     },
 
     handleFail: function ( ) {
