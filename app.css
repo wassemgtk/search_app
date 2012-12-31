@@ -65,6 +65,10 @@ input[type=date] {
   width: 80px;
 }
 
+.table td:last-child {
+  text-align: right;
+}
+
 .results-wrapper {
   margin-top: 12px;
 }

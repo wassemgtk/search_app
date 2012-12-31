@@ -42,7 +42,7 @@
     },
 
     "type"         : {
-      "all"           : "all",
+      "all"           : "everything",
       "tickets"       : "tickets",
       "comments"      : "comments",
       "users"         : "users",

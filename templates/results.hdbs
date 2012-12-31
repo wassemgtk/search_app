@@ -6,51 +6,45 @@
       {{#each results}}
 
         {{#if is_ticket}}
-            <tr class="_tooltip" data-title="{{description}}">
-              <td>#{{this.id}}</td>
-              <td><a href="#/tickets/{{this.id}}">{{this.subject}}</a></td>
-              <td>{{result_type}}</td>
-            </tr>
+          <tr class="_tooltip" data-title="{{description}}">
+            <td><a href="#/tickets/{{this.id}}"><b>#{{this.id}}</b> {{this.subject}}</a></td>
+            <td></td>
+          </tr>
         {{/if}}
 
         {{#if is_comment}}
-            <tr>
-              <td>#{{this.id}}</td>
-              <td><a href="#/tickets/{{this.id}}">{{this.subject}}</a></td>
-              <td>{{result_type}}</td>
-            </tr>
+          <tr>
+            <td><a href="#/tickets/{{this.id}}">{{this.subject}}</a></td>
+            <td>{{t "search.result_type.comment"}}</td>
+          </tr>
         {{/if}}
 
         {{#if is_user}}
-            <tr>
-              <td>#{{this.id}}</td>
-              <td><a href="#/users/{{this.id}}">{{this.name}}</a></td>
-              <td>{{result_type}}</td>
-            </tr>
+          <tr>
+            <td><a href="#/users/{{this.id}}">{{this.name}}</a></td>
+            <td>{{t "search.result_type.user"}}</td>
+          </tr>
         {{/if}}
 
         {{#if is_organization}}
-            <tr>
-              <td>#{{this.id}}</td>
-              <td><a href="#/organizations/{{this.id}}/tickets">{{this.name}}</a></td>
-              <td>{{result_type}}</td>
-            </tr>
+          <tr>
+            <td><a href="#/organizations/{{this.id}}/tickets">{{this.name}}</a></td>
+            <td>{{t "search.result_type.organization"}}</td>
+          </tr>
         {{/if}}
 
         {{#if is_group}}
-            <tr>
-              <td>#{{this.id}}</td>
-              <td><a href="#/groups/{{this.id}}">{{this.name}}</a></td>
-              <td>{{result_type}}</td>
-            </tr>
+          <tr>
+            <td><a href="#/admin/people">{{this.name}}</a></td>
+            <td>{{t "search.result_type.group"}}</td>
+          </tr>
         {{/if}}
 
         {{#if is_topic}}
-            <tr class="_tooltip" data-title="{{body}}">
-              <td>#{{this.id}}</td>
-              <td><a href="/entries/{{this.id}}" target="_blank">{{this.title}}</a></td>
-              <td>{{result_type}}</td>
-            </tr>
+          <tr class="_tooltip" data-title="{{body}}">
+            <td><a href="/entries/{{this.id}}" target="_blank">{{this.title}}</a></td>
+            <td>{{t "search.result_type.topic"}}</td>
+          </tr>
         {{/if}}
 
       {{/each}}
