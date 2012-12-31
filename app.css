@@ -65,10 +65,8 @@ input[type=date] {
   width: 80px;
 }
 
-.results {
-  ul {
-    margin-left: 0;
-  }
+.results-wrapper {
+  margin-top: 12px;
 }
 
 .searching {
