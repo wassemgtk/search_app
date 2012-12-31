@@ -3,7 +3,7 @@
 
     {{#if searchType.ticket}}
       {{#each results}}
-        <li><a class="ticket" href="#/tickets/{{this.id}}"><b>#{{this.id}}</b> {{this.subject}}</a></li>
+        <li class="_tooltip" data-title="{{description}}"><a class="ticket" href="#/tickets/{{this.id}}"><b>#{{this.id}}</b> {{this.subject}}</a></li>
       {{/each}}
     {{/if}}
 
@@ -27,13 +27,13 @@
 
     {{#if searchType.group}}
       {{#each results}}
-        <li><a class="ticket" href="#/tickets/{{this.id}}"><b>#{{this.id}}</b> {{this.name}}</a></li>
+        <li><a class="ticket" href="#/groups/{{this.id}}"><b>#{{this.id}}</b> {{this.name}}</a></li>
       {{/each}}
     {{/if}}
 
     {{#if searchType.entry}}
       {{#each results}}
-        <li><a class="ticket" href="#/tickets/{{this.id}}"><b>#{{this.id}}</b> {{this.name}}</a></li>
+        <li class="_tooltip" data-title="{{body}}"><a class="ticket" href="/entries/{{this.id}}"><b>#{{this.id}}</b> {{this.title}}</a></li>
       {{/each}}
     {{/if}}
 

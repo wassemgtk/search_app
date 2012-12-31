@@ -208,6 +208,18 @@
         return result.result_type === "ticket" && result.id === ticketId;
       });
 
+      // format descriptions
+      if (this.searchType.ticket) {
+        _.each(results, function(result) {
+          result.description = result.description.substr(0,300).concat("...");
+        });
+      }
+      else if (this.searchType.entry) {
+        _.each(results, function(result) {
+          result.body = result.body.substr(0,300).concat("...");
+        });
+      }
+
       var resultsTemplate = this.renderTemplate('results', { results: results, searchType: this.searchType } );
 
       this.$('.searching').hide();
