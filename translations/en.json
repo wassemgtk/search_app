@@ -29,19 +29,19 @@
   },
 
   "search": {
-    "keywords"     : "Type in some keywords...",
+    "keywords": "Type in some keywords...",
 
-    "options"      : {
+    "options": {
       "advanced": "Advanced",
       "basic": "Basic"
     },
 
-    "user"         : {
+    "user": {
       "loading"     : "loading",
       "assignee"    : "Assignee:"
     },
 
-    "type"         : {
+    "type": {
       "all"           : "everything",
       "tickets"       : "tickets",
       "comments"      : "comments",
@@ -50,13 +50,13 @@
       "groups"        : "groups",
       "topics"        : "topics"
     },
-    
-    "result_type"     : {
-      "comment"      : "Comment",
-      "user"         : "User",
-      "organization" : "Org",
-      "group"        : "Group",
-      "topic"        : "Topic"
+
+    "result_type": {
+      "comment"       : "Comment",
+      "user"          : "User",
+      "organization"  : "Organization",
+      "group"         : "Group",
+      "topic"         : "Topic"
     },
 
     "filter": {

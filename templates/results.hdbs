@@ -8,42 +8,42 @@
         {{#if is_ticket}}
           <tr class="_tooltip" data-title="{{description}}">
             <td><a href="#/tickets/{{this.id}}"><b>#{{this.id}}</b> {{this.subject}}</a></td>
-            <td></td>
+            <td class="type"></td>
           </tr>
         {{/if}}
 
         {{#if is_comment}}
           <tr>
             <td><a href="#/tickets/{{this.id}}">{{this.subject}}</a></td>
-            <td>{{t "search.result_type.comment"}}</td>
+            <td class="type">{{t "search.result_type.comment"}}</td>
           </tr>
         {{/if}}
 
         {{#if is_user}}
           <tr>
             <td><a href="#/users/{{this.id}}">{{this.name}}</a></td>
-            <td>{{t "search.result_type.user"}}</td>
+            <td class="type">{{t "search.result_type.user"}}</td>
           </tr>
         {{/if}}
 
         {{#if is_organization}}
           <tr>
             <td><a href="#/organizations/{{this.id}}/tickets">{{this.name}}</a></td>
-            <td>{{t "search.result_type.organization"}}</td>
+            <td class="type">{{t "search.result_type.organization"}}</td>
           </tr>
         {{/if}}
 
         {{#if is_group}}
           <tr>
             <td><a href="#/admin/people">{{this.name}}</a></td>
-            <td>{{t "search.result_type.group"}}</td>
+            <td class="type">{{t "search.result_type.group"}}</td>
           </tr>
         {{/if}}
 
         {{#if is_topic}}
           <tr class="_tooltip" data-title="{{body}}">
             <td><a href="/entries/{{this.id}}" target="_blank">{{this.title}}</a></td>
-            <td>{{t "search.result_type.topic"}}</td>
+            <td class="type">{{t "search.result_type.topic"}}</td>
           </tr>
         {{/if}}
 
