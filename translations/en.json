@@ -50,6 +50,14 @@
       "groups"        : "groups",
       "topics"        : "topics"
     },
+    
+    "result_type"     : {
+      "comment"      : "Comment",
+      "user"         : "User",
+      "organization" : "Org",
+      "group"        : "Group",
+      "topic"        : "Topic"
+    },
 
     "filter": {
       "status": "Status",
