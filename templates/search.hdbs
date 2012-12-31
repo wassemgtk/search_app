@@ -4,6 +4,7 @@
 			<div class="left">
 				<span>Search</span>
 				<select name="type" id="type">
+					<option value="all">{{t "search.type.all"}}</option>
 					<option value="ticket">{{t "search.type.tickets"}}</option>
 					<option value="comment">{{t "search.type.comments"}}</option>
 					<option value="user">{{t "search.type.users"}}</option>
@@ -76,7 +77,6 @@
 	</form>
 </div>
 <div class="results-wrapper">
-	<hr>
 	<div class="searching">{{t "global.searching"}}</div>
 	<div class="results">
 	</div>

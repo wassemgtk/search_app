@@ -2,15 +2,10 @@
 
   return {
 
+    currAttempt: 0,
+    MAX_ATTEMPTS: 20,
+
     defaultState: 'loading',
-    searchType: {
-      ticket: true,
-      comment: false,
-      user: false,
-      organization: false,
-      group: false,
-      entry: false
-    },
 
     events: {
       'app.activated': 'init',
@@ -20,8 +15,14 @@
       'click .options a': 'toggleAdvanced',
       'click .suggestion': 'suggestionClicked',
       'click .search-icon': 'doTheSearch',
-      'keydown .search-box': 'handleKeydown'
+      'keydown .search-box': 'handleKeydown',
+      'requiredProperties.ready': 'handleRequiredProperties'
     },
+
+    requiredProperties : [
+      'ticket.id',
+      'ticket.subject'
+    ],
 
     requests: {
 
@@ -46,7 +47,7 @@
         return;
       }
 
-      this.switchTo('search', { searchSuggestions: this.loadSearchSuggestions() });
+      this._allRequiredPropertiesExist();
     },
 
     loadSearchSuggestions: function(){
@@ -72,7 +73,8 @@
     },
 
     suggestionClicked: function(e){
-      this.$('.search-box').val(this.$(e.target).text());
+      var $searchBox = this.$('.search-box');
+      $searchBox.val( $searchBox.val() + ' ' + this.$(e.target).text() );
 
       this.doTheSearch();
 
@@ -115,8 +117,12 @@
     searchParams: function(){
       var $search = this.$('.search');
       var params = [];
-      var searchType = this._updateSearchType( $search.find('#type').val() );
+      var searchType = $search.find('#type').val();
       var searchTerm = $search.find('.search-box').val();
+
+      if (searchType !== "all") {
+        params.push( helpers.fmt('type:%@', searchType) );
+      }
 
       if ( this.$('.advanced-options').is(':visible') ) {
 
@@ -152,16 +158,28 @@
 
       }
 
-      return helpers.fmt('type:%@ %@ %@', searchType, searchTerm, params.join(" "));
+      return helpers.fmt('%@ %@', searchTerm, params.join(" "));
     },
 
     doTheSearch: function(){
-
       this.$('.results').empty();
       this.$('.searching').show();
 
       this.ajax('searchDesk', this.searchParams() );
+    },
 
+    extractKeywords: function(text) {
+      // strip punctuation and extra spaces
+      text = text.toLowerCase().replace(/[\.,-\/#!$?%\^&\*;:{}=\-_`~()]/g,"").replace(/\s{2,}/g," ");
+
+      // split by spaces
+      var words = text.split(" ");
+
+      var exclusions = this.I18n.t('stopwords.exclusions').split(",");
+
+      var keywords = _.difference(words, exclusions);
+
+      return keywords;
     },
 
     handleKeydown: function(e){
@@ -177,26 +195,101 @@
         results = results.slice(0, 10);
       }
 
-      var resultsTemplate = this.renderTemplate('results', { results: results, searchType: this.searchType } );
+      var ticketId = this.ticket().id();
+
+      _.each(results, function(result, index) {
+        result["is_" + result.result_type] = true;
+
+        // format descriptions
+        if (result.is_ticket) {
+          // remove current ticket from results
+          if (result.id === ticketId) results.splice(index,1);
+          result.description = result.description.substr(0,300).concat("...");
+        }
+        else if (this.is_topic) {
+          result.body = result.body.substr(0,300).concat("...");
+        }
+
+      });
+
+      var resultsTemplate = this.renderTemplate('results', {results: results} );
 
       this.$('.searching').hide();
       this.$('.results').html(resultsTemplate);
     },
 
-    handleFail: function ( ) {
-      this.$('.searching').hide();
-      this.$('.results').html( this.renderTemplate('error') );
+    handleRequiredProperties: function() {
+      var keywords;
+      var searchSuggestions = this.loadSearchSuggestions();
+
+      if ( this.settings.related_tickets ) {
+        keywords = this.extractKeywords(this.ticket().subject()).join(" ");
+        searchSuggestions = searchSuggestions.concat(keywords);
+      }
+
+      this.switchTo('search', { searchSuggestions: searchSuggestions });
     },
 
-    _updateSearchType: function(newSearchType){
-      _.each(this.searchType, function(val, key){
-        if ( key === newSearchType ) {
-          this.searchType[key] = true;
-        } else {
-          this.searchType[key] = false;
+    handleFail: function ( ) {
+      this.$('.searching').hide();
+      this.$('.results').html( this.I18n.t('global.error.title') );
+    },
+
+    showError: function(title, msg) {
+      this.switchTo('error', {
+        title: title || this.I18n.t('global.error.title'),
+        message: msg || this.I18n.t('global.error.message')
+      });
+    },
+
+    _allRequiredPropertiesExist: function() {
+      if (this.requiredProperties.length > 0) {
+        var valid = this._validateRequiredProperty(this.requiredProperties[0]);
+
+        // prop is valid, remove from array
+        if (valid) {
+          this.requiredProperties.shift();
         }
-      }, this);
-      return newSearchType;
+
+        if (this.requiredProperties.length > 0 && this.currAttempt < this.MAX_ATTEMPTS) {
+          if (!valid) {
+            ++this.currAttempt;
+          }
+
+          _.delay(_.bind(this._allRequiredPropertiesExist, this), 100);
+          return;
+        }
+      }
+
+      if (this.currAttempt < this.MAX_ATTEMPTS) {
+        this.trigger('requiredProperties.ready');
+      } else {
+        this.showError(null, this.I18n.t('global.error.data'));
+      }
+    },
+
+    _validateRequiredProperty: function(property) {
+      var parts = property.split('.');
+      var part = '', obj = this;
+
+      while (parts.length) {
+        part = parts.shift();
+        try {
+          obj = obj[part]();
+        } catch (e) {
+          return false;
+        }
+        // check if property is invalid
+        if (parts.length > 0 && !_.isObject(obj)) {
+          return false;
+        }
+        // check if value returned from property is invalid
+        if (parts.length === 0 && (_.isNull(obj) || _.isUndefined(obj) || obj === '' || obj === 'no')) {
+          return false;
+        }
+      }
+
+      return true;
     }
 
   };

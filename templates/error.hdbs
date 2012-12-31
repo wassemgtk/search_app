@@ -1,1 +1,5 @@
-{{t "global.error.title"}}
+<div class="alert">
+  <h4>{{title}}</h4>
+  <p>{{message}}</p>
+  <!--a href="#" class="btn btn-inverse error-back-btn">Back</a-->
+</div>

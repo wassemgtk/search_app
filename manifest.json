@@ -15,6 +15,10 @@
       "name": "custom_fields",
       "type": "text",
       "required": false
-   }
+    },
+    {
+      "name": "related_tickets",
+      "type": "checkbox"
+    }
   ]
 }
