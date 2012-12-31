@@ -202,10 +202,11 @@
 
         // format descriptions
         if (result.is_ticket) {
+          // remove current ticket from results
           if (result.id === ticketId) results.splice(index,1);
           result.description = result.description.substr(0,300).concat("...");
         }
-        else if (this.is_entry) {
+        else if (this.is_topic) {
           result.body = result.body.substr(0,300).concat("...");
         }
 
