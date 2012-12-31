@@ -4,14 +4,6 @@
 
     currAttempt: 0,
     MAX_ATTEMPTS: 20,
-    searchType: {
-      ticket: true,
-      comment: false,
-      user: false,
-      organization: false,
-      group: false,
-      entry: false
-    },
 
     defaultState: 'loading',
 
@@ -125,8 +117,12 @@
     searchParams: function(){
       var $search = this.$('.search');
       var params = [];
-      var searchType = this._updateSearchType( $search.find('#type').val() );
+      var searchType = $search.find('#type').val();
       var searchTerm = $search.find('.search-box').val();
+
+      if (searchType !== "all") {
+        params.push( helpers.fmt('type:%@', searchType) );
+      }
 
       if ( this.$('.advanced-options').is(':visible') ) {
 
@@ -162,16 +158,14 @@
 
       }
 
-      return helpers.fmt('type:%@ %@ %@', searchType, searchTerm, params.join(" "));
+      return helpers.fmt('%@ %@', searchTerm, params.join(" "));
     },
 
     doTheSearch: function(){
-
       this.$('.results').empty();
       this.$('.searching').show();
 
       this.ajax('searchDesk', this.searchParams() );
-
     },
 
     extractKeywords: function(text) {
@@ -203,24 +197,21 @@
 
       var ticketId = this.ticket().id();
 
-      // remove current ticket from results
-      results = _.reject(results, function(result) {
-        return result.result_type === "ticket" && result.id === ticketId;
+      _.each(results, function(result, index) {
+        result["is_" + result.result_type] = true;
+
+        // format descriptions
+        if (result.is_ticket) {
+          if (result.id === ticketId) results.splice(index,1);
+          result.description = result.description.substr(0,300).concat("...");
+        }
+        else if (this.is_entry) {
+          result.body = result.body.substr(0,300).concat("...");
+        }
+
       });
 
-      // format descriptions
-      if (this.searchType.ticket) {
-        _.each(results, function(result) {
-          result.description = result.description.substr(0,300).concat("...");
-        });
-      }
-      else if (this.searchType.entry) {
-        _.each(results, function(result) {
-          result.body = result.body.substr(0,300).concat("...");
-        });
-      }
-
-      var resultsTemplate = this.renderTemplate('results', { results: results, searchType: this.searchType } );
+      var resultsTemplate = this.renderTemplate('results', {results: results} );
 
       this.$('.searching').hide();
       this.$('.results').html(resultsTemplate);
@@ -248,17 +239,6 @@
         title: title || this.I18n.t('global.error.title'),
         message: msg || this.I18n.t('global.error.message')
       });
-    },
-
-    _updateSearchType: function(newSearchType){
-      _.each(this.searchType, function(val, key){
-        if ( key === newSearchType ) {
-          this.searchType[key] = true;
-        } else {
-          this.searchType[key] = false;
-        }
-      }, this);
-      return newSearchType;
     },
 
     _allRequiredPropertiesExist: function() {
