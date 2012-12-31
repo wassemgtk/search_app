@@ -263,7 +263,7 @@
             ++this.currAttempt;
           }
 
-          _.delay(_.bind(this.allRequiredPropertiesExist, this), 100);
+          _.delay(_.bind(this._allRequiredPropertiesExist, this), 100);
           return;
         }
       }
