@@ -1,26 +1,26 @@
 {
   "app": {
-    "description": "探す",
-    "title": "探す",
+    "description": "検索",
+    "title": "検索",
     "parameters": {
       "custom_fields": { "label": "カスタムフィールドのID" },
-      "related_tickets": { "label": "検索候補として件名からキーワードを表示しますか？" }
+      "related_tickets": { "label": "チケットの件名内のキーワードを検索候補として表示しますか？" }
     }
   },
 
   "global": {
     "error": {
       "title"             : "エラーが発生しました",
-      "message"           : "再び以前のアクションを実行してみてください。",
+      "message"           : "一つ前のアクションを再度行ってください。",
       "data"              : "データを読み取ることができませんでした。"
     },
-    "loading"     : "イニシャライズアプリ...",
+    "loading"     : "アプリを再起動しています...",
     "searching"   : "検索中...",
     "no_results"  : "該当する結果は見つかりませんでした。"
   },
 
   "ticket": {
-    "id"      : "番号",
+    "id"      : "ID",
     "subject" : "件名"
   },
 
@@ -29,55 +29,55 @@
   },
 
   "search": {
-    "keywords": "いくつかのキーワードを入力し...",
+    "keywords": "検索キーワードを入力ください…",
 
     "options": {
-      "advanced": "高度な",
+      "advanced": "詳細",
       "basic": "基本"
     },
 
     "user": {
-      "loading"     : "積載",
-      "assignee"    : "譲受人："
+      "loading"     : "検索中",
+      "assignee"    : "担当者："
     },
 
     "type": {
-      "all"           : "万事",
+      "all"           : "すべて",
       "tickets"       : "チケット",
-      "comments"      : "注釈",
+      "comments"      : "コメント",
       "users"         : "ユーザー",
       "organizations" : "組織",
-      "groups"        : "群",
+      "groups"        : "グループ",
       "topics"        : "トピック"
     },
 
     "result_type": {
       "comment"       : "コメント",
       "user"          : "ユーザー",
-      "organization"  : "団体",
-      "group"         : "群",
-      "topic"         : "話題"
+      "organization"  : "組織",
+      "group"         : "グループ",
+      "topic"         : "トピック"
     },
 
     "filter": {
-      "status": "地位",
-      "created": "作成",
-      "updated": "更新した"
+      "status": "ステータス",
+      "created": "作成された",
+      "updated": "更新された"
     },
 
     "condition": {
       "equal": "等しい",
-      "greater": "越える",
-      "less": "以下"
+      "greater": "より大きい",
+      "less": "より小さい"
     },
 
     "value": {
-      "new": "新",
-      "open": "開く",
-      "pending": "未定",
-      "onhold": "保留",
-      "solved": "解決する",
-      "closed": "閉店"
+      "new": "新規",
+      "open": "オープン",
+      "pending": "保留中",
+      "onhold": "待機中",
+      "solved": "解決済",
+      "closed": "終了"
     }
   }
 }
