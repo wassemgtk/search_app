@@ -2,7 +2,7 @@
 	<form action="" class="search">
 		<div class="options">
 			<div class="left">
-				<span>Search</span>
+				<span>{{t "search.search"}}</span>
 				<select name="type" id="type">
 					<option value="all">{{t "search.type.all"}}</option>
 					<option value="ticket">{{t "search.type.tickets"}}</option>
@@ -12,7 +12,7 @@
 					<option value="group">{{t "search.type.groups"}}</option>
 					<option value="entry">{{t "search.type.topics"}}</option>
 				</select>
-				<span>for:</span>
+				<span>{{t "search.for"}}</span>
 			</div>
 			<div class="toggle-advanced">
 				<a class="advanced" href="#">{{t "search.options.advanced"}}</a>

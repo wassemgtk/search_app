@@ -29,6 +29,10 @@
   },
 
   "search": {
+    "search": "検索",
+
+    "for": "する:",
+    
     "keywords": "検索キーワードを入力ください…",
 
     "options": {

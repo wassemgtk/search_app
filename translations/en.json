@@ -29,6 +29,10 @@
   },
 
   "search": {
+    "search": "Search",
+
+    "for": "for:",
+
     "keywords": "Type in some keywords...",
 
     "options": {
