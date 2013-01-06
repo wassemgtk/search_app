@@ -50,7 +50,7 @@
 					<option value="updated">{{t "search.filter.updated"}}</option>
 				</select>
 				<input type="date" id="from">
-				to
+				 - 
 				<input type="date" id="to">
 			</div>
 

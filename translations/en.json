@@ -68,9 +68,9 @@
     },
 
     "condition": {
-      "equal": "Equal",
-      "greater": "Greater than",
-      "less": "Less than"
+      "equal": "=",
+      "greater": ">",
+      "less": "<"
     },
 
     "value": {

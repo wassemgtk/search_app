@@ -63,14 +63,8 @@
 
     "filter": {
       "status": "ステータス",
-      "created": "作成された",
-      "updated": "更新された"
-    },
-
-    "condition": {
-      "equal": "等しい",
-      "greater": "より大きい",
-      "less": "より小さい"
+      "created": "作成日",
+      "updated": "更新日"
     },
 
     "value": {
