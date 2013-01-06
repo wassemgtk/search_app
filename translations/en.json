@@ -10,9 +10,9 @@
 
   "global": {
     "error": {
-      "title"             : "An error occurred",
-      "message"           : "Please try the previous action again.",
-      "data"              : "Data could not be read."
+      "title"     : "An error occurred",
+      "message"   : "Please try the previous action again.",
+      "data"      : "Data could not be read."
     },
     "loading"     : "Initialising app...",
     "searching"   : "Searching...",
@@ -29,9 +29,7 @@
   },
 
   "search": {
-    "search": "Search",
-
-    "for": "for:",
+    "search": "Search for:",
 
     "keywords": "Type in some keywords...",
 

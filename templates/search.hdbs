@@ -12,7 +12,6 @@
 					<option value="group">{{t "search.type.groups"}}</option>
 					<option value="entry">{{t "search.type.topics"}}</option>
 				</select>
-				<span>{{t "search.for"}}</span>
 			</div>
 			<div class="toggle-advanced">
 				<a class="advanced" href="#">{{t "search.options.advanced"}}</a>
