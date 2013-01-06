@@ -230,9 +230,18 @@
       this.switchTo('search', { searchSuggestions: searchSuggestions });
     },
 
-    handleFail: function ( ) {
+    handleFail: function (data) {
+      var response = JSON.parse(data.responseText);
+
+      var error = { 
+        title: this.I18n.t('global.error.title'),
+        message: response.description || this.I18n.t('global.error.message')
+      };
+
+      var errorTemplate = this.renderTemplate('error', error);
+
       this.$('.searching').hide();
-      this.$('.results').html( this.I18n.t('global.error.title') );
+      this.$('.results').html(errorTemplate);
     },
 
     showError: function(title, msg) {
