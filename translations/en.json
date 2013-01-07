@@ -31,6 +31,12 @@
   "search": {
     "search": "Search for:",
 
+    "results": "result(s):",
+
+    "previous": "previous",
+
+    "next": "next",
+
     "keywords": "Type in some keywords...",
 
     "options": {
