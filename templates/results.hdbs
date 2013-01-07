@@ -1,5 +1,5 @@
 {{#if results.length}}
-
+  <p><strong>{{count}} {{t "search.results"}}</strong></p>
   <table class="table table-condensed">
     <tbody>
 
@@ -52,6 +52,12 @@
     </tbody>
   </table>
 
+  {{#if previous_page}}
+    <span class="left page"><a data-url="{{previous_page}}" href="#">&larr; {{t "search.previous"}}</a></span>
+  {{/if}}
+  {{#if next_page}}
+    <span class="right page"><a data-url="{{next_page}}" href="#">{{t "search.next"}} &rarr;</a></span>
+  {{/if}}
 {{else}}
   {{t "global.no_results"}}
 {{/if}}

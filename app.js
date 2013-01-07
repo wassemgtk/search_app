@@ -2,6 +2,8 @@
 
   return {
 
+    per_page: 10,
+
     currAttempt: 0,
     MAX_ATTEMPTS: 20,
 
@@ -15,6 +17,7 @@
       'click .options a': 'toggleAdvanced',
       'click .suggestion': 'suggestionClicked',
       'click .search-icon': 'doTheSearch',
+      'click .page': 'handleChangePage',
       'keydown .search-box': 'handleKeydown',
       'requiredProperties.ready': 'handleRequiredProperties'
     },
@@ -33,9 +36,9 @@
         };
       },
 
-      searchDesk: function(data) {
+      searchDesk: function(params, pageUrl) {
         return {
-          url: '/api/v2/search.json?query=' + data,
+          url: pageUrl || helpers.fmt('/api/v2/search.json?per_page=%@&query=%@', this.per_page, params),
           type: 'GET'
         };
       }
@@ -165,7 +168,7 @@
       this.$('.results').empty();
       this.$('.searching').show();
 
-      this.ajax('searchDesk', this.searchParams() );
+      this.ajax('searchDesk', this.searchParams());
     },
 
     extractKeywords: function(text) {
@@ -189,21 +192,23 @@
       }
     },
 
-    handleResults: function (data) {
-      var results = data.results;
-      if ( results.length > 10 ) {
-        results = results.slice(0, 10);
-      }
+    handleChangePage: function(e){
+      this.$('.results').empty();
+      this.$('.searching').show();
 
+      this.ajax('searchDesk', undefined, this.$(e.target).data('url'));
+    },
+
+    handleResults: function (data) {
       var ticketId = this.ticket().id();
 
-      _.each(results, function(result, index) {
+      _.each(data.results, function(result, index) {
         result["is_" + result.result_type] = true;
 
         // format descriptions
         if (result.is_ticket) {
           // remove current ticket from results
-          if (result.id === ticketId) results.splice(index,1);
+          if (result.id === ticketId) data.results.splice(index,1);
           result.description = result.description.substr(0,300).concat("...");
         }
         else if (this.is_topic) {
@@ -212,7 +217,7 @@
 
       });
 
-      var resultsTemplate = this.renderTemplate('results', {results: results} );
+      var resultsTemplate = this.renderTemplate('results', data);
 
       this.$('.searching').hide();
       this.$('.results').html(resultsTemplate);

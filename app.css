@@ -17,6 +17,10 @@
   float: left;
 }
 
+.right {
+  float: right;
+}
+
 .toggle-advanced a {
   float: right;
   margin-top: 5px;
@@ -69,11 +73,11 @@ input[type=date] {
   width: 100px;
 }
 
-.table td {
-  border-top: 1px solid #EEE;
+.table {
+  margin-top: 10px;
 
-  :last-child {
-    text-align: right;
+  td {
+    border-top: 1px solid #EEE;
   }
 }
 
