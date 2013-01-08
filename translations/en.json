@@ -10,9 +10,9 @@
 
   "global": {
     "error": {
-      "title"             : "An error occurred",
-      "message"           : "Please try the previous action again.",
-      "data"              : "Data could not be read."
+      "title"     : "An error occurred",
+      "message"   : "Please try the previous action again.",
+      "data"      : "Data could not be read."
     },
     "loading"     : "Initialising app...",
     "searching"   : "Searching...",
@@ -29,9 +29,13 @@
   },
 
   "search": {
-    "search": "Search",
+    "search": "Search for:",
 
-    "for": "for:",
+    "results": "result(s):",
+
+    "previous": "previous",
+
+    "next": "next",
 
     "keywords": "Type in some keywords...",
 
@@ -70,9 +74,9 @@
     },
 
     "condition": {
-      "equal": "Equal",
-      "greater": "Greater than",
-      "less": "Less than"
+      "equal": "=",
+      "greater": ">",
+      "less": "<"
     },
 
     "value": {

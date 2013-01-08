@@ -12,7 +12,6 @@
 					<option value="group">{{t "search.type.groups"}}</option>
 					<option value="entry">{{t "search.type.topics"}}</option>
 				</select>
-				<span>{{t "search.for"}}</span>
 			</div>
 			<div class="toggle-advanced">
 				<a class="advanced" href="#">{{t "search.options.advanced"}}</a>
@@ -50,9 +49,9 @@
 					<option value="created">{{t "search.filter.created"}}</option>
 					<option value="updated">{{t "search.filter.updated"}}</option>
 				</select>
-				<input type="date" id="from">
-				to
-				<input type="date" id="to">
+				<input type="date" id="from" placeholder="YYYY-MM-DD">
+				 - 
+				<input type="date" id="to" placeholder="YYYY-MM-DD">
 			</div>
 
 			<div class="advanced-option">
