@@ -91,4 +91,5 @@ input[type=date] {
 
 .type {
   text-align: right;
+  white-space: nowrap;
 }
