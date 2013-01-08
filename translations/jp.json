@@ -73,6 +73,12 @@
       "updated": "更新日"
     },
 
+    "condition": {
+      "equal": "=",
+      "greater": ">",
+      "less": "<"
+    },
+
     "value": {
       "new": "新規",
       "open": "オープン",
