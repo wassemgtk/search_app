@@ -36,9 +36,9 @@
         };
       },
 
-      searchDesk: function(params, pageUrl) {
+      searchDesk: function(params) {
         return {
-          url: pageUrl || helpers.fmt('/api/v2/search.json?per_page=%@&query=%@', this.per_page, params),
+          url: params.pageUrl || helpers.fmt('/api/v2/search.json?per_page=%@&query=%@', this.per_page, params.query),
           type: 'GET'
         };
       }
@@ -168,7 +168,7 @@
       this.$('.results').empty();
       this.$('.searching').show();
 
-      this.ajax('searchDesk', this.searchParams());
+      this.ajax('searchDesk', { query: this.searchParams() });
     },
 
     extractKeywords: function(text) {
@@ -196,7 +196,7 @@
       this.$('.results').empty();
       this.$('.searching').show();
 
-      this.ajax('searchDesk', undefined, this.$(e.target).data('url'));
+      this.ajax('searchDesk', { pageUrl: this.$(e.target).data('url') });
     },
 
     handleResults: function (data) {
