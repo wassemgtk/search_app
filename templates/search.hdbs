@@ -37,7 +37,6 @@
 					<option value="new">{{t "search.value.new"}}</option>
 					<option value="open">{{t "search.value.open"}}</option>
 					<option value="pending">{{t "search.value.pending"}}</option>
-					<option value="onhold">{{t "search.value.onhold"}}</option>
 					<option value="solved">{{t "search.value.solved"}}</option>
 					<option value="closed">{{t "search.value.closed"}}</option>
 				</select>
