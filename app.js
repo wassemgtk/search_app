@@ -217,6 +217,7 @@
 
       });
 
+      data.count = this.I18n.t('search.results', { count: data.count });
       var resultsTemplate = this.renderTemplate('results', data);
 
       this.$('.searching').hide();
