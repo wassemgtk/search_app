@@ -9,7 +9,6 @@
 					<option value="comment">{{t "search.type.comments"}}</option>
 					<option value="user">{{t "search.type.users"}}</option>
 					<option value="organization">{{t "search.type.organizations"}}</option>
-					<option value="group">{{t "search.type.groups"}}</option>
 					<option value="entry">{{t "search.type.topics"}}</option>
 				</select>
 			</div>
