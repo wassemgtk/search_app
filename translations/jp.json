@@ -31,7 +31,9 @@
   "search": {
     "search": "検索範囲:",
 
-    "results": "結果{{count}}件",
+    "results": {
+      "other": "結果{{count}}件"
+    },
 
     "previous": "前",
 

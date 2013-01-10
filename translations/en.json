@@ -31,7 +31,10 @@
   "search": {
     "search": "Search for:",
 
-    "results": "{{count}} result(s):",
+    "results": {
+      "one": "1 result:",
+      "other": "{{count}} results:"
+    },
 
     "previous": "previous",
 
