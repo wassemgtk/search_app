@@ -168,7 +168,8 @@
       this.$('.results').empty();
       this.$('.searching').show();
 
-      this.ajax('searchDesk', { query: this.searchParams() });
+      // encodeURIComponent is used here to force IE to encode all characters
+      this.ajax('searchDesk', { query: encodeURIComponent(this.searchParams()) });
     },
 
     extractKeywords: function(text) {
@@ -217,6 +218,7 @@
 
       });
 
+      data.count = this.I18n.t('search.results', { count: data.count });
       var resultsTemplate = this.renderTemplate('results', data);
 
       this.$('.searching').hide();

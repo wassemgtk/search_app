@@ -1,5 +1,5 @@
 {{#if results.length}}
-  <p><strong>{{count}} {{t "search.results"}}</strong></p>
+  <p class="count"><strong>{{count}}</strong></p>
   <table class="table table-condensed">
     <tbody>
 

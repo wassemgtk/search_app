@@ -31,12 +31,12 @@
   "search": {
     "search": "検索範囲:",
 
-    "results": "结果",
+    "results": "結果{{count}}件",
 
     "previous": "前",
 
-    "next": "次の",
-
+    "next": "次",
+    
     "keywords": "検索キーワードを入力ください…",
 
     "options": {
