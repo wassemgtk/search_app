@@ -54,7 +54,6 @@
 }
 
 .advanced-options-wrapper {
-  display: none;
   &.visible {
     background: #f5f5f5;
     border-radius: 5px;
@@ -119,6 +118,8 @@ select {
     border: 1px solid #d9d9d9;
     border-radius: 3px;
     text-shadow: 1px 1px 1px white;
+    margin-bottom: 3px;
+    display: inline-block;
 
     &:hover {
       background: #d9d9d9;
