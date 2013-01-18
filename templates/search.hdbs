@@ -69,12 +69,14 @@
 				<input class="search-box" type="text">
 				<span class="search-icon"></span>
 			</div>
+			{{#if searchSuggestions.length}}
 			<div class="suggestions">
 				<span class="title">{{t "search.suggestions"}}</span>
 				{{#each searchSuggestions}}
 				<a class="suggestion" href="#">{{this}}</a>
 				{{/each}}
 			</div>
+			{{/if}}
 		</div>
 	</form>
 </div>
