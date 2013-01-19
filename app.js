@@ -85,7 +85,7 @@
     },
 
     toggleAdvanced: function(e){
-      var $advancedOptions = this.$('.advanced-options');
+      var $advancedOptions = this.$('.advanced-options-wrapper');
       if($advancedOptions.is(':hidden')){
         this.$('.options .basic').show();
         this.$('.options .advanced').hide();
@@ -94,10 +94,12 @@
         this.ajax('getUsers');
 
         $advancedOptions.slideDown();
+        $advancedOptions.addClass('visible');
       } else {
         $advancedOptions.slideUp();
         this.$('.options .advanced').show();
         this.$('.options .basic').hide();
+        $advancedOptions.removeClass('visible');
       }
     },
 
