@@ -9,7 +9,6 @@
 					<option value="comment">{{t "search.type.comments"}}</option>
 					<option value="user">{{t "search.type.users"}}</option>
 					<option value="organization">{{t "search.type.organizations"}}</option>
-					<option value="group">{{t "search.type.groups"}}</option>
 					<option value="entry">{{t "search.type.topics"}}</option>
 				</select>
 			</div>
@@ -38,7 +37,6 @@
 						<option value="new">{{t "search.value.new"}}</option>
 						<option value="open">{{t "search.value.open"}}</option>
 						<option value="pending">{{t "search.value.pending"}}</option>
-						<option value="onhold">{{t "search.value.onhold"}}</option>
 						<option value="solved">{{t "search.value.solved"}}</option>
 						<option value="closed">{{t "search.value.closed"}}</option>
 					</select>
