@@ -26,7 +26,7 @@
 
       getUsers: function(data) {
         return {
-          url: '/api/v2/users.json',
+          url: '/api/v2/search.json?query=type:user role:admin role:agent',
           type: 'GET'
         };
       },
@@ -104,12 +104,8 @@
     },
 
     handleUsers: function(data) {
-      var agents = [];
+      var agents = data.results;
       var options = '<option value="">-</option>';
-
-      agents = _.reject(data.users, function(user) {
-        return user.role !== 'admin' && user.role !== 'agent';
-      });
 
       // populate the assignee drop down
       _.each(agents, function(agent) {
