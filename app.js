@@ -22,11 +22,6 @@
       'requiredProperties.ready': 'handleRequiredProperties'
     },
 
-    requiredProperties : [
-      'ticket.id',
-      'ticket.subject'
-    ],
-
     requests: {
 
       getUsers: function(data) {
@@ -49,6 +44,11 @@
       if(!data.firstLoad){
         return;
       }
+
+      this.requiredProperties = [
+        'ticket.id',
+        'ticket.subject'
+      ];
 
       this._allRequiredPropertiesExist();
     },
