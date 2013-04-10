@@ -242,7 +242,7 @@
     handleFail: function (data) {
       var response = JSON.parse(data.responseText);
 
-      var error = { 
+      var error = {
         title: this.I18n.t('global.error.title'),
         message: response.description || this.I18n.t('global.error.message')
       };
@@ -286,28 +286,18 @@
       }
     },
 
-    _validateRequiredProperty: function(property) {
-      var parts = property.split('.');
-      var part = '', obj = this;
+    _safeGetPath: function(propertyPath) {
+      return _.inject( propertyPath.split('.'), function(context, segment) {
+        if (context == null) { return context; }
+        var obj = context[segment];
+        if ( _.isFunction(obj) ) { obj = obj.call(context); }
+        return obj;
+      }, this);
+    },
 
-      while (parts.length) {
-        part = parts.shift();
-        try {
-          obj = obj[part]();
-        } catch (e) {
-          return false;
-        }
-        // check if property is invalid
-        if (parts.length > 0 && !_.isObject(obj)) {
-          return false;
-        }
-        // check if value returned from property is invalid
-        if (parts.length === 0 && (_.isNull(obj) || _.isUndefined(obj) || obj === '' || obj === 'no')) {
-          return false;
-        }
-      }
-
-      return true;
+    _validateRequiredProperty: function(propertyPath) {
+      var value = this._safeGetPath(propertyPath);
+      return value != null && value !== '' && value !== 'no';
     }
 
   };
