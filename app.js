@@ -26,7 +26,7 @@
 
       getUsers: function(data) {
         return {
-          url: '/api/v2/search.json?query=type:user role:admin role:agent',
+          url: '/api/v2beta/groups/assignable',
           type: 'GET'
         };
       },
@@ -104,12 +104,21 @@
     },
 
     handleUsers: function(data) {
-      var agents = data.results;
-      var options = '<option value="">-</option>';
+      var agents = Array.prototype.concat.apply(Array.prototype, _.pluck(data, 'agents')),
+          options = '<option value="">-</option>',
+          agentNames = [];
+
+      _.each(agents, function(agent) {
+        if (_.indexOf(agentNames, agent.name) === -1) agentNames.push(agent.name);
+      });
+
+      agentNames.sort(function (a, b) {
+        return a.toLowerCase().localeCompare(b.toLowerCase());
+      });
 
       // populate the assignee drop down
-      _.each(agents, function(agent) {
-          options += '<option value="' + agent.name + '">' + agent.name + '</option>';
+      _.each(agentNames, function(name) {
+          options += '<option value="' + name + '">' + name + '</option>';
       });
 
       this.$('#assignee').html(options);
