@@ -24,9 +24,9 @@
 
     requests: {
 
-      getUsers: function(data) {
+      getUsers: function(pageUrl) {
         return {
-          url: '/api/v2beta/groups/assignable',
+          url: pageUrl || '/api/v2/group_memberships/assignable.json?include=users&page=1',
           type: 'GET'
         };
       },
@@ -91,7 +91,7 @@
         this.$('.options .advanced').hide();
 
         // Load users when advanced is clicked
-        this.ajax('getUsers');
+        this.getUsers();
 
         $advancedOptions.slideDown();
         $advancedOptions.addClass('visible');
@@ -103,25 +103,25 @@
       }
     },
 
+    getUsers: function() {
+      this.$('#assignee').html('<option value="">-</option>');
+
+      this.ajax('getUsers');
+    },
+
     handleUsers: function(data) {
-      var agents = Array.prototype.concat.apply(Array.prototype, _.pluck(data, 'agents')),
-          options = '<option value="">-</option>',
-          agentNames = [];
-
-      _.each(agents, function(agent) {
-        if (_.indexOf(agentNames, agent.name) === -1) agentNames.push(agent.name);
-      });
-
-      agentNames.sort(function (a, b) {
-        return a.toLowerCase().localeCompare(b.toLowerCase());
-      });
+      var options;
 
       // populate the assignee drop down
-      _.each(agentNames, function(name) {
-          options += '<option value="' + name + '">' + name + '</option>';
+      _.each(data.users, function(agent) {
+          options += '<option value="' + agent.name + '">' + agent.name + '</option>';
       });
 
-      this.$('#assignee').html(options);
+      this.$('#assignee').append(options);
+
+      if (data.next_page) {
+        this.ajax('getUsers', data.next_page);
+      }
     },
 
     searchParams: function(){
