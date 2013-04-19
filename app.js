@@ -110,7 +110,7 @@
     },
 
     handleUsers: function(data) {
-      var options;
+      var options = "";
 
       // populate the assignee drop down
       _.each(data.users, function(agent) {
