@@ -91,7 +91,7 @@
         this.$('.options .advanced').hide();
 
         // Load users when advanced is clicked
-        this.getUsers();
+        this.populateAssignees();
 
         $advancedOptions.slideDown();
         $advancedOptions.addClass('visible');
@@ -103,19 +103,17 @@
       }
     },
 
-    getUsers: function() {
+    populateAssignees: function() {
       this.$('#assignee').html('<option value="">-</option>');
 
       this.ajax('getUsers');
     },
 
     handleUsers: function(data) {
-      var options = "";
-
       // populate the assignee drop down
-      _.each(data.users, function(agent) {
-          options += '<option value="' + agent.name + '">' + agent.name + '</option>';
-      });
+      var options = _.reduce(data.users, function(options, agent) {
+        return options + helpers.fmt('<option value="%@1">%@1</option>', agent.name);
+      }, "");
 
       this.$('#assignee').append(options);
 
