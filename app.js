@@ -24,9 +24,9 @@
 
     requests: {
 
-      getUsers: function(data) {
+      getUsers: function(pageUrl) {
         return {
-          url: '/api/v2/search.json?query=type:user role:admin role:agent',
+          url: pageUrl || '/api/v2/group_memberships/assignable.json?include=users&page=1',
           type: 'GET'
         };
       },
@@ -91,7 +91,7 @@
         this.$('.options .advanced').hide();
 
         // Load users when advanced is clicked
-        this.ajax('getUsers');
+        this.populateAssignees();
 
         $advancedOptions.slideDown();
         $advancedOptions.addClass('visible');
@@ -103,16 +103,23 @@
       }
     },
 
+    populateAssignees: function() {
+      this.$('#assignee').html('<option value="">-</option>');
+
+      this.ajax('getUsers');
+    },
+
     handleUsers: function(data) {
-      var agents = data.results;
-      var options = '<option value="">-</option>';
-
       // populate the assignee drop down
-      _.each(agents, function(agent) {
-          options += '<option value="' + agent.name + '">' + agent.name + '</option>';
-      });
+      var options = _.reduce(data.users, function(options, agent) {
+        return options + helpers.fmt('<option value="%@1">%@1</option>', agent.name);
+      }, "");
 
-      this.$('#assignee').html(options);
+      this.$('#assignee').append(options);
+
+      if (data.next_page) {
+        this.ajax('getUsers', data.next_page);
+      }
     },
 
     searchParams: function(){
