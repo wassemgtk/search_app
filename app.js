@@ -49,7 +49,7 @@
       this.requiredProperties = [];
 
       if (this.settings.custom_fields) {
-        this.customFieldIDs = this.settings.custom_fields.match(/\d+/);
+        this.customFieldIDs = this.settings.custom_fields.match(/\d+/g);
       } else {
         this.customFieldIDs = [];
       }
