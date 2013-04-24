@@ -2,7 +2,7 @@
 
   return {
 
-    per_page: 10,
+    PER_PAGE: 10,
 
     MAX_ATTEMPTS: 20,
 
@@ -33,7 +33,7 @@
 
       searchDesk: function(params) {
         return {
-          url: params.pageUrl || helpers.fmt('/api/v2/search.json?per_page=%@&query=%@', this.per_page, params.query),
+          url: params.pageUrl || helpers.fmt('/api/v2/search.json?per_page=%@&query=%@', this.PER_PAGE, params.query),
           type: 'GET'
         };
       }
@@ -45,6 +45,7 @@
         return;
       }
 
+      this.hasActivated = true;
       this.currAttempt = 0;
       this.requiredProperties = [];
 
@@ -205,7 +206,9 @@
 
     handleChanged: _.debounce(function(property, newValue) {
       // test if change event fired before app.activated
-      if (_.isUndefined(this.currAttempt)) { return; }
+      if (!this.hasActivated) {
+        return;
+      }
 
       var ticketField = property.propertyName,
           ticketFieldsChanged = false;
@@ -226,7 +229,8 @@
     loadSearchSuggestions: function() {
       var searchSuggestions = this.loadCustomFieldSuggestions(),
           ticketSubject = this.ticket().subject(),
-          keywords = "", suggestionsTemplate = "";
+          suggestionsTemplate = "",
+          keywords = "";
 
       if ( this.settings.related_tickets && ticketSubject ) {
         keywords = this.extractKeywords(ticketSubject);
@@ -240,7 +244,9 @@
     loadCustomFieldSuggestions: function(){
       var customFieldSuggestions = [];
 
-      if (!this.customFieldIDs) { return customFieldSuggestions; }
+      if (!this.customFieldIDs) {
+        return customFieldSuggestions;
+      }
 
       _.each(this.customFieldIDs, function(customFieldID){
         var customFieldName = 'custom_field_' + customFieldID,
