@@ -9,6 +9,8 @@
 
     defaultState: 'loading',
 
+    agentOptions: [],
+
     events: {
       'app.activated': 'init',
       'searchDesk.done': 'handleResults',
@@ -91,7 +93,12 @@
         this.$('.options .advanced').hide();
 
         // Load users when advanced is clicked
-        this.populateAssignees();
+        if (!this.agentOptions.length) {
+          this.ajax('getUsers');
+        } else if (this.$('select#assignee option').length === 1) {
+          // used cached agentOptions
+          this.$('select#assignee').html('<option value="">-</option>' + this.agentOptions.join(""));
+        }
 
         $advancedOptions.slideDown();
         $advancedOptions.addClass('visible');
@@ -103,22 +110,23 @@
       }
     },
 
-    populateAssignees: function() {
-      this.$('#assignee').html('<option value="">-</option>');
-
-      this.ajax('getUsers');
-    },
-
     handleUsers: function(data) {
-      // populate the assignee drop down
-      var options = _.reduce(data.users, function(options, agent) {
-        return options + helpers.fmt('<option value="%@1">%@1</option>', agent.name);
-      }, "");
-
-      this.$('#assignee').append(options);
+      // populate the assignee drop down, excluding duplicates
+      _.each(data.users, function(agent) {
+        var agentOption = helpers.fmt('<option value="%@1">%@1</option>', agent.name);
+        if (!_.contains(this.agentOptions, agentOption)) {
+          this.agentOptions.push(agentOption);
+        }
+      }, this);
 
       if (data.next_page) {
         this.ajax('getUsers', data.next_page);
+      } else {
+        // we have all assignable users, sort and add to select box
+        var assigneeOptionsHtml = this.agentOptions.sort(function (a, b) {
+          return a.toLowerCase().localeCompare(b.toLowerCase());
+        }).join("");
+        this.$('select#assignee').html('<option value="">-</option>' + assigneeOptionsHtml);
       }
     },
 
