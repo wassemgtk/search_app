@@ -204,7 +204,7 @@
       this.$('.results').html(resultsTemplate);
     },
 
-    handleChanged: _.debounce(function(property, newValue) {
+    handleChanged: _.debounce(function(property) {
       // test if change event fired before app.activated
       if (!this.hasActivated) {
         return;
@@ -213,7 +213,7 @@
       var ticketField = property.propertyName,
           ticketFieldsChanged = false;
 
-      if (ticketField.match(/custom_field/) && this.customFieldIDs) {
+      if (ticketField.match(/custom_field/) && this.customFieldIDs.length) {
         ticketFieldsChanged = !!_.find(this.customFieldIDs, function(id) {
           return ticketField === helpers.fmt("ticket.custom_field_%@", id);
         });
