@@ -272,8 +272,8 @@
     },
 
     _getHtmlOptions: function(values) {
-      return _.reduce(values, function(options, assignee) {
-        return options + helpers.fmt('<option value="%@1">%@1</option>', assignee);
+      return _.reduce(values, function(options, value) {
+        return options + helpers.fmt('<option value="%@1">%@1</option>', value);
       }, "");
     },
 
