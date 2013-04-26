@@ -95,9 +95,9 @@
         // Load users when advanced is clicked
         if (!this.agentOptions.length) {
           this.ajax('getUsers');
-        } else if (this.$('select#assignee option').length === 1) {
+        } else if (this.$('#assignee option').length === 1) {
           // used cached agentOptions
-          this.$('select#assignee').html('<option value="">-</option>' + this.agentOptions.join(""));
+          this.$('#assignee').html('<option value="">-</option>' + this._getHtmlOptions(this.agentOptions));
         }
 
         $advancedOptions.slideDown();
@@ -113,9 +113,8 @@
     handleUsers: function(data) {
       // populate the assignee drop down, excluding duplicates
       _.each(data.users, function(agent) {
-        var agentOption = helpers.fmt('<option value="%@1">%@1</option>', agent.name);
-        if (!_.contains(this.agentOptions, agentOption)) {
-          this.agentOptions.push(agentOption);
+        if (!_.contains(this.agentOptions, agent.name)) {
+          this.agentOptions.push(agent.name);
         }
       }, this);
 
@@ -123,10 +122,11 @@
         this.ajax('getUsers', data.next_page);
       } else {
         // we have all assignable users, sort and add to select box
-        var assigneeOptionsHtml = this.agentOptions.sort(function (a, b) {
+        this.agentOptions.sort(function (a, b) {
           return a.toLowerCase().localeCompare(b.toLowerCase());
-        }).join("");
-        this.$('select#assignee').html('<option value="">-</option>' + assigneeOptionsHtml);
+        });
+
+        this.$('#assignee').html('<option value="">-</option>' + this._getHtmlOptions(this.agentOptions));
       }
     },
 
@@ -269,6 +269,12 @@
         title: title || this.I18n.t('global.error.title'),
         message: msg || this.I18n.t('global.error.message')
       });
+    },
+
+    _getHtmlOptions: function(values) {
+      return _.reduce(values, function(options, assignee) {
+        return options + helpers.fmt('<option value="%@1">%@1</option>', assignee);
+      }, "");
     },
 
     _allRequiredPropertiesExist: function() {
