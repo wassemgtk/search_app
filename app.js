@@ -110,7 +110,7 @@
         this.ajax('getUsers');
       } else if (this.$('#assignee option').length === 1) {
         // used cached agentOptions
-        this.$('#assignee').html('<option value="">-</option>' + this._getHtmlOptions(this.agentOptions));
+        this._populateSelectBox('#assignee', this.agentOptions);
       }
     },
 
@@ -130,7 +130,7 @@
           return a.toLowerCase().localeCompare(b.toLowerCase());
         });
 
-        this.$('#assignee').html('<option value="">-</option>' + this._getHtmlOptions(this.agentOptions));
+        this._populateSelectBox('#assignee', this.agentOptions);
       }
     },
 
@@ -275,10 +275,12 @@
       });
     },
 
-    _getHtmlOptions: function(values) {
-      return _.reduce(values, function(options, value) {
+    _populateSelectBox: function(selector, values) {
+      var htmlOptions = _.reduce(values, function(options, value) {
         return options + helpers.fmt('<option value="%@1">%@1</option>', value);
-      }, "");
+      }, '<option value="">-</option>');
+
+      this.$(selector).html(htmlOptions);
     },
 
     _allRequiredPropertiesExist: function() {
