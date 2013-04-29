@@ -93,12 +93,7 @@
         this.$('.options .advanced').hide();
 
         // Load users when advanced is clicked
-        if (!this.agentOptions.length) {
-          this.ajax('getUsers');
-        } else if (this.$('#assignee option').length === 1) {
-          // used cached agentOptions
-          this.$('#assignee').html('<option value="">-</option>' + this._getHtmlOptions(this.agentOptions));
-        }
+        this.populateAssignees();
 
         $advancedOptions.slideDown();
         $advancedOptions.addClass('visible');
@@ -107,6 +102,15 @@
         this.$('.options .advanced').show();
         this.$('.options .basic').hide();
         $advancedOptions.removeClass('visible');
+      }
+    },
+
+    populateAssignees: function() {
+      if (!this.agentOptions.length) {
+        this.ajax('getUsers');
+      } else if (this.$('#assignee option').length === 1) {
+        // used cached agentOptions
+        this.$('#assignee').html('<option value="">-</option>' + this._getHtmlOptions(this.agentOptions));
       }
     },
 
