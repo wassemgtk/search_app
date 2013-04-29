@@ -234,7 +234,7 @@
 
       if ( this.settings.related_tickets && ticketSubject ) {
         keywords = this.extractKeywords(ticketSubject);
-        searchSuggestions = searchSuggestions.concat( keywords );
+        searchSuggestions.push.apply( searchSuggestions, keywords );
       }
 
       suggestionsTemplate = this.renderTemplate('suggestions', { searchSuggestions: searchSuggestions });
