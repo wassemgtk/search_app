@@ -2,15 +2,15 @@
 
   return {
 
-    per_page: 10,
+    PER_PAGE: 10,
 
-    currAttempt: 0,
     MAX_ATTEMPTS: 20,
 
     defaultState: 'loading',
 
     events: {
       'app.activated': 'init',
+      '*.changed': 'handleChanged',
       'searchDesk.done': 'handleResults',
       'searchDesk.fail': 'handleFail',
       'getUsers.done': 'handleUsers',
@@ -19,7 +19,7 @@
       'click .search-icon': 'doTheSearch',
       'click .page': 'handleChangePage',
       'keydown .search-box': 'handleKeydown',
-      'requiredProperties.ready': 'handleRequiredProperties'
+      'requiredProperties.ready': 'loadSearchSuggestions'
     },
 
     requests: {
@@ -33,7 +33,7 @@
 
       searchDesk: function(params) {
         return {
-          url: params.pageUrl || helpers.fmt('/api/v2/search.json?per_page=%@&query=%@', this.per_page, params.query),
+          url: params.pageUrl || helpers.fmt('/api/v2/search.json?per_page=%@&query=%@', this.PER_PAGE, params.query),
           type: 'GET'
         };
       }
@@ -45,34 +45,22 @@
         return;
       }
 
-      this.requiredProperties = [
-        'ticket.id',
-        'ticket.subject'
-      ];
+      this.hasActivated = true;
+      this.currAttempt = 0;
+      this.requiredProperties = [];
+
+      if (this.settings.custom_fields) {
+        this.customFieldIDs = this.settings.custom_fields.match(/\d+/g);
+      } else {
+        this.customFieldIDs = [];
+      }
+
+      if (this.currentLocation() == 'ticket_sidebar') {
+        this.requiredProperties.push('ticket.id', 'ticket.subject');
+      }
 
       this._allRequiredPropertiesExist();
-    },
-
-    loadSearchSuggestions: function(){
-      if (_.isUndefined(this.settings.custom_fields)){
-        return [];
-      }
-      var customFieldIDs = this.settings.custom_fields.match(/\d+/g);
-      var searchSuggestions = [];
-
-      _.each(customFieldIDs, function(customFieldID){
-
-        var customFieldName = 'custom_field_' + customFieldID;
-        var customFieldValue = this.ticket().customField(customFieldName);
-
-        if ( customFieldValue ) {
-          searchSuggestions.push( customFieldValue );
-        }
-
-      }, this);
-
-      return searchSuggestions;
-
+      this.switchTo('search');
     },
 
     suggestionClicked: function(e){
@@ -177,20 +165,6 @@
       this.ajax('searchDesk', { query: encodeURIComponent(this.searchParams()) });
     },
 
-    extractKeywords: function(text) {
-      // strip punctuation and extra spaces
-      text = text.toLowerCase().replace(/[\.,-\/#!$?%\^&\*;:{}=\-_`~()]/g,"").replace(/\s{2,}/g," ");
-
-      // split by spaces
-      var words = text.split(" ");
-
-      var exclusions = this.I18n.t('stopwords.exclusions').split(",");
-
-      var keywords = _.difference(words, exclusions);
-
-      return keywords;
-    },
-
     handleKeydown: function(e){
       if (e.which === 13) {
         this.doTheSearch();
@@ -230,16 +204,72 @@
       this.$('.results').html(resultsTemplate);
     },
 
-    handleRequiredProperties: function() {
-      var keywords;
-      var searchSuggestions = this.loadSearchSuggestions();
-
-      if ( this.settings.related_tickets ) {
-        keywords = this.extractKeywords(this.ticket().subject()).join(" ");
-        searchSuggestions = searchSuggestions.concat(keywords);
+    handleChanged: _.debounce(function(property) {
+      // test if change event fired before app.activated
+      if (!this.hasActivated) {
+        return;
       }
 
-      this.switchTo('search', { searchSuggestions: searchSuggestions });
+      var ticketField = property.propertyName,
+          ticketFieldsChanged = false;
+
+      if (ticketField.match(/custom_field/) && this.customFieldIDs.length) {
+        ticketFieldsChanged = !!_.find(this.customFieldIDs, function(id) {
+          return ticketField === helpers.fmt("ticket.custom_field_%@", id);
+        });
+      } else if (ticketField === 'ticket.subject') {
+        ticketFieldsChanged = true;
+      }
+
+      if (ticketFieldsChanged) {
+        this.loadSearchSuggestions();
+      }
+    }, 500),
+
+    loadSearchSuggestions: function() {
+      var searchSuggestions = this.loadCustomFieldSuggestions(),
+          ticketSubject = this.ticket().subject(),
+          suggestionsTemplate = "",
+          keywords = "";
+
+      if ( this.settings.related_tickets && ticketSubject ) {
+        keywords = this.extractKeywords(ticketSubject);
+        searchSuggestions.push.apply( searchSuggestions, keywords );
+      }
+
+      suggestionsTemplate = this.renderTemplate('suggestions', { searchSuggestions: searchSuggestions });
+      this.$('.suggestions').html(suggestionsTemplate);
+    },
+
+    loadCustomFieldSuggestions: function(){
+      var customFieldSuggestions = [];
+
+      if (!this.customFieldIDs) {
+        return customFieldSuggestions;
+      }
+
+      _.each(this.customFieldIDs, function(customFieldID){
+        var customFieldName = 'custom_field_' + customFieldID,
+            customFieldValue = this.ticket().customField(customFieldName);
+
+        if ( customFieldValue ) {
+          customFieldSuggestions.push( customFieldValue );
+        }
+      }, this);
+
+      return customFieldSuggestions;
+    },
+
+    extractKeywords: function(text) {
+      // strip punctuation and extra spaces
+      text = text.toLowerCase().replace(/[\.,-\/#!$?%\^&\*;:{}=\-_`~()]/g,"").replace(/\s{2,}/g," ");
+
+      // split by spaces
+      var words = text.split(" "),
+          exclusions = this.I18n.t('stopwords.exclusions').split(","),
+          keywords = _.difference(words, exclusions);
+
+      return keywords;
     },
 
     handleFail: function (data) {
