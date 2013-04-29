@@ -8,6 +8,8 @@
 
     defaultState: 'loading',
 
+    agentOptions: [],
+
     events: {
       'app.activated': 'init',
       '*.changed': 'handleChanged',
@@ -92,21 +94,31 @@
     },
 
     populateAssignees: function() {
-      this.$('#assignee').html('<option value="">-</option>');
-
-      this.ajax('getUsers');
+      if (!this.agentOptions.length) {
+        this.ajax('getUsers');
+      } else if (this.$('#assignee option').length === 1) {
+        // used cached agentOptions
+        this._populateSelectBox('#assignee', this.agentOptions);
+      }
     },
 
     handleUsers: function(data) {
-      // populate the assignee drop down
-      var options = _.reduce(data.users, function(options, agent) {
-        return options + helpers.fmt('<option value="%@1">%@1</option>', agent.name);
-      }, "");
-
-      this.$('#assignee').append(options);
+      // populate the assignee drop down, excluding duplicates
+      _.each(data.users, function(agent) {
+        if (!_.contains(this.agentOptions, agent.name)) {
+          this.agentOptions.push(agent.name);
+        }
+      }, this);
 
       if (data.next_page) {
         this.ajax('getUsers', data.next_page);
+      } else {
+        // we have all assignable users, sort and add to select box
+        this.agentOptions.sort(function (a, b) {
+          return a.toLowerCase().localeCompare(b.toLowerCase());
+        });
+
+        this._populateSelectBox('#assignee', this.agentOptions);
       }
     },
 
@@ -291,6 +303,14 @@
         title: title || this.I18n.t('global.error.title'),
         message: msg || this.I18n.t('global.error.message')
       });
+    },
+
+    _populateSelectBox: function(selector, values) {
+      var htmlOptions = _.reduce(values, function(options, value) {
+        return options + helpers.fmt('<option value="%@1">%@1</option>', value);
+      }, '<option value="">-</option>');
+
+      this.$(selector).html(htmlOptions);
     },
 
     _allRequiredPropertiesExist: function() {
