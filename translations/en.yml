@@ -16,7 +16,7 @@ parts:
   - translation:
       key: "txt.apps.search_app.app.parameters.custom_fields.label"
       title: "Custom field IDs to define in the parameters of the app"
-      value: "Custom Field IDs"
+      value: "Custom field IDs"
   - translation:
       key: "txt.apps.search_app.app.parameters.related_tickets.label"
       title: "This is a setting for the user to fill in on the settings page suggesting them to show keywords as suggestion of answers for the ticket"
@@ -24,7 +24,7 @@ parts:
   - translation:
       key: "txt.apps.search_app.global.error.title"
       title: "Error message"
-      value: "An error occurred"
+      value: "An error occurred."
   - translation:
       key: "txt.apps.search_app.global.error.message"
       title: "Error message"
