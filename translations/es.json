@@ -1,68 +1,68 @@
 {
   "app": {
-    "description": "Search",
-    "title": "Search",
+    "description": "Buscar",
+    "title": "Buscar",
     "parameters": {
       "custom_fields": {
-        "label": "Custom field IDs"
+        "label": "ID de campos personalizados"
       },
       "related_tickets": {
-        "label": "Show keywords from subject as search suggestion?"
+        "label": "¿Mostrar palabras clave del asunto como sugerencias de búsqueda?"
       }
     }
   },
   "global": {
     "error": {
-      "title": "An error occurred.",
-      "message": "Please try the previous action again.",
-      "data": "Data could not be read."
+      "title": "Se ha producido un error.",
+      "message": "Vuelva a intentar la acción anterior.",
+      "data": "No se pudieron leer los datos."
     },
-    "loading": "Initialising app...",
-    "searching": "Searching...",
-    "no_results": "No results found."
+    "loading": "Inicializando aplicación...",
+    "searching": "Buscando...",
+    "no_results": "No se han encontrado resultados."
   },
   "ticket": {
     "id": "ID",
-    "subject": "SUBJECT"
+    "subject": "ASUNTO"
   },
   "stopwords": {
     "exclusions": "zendesk,a,is,about,above,after,again,against,all,am,an,and,any,are,aren't,as,at,be,because,been,before,being,below,between,both,but,by,can't,cannot,could,couldn't,did,didn't,do,does,doesn't,doing,don't,down,during,each,few,for,from,further,had,hadn't,has,hasn't,have,haven't,having,he,he'd,he'll,he's,her,here,here's,hers,herself,him,himself,his,how,how's,i,i'd,i'll,i'm,i've,if,in,into,is,isn't,it,it's,its,itself,let's,me,more,most,mustn't,my,myself,no,nor,not,of,off,on,once,only,or,other,ought,our,ours,ourselves,out,over,own,same,shan't,she,she'd,she'll,she's,should,shouldn't,so,some,such,than,that,that's,the,their,theirs,them,themselves,then,there,there's,these,they,they'd,they'll,they're,they've,this,those,through,to,too,under,until,up,very,was,wasn't,we,we'd,we'll,we're,we've,were,weren't,what,what's,when,when's,where,where's,which,while,who,who's,whom,why,why's,with,won't,would,wouldn't,you,you'd,you'll,you're,you've,your,yours,yourself,yourselves"
   },
   "search": {
-    "search": "Search for:",
-    "results": "{{count}} result(s):",
-    "previous": "previous",
-    "next": "next",
-    "suggestions": "Suggestions:",
-    "keywords": "Type in some keywords...",
+    "search": "Buscar:",
+    "results": "{{count}} resultado(s):",
+    "previous": "anterior",
+    "next": "siguiente",
+    "suggestions": "Sugerencias:",
+    "keywords": "Escriba algunas palabras clave...",
     "options": {
-      "advanced": "Advanced",
-      "basic": "Basic"
+      "advanced": "Avanzada",
+      "basic": "Básica"
     },
     "user": {
-      "loading": "loading",
-      "assignee": "Assignee:"
+      "loading": "cargando",
+      "assignee": "Agente asignado:"
     },
     "type": {
-      "all": "everything",
+      "all": "todo",
       "tickets": "tickets",
-      "comments": "comments",
-      "users": "users",
-      "organizations": "organizations",
-      "groups": "groups",
-      "topics": "topics"
+      "comments": "comentarios",
+      "users": "usuarios",
+      "organizations": "organizaciones",
+      "groups": "grupos",
+      "topics": "temas"
     },
     "result_type": {
-      "comment": "Comment",
-      "user": "User",
-      "organization": "Organization",
-      "group": "Group",
-      "topic": "Topic"
+      "comment": "Comentario",
+      "user": "Usuario",
+      "organization": "Organización",
+      "group": "Grupo",
+      "topic": "Tema"
     },
     "filter": {
-      "status": "Status",
-      "created": "Created",
-      "updated": "Updated"
+      "status": "Estado",
+      "created": "Creado",
+      "updated": "Actualizado"
     },
     "condition": {
       "equal": "=",
@@ -70,12 +70,12 @@
       "less": "&lt;"
     },
     "value": {
-      "new": "New",
-      "open": "Open",
-      "pending": "Pending",
-      "onhold": "On-hold",
-      "solved": "Solved",
-      "closed": "Closed"
+      "new": "Nuevo",
+      "open": "Abierto",
+      "pending": "Pendiente",
+      "onhold": "En espera",
+      "solved": "Resuelto",
+      "closed": "Cerrado"
     }
   }
 }
