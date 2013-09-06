@@ -36,7 +36,7 @@ parts:
   - translation:
       key: "txt.apps.search_app.global.loading"
       title: "Loading message"
-      value: "Initialising app..."
+      value: "Initializing app..."
   - translation:
       key: "txt.apps.search_app.global.searching"
       title: "Searching message"
