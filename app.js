@@ -134,15 +134,15 @@
         params.push( helpers.fmt('type:%@', searchType) );
       }
 
-      if ( this.$('.advanced-options').is(':visible') ) {
+      if (this.$('.advanced-options').is(':visible')) {
 
         // Status
         var filter = $search.find('#filter').val();
         var condition = $search.find('#condition').val();
         var value = $search.find('#value').val();
 
-        if ( filter && condition && value ) {
-          params.push( helpers.fmt('%@%@%@', filter, condition, value) );
+        if (filter && condition && value) {
+          params.push([filter, condition, value].join(''));
         }
 
         // Created
@@ -150,7 +150,7 @@
         var from = $search.find('#from').val();
         var to = $search.find('#to').val();
 
-        if ( range && (from || to) ) {
+        if (range && (from || to)) {
           if (from) {
             params.push( helpers.fmt('%@>%@', range, from) );
           }
@@ -266,7 +266,7 @@
         var customFieldName = 'custom_field_' + customFieldID,
             customFieldValue = this.ticket().customField(customFieldName);
 
-        if ( customFieldValue ) {
+        if (customFieldValue) {
           customFieldSuggestions.push( customFieldValue );
         }
       }, this);
@@ -319,7 +319,7 @@
       return _.inject( propertyPath.split('.'), function(context, segment) {
         if (context == null) { return context; }
         var obj = context[segment];
-        if ( _.isFunction(obj) ) { obj = obj.call(context); }
+        if (_.isFunction(obj)) { obj = obj.call(context); }
         return obj;
       }, this);
     },
