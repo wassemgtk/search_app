@@ -61,8 +61,10 @@
         this.requiredProperties.push('ticket.id', 'ticket.subject');
       }
 
-      this._allRequiredPropertiesExist();
-      this.switchTo('search');
+      _.defer((function() {
+        this.trigger('requiredProperties.ready');
+        this.switchTo('search');
+      }).bind(this));
     },
 
     suggestionClicked: function(e){
@@ -244,7 +246,7 @@
           suggestionsTemplate = "",
           keywords = "";
 
-      if ( this.settings.related_tickets && ticketSubject ) {
+      if (this.settings.related_tickets && ticketSubject) {
         keywords = this.extractKeywords(ticketSubject);
         searchSuggestions.push.apply( searchSuggestions, keywords );
       }
@@ -311,32 +313,6 @@
       }, '<option value="">-</option>');
 
       this.$(selector).html(htmlOptions);
-    },
-
-    _allRequiredPropertiesExist: function() {
-      if (this.requiredProperties.length > 0) {
-        var valid = this._validateRequiredProperty(this.requiredProperties[0]);
-
-        // prop is valid, remove from array
-        if (valid) {
-          this.requiredProperties.shift();
-        }
-
-        if (this.requiredProperties.length > 0 && this.currAttempt < this.MAX_ATTEMPTS) {
-          if (!valid) {
-            ++this.currAttempt;
-          }
-
-          _.delay(_.bind(this._allRequiredPropertiesExist, this), 100);
-          return;
-        }
-      }
-
-      if (this.currAttempt < this.MAX_ATTEMPTS) {
-        this.trigger('requiredProperties.ready');
-      } else {
-        this.showError(null, this.I18n.t('global.error.data'));
-      }
     },
 
     _safeGetPath: function(propertyPath) {
