@@ -24,7 +24,6 @@
 					<select name="filter" id="filter">
 						<option value="">-</option>
 						<option value="status">{{t "search.filter.status"}}</option>
-						<!-- option value="priority">{{t "search.filter.priority"}}</option -->
 					</select>
 					<select name="condition" id="condition">
 						<option value="">-</option>

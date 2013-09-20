@@ -61,8 +61,10 @@
         this.requiredProperties.push('ticket.id', 'ticket.subject');
       }
 
-      this._allRequiredPropertiesExist();
-      this.switchTo('search');
+      _.defer((function() {
+        this.trigger('requiredProperties.ready');
+        this.switchTo('search');
+      }).bind(this));
     },
 
     suggestionClicked: function(e){
@@ -132,15 +134,15 @@
         params.push( helpers.fmt('type:%@', searchType) );
       }
 
-      if ( this.$('.advanced-options').is(':visible') ) {
+      if (this.$('.advanced-options').is(':visible')) {
 
         // Status
         var filter = $search.find('#filter').val();
         var condition = $search.find('#condition').val();
         var value = $search.find('#value').val();
 
-        if ( filter && condition && value ) {
-          params.push( helpers.fmt('%@%@%@', filter, condition, value) );
+        if (filter && condition && value) {
+          params.push([filter, condition, value].join(''));
         }
 
         // Created
@@ -148,7 +150,7 @@
         var from = $search.find('#from').val();
         var to = $search.find('#to').val();
 
-        if ( range && (from || to) ) {
+        if (range && (from || to)) {
           if (from) {
             params.push( helpers.fmt('%@>%@', range, from) );
           }
@@ -244,7 +246,7 @@
           suggestionsTemplate = "",
           keywords = "";
 
-      if ( this.settings.related_tickets && ticketSubject ) {
+      if (this.settings.related_tickets && ticketSubject) {
         keywords = this.extractKeywords(ticketSubject);
         searchSuggestions.push.apply( searchSuggestions, keywords );
       }
@@ -264,7 +266,7 @@
         var customFieldName = 'custom_field_' + customFieldID,
             customFieldValue = this.ticket().customField(customFieldName);
 
-        if ( customFieldValue ) {
+        if (customFieldValue) {
           customFieldSuggestions.push( customFieldValue );
         }
       }, this);
@@ -313,37 +315,11 @@
       this.$(selector).html(htmlOptions);
     },
 
-    _allRequiredPropertiesExist: function() {
-      if (this.requiredProperties.length > 0) {
-        var valid = this._validateRequiredProperty(this.requiredProperties[0]);
-
-        // prop is valid, remove from array
-        if (valid) {
-          this.requiredProperties.shift();
-        }
-
-        if (this.requiredProperties.length > 0 && this.currAttempt < this.MAX_ATTEMPTS) {
-          if (!valid) {
-            ++this.currAttempt;
-          }
-
-          _.delay(_.bind(this._allRequiredPropertiesExist, this), 100);
-          return;
-        }
-      }
-
-      if (this.currAttempt < this.MAX_ATTEMPTS) {
-        this.trigger('requiredProperties.ready');
-      } else {
-        this.showError(null, this.I18n.t('global.error.data'));
-      }
-    },
-
     _safeGetPath: function(propertyPath) {
       return _.inject( propertyPath.split('.'), function(context, segment) {
         if (context == null) { return context; }
         var obj = context[segment];
-        if ( _.isFunction(obj) ) { obj = obj.call(context); }
+        if (_.isFunction(obj)) { obj = obj.call(context); }
         return obj;
       }, this);
     },
