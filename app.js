@@ -10,6 +10,11 @@
 
     agentOptions: [],
 
+    // Maps API error messages to translation keys, prefixed by search.error
+    errorsTranslations: {
+      "Invalid search: Invalid date format": "dateformat"
+    },
+
     events: {
       'app.activated': 'init',
       '*.changed': 'handleChanged',
@@ -289,9 +294,20 @@
     handleFail: function (data) {
       var response = JSON.parse(data.responseText);
 
+      var description = this.I18n.t('global.error.message');
+      if (response.description) {
+        var transKey = this.errorsTranslations[response.description];
+        if (transKey) {
+          description = this.I18n.t(helpers.fmt("search.error.%@", transKey));
+        }
+        else {
+          description = response.description;
+        }
+      }
+
       var error = {
         title: this.I18n.t('global.error.title'),
-        message: response.description || this.I18n.t('global.error.message')
+        message: description
       };
 
       var errorTemplate = this.renderTemplate('error', error);
