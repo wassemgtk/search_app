@@ -17,7 +17,7 @@
       "message": "Please try the previous action again.",
       "data": "Data could not be read."
     },
-    "loading": "Initialising app...",
+    "loading": "Initializing app...",
     "searching": "Searching...",
     "no_results": "No results found."
   },
