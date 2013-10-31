@@ -1,68 +1,68 @@
 {
   "app": {
-    "description": "Cerca",
-    "title": "Cerca",
+    "description": "Zoeken",
+    "title": "Zoeken",
     "parameters": {
       "custom_fields": {
-        "label": "ID campi personalizzati"
+        "label": "Aangepaste veld-id’s"
       },
       "related_tickets": {
-        "label": "Mostra parole chiave dall'oggetto come suggerimenti per la ricerca?"
+        "label": "Trefwoorden van onderwerp als zoeksuggestie weergeven?"
       }
     }
   },
   "global": {
     "error": {
-      "title": "Si è verificato un errore.",
-      "message": "Riprova l’azione precedente.",
-      "data": "Impossibile leggere i dati."
+      "title": "Er is een fout opgetreden.",
+      "message": "Probeer de vorige actie nog een keer.",
+      "data": "Kan gegevens niet lezen."
     },
-    "loading": "Inizializzazione app...",
-    "searching": "Ricerca in corso...",
-    "no_results": "Non è stato trovato nessun risultato"
+    "loading": "App initialiseren...",
+    "searching": "Zoeken...",
+    "no_results": "Geen resultaten gevonden."
   },
   "ticket": {
-    "id": "ID",
-    "subject": "OGGETTO"
+    "id": "Id",
+    "subject": "ONDERWERP"
   },
   "stopwords": {
     "exclusions": "zendesk,a,is,about,above,after,again,against,all,am,an,and,any,are,aren't,as,at,be,because,been,before,being,below,between,both,but,by,can't,cannot,could,couldn't,did,didn't,do,does,doesn't,doing,don't,down,during,each,few,for,from,further,had,hadn't,has,hasn't,have,haven't,having,he,he'd,he'll,he's,her,here,here's,hers,herself,him,himself,his,how,how's,i,i'd,i'll,i'm,i've,if,in,into,is,isn't,it,it's,its,itself,let's,me,more,most,mustn't,my,myself,no,nor,not,of,off,on,once,only,or,other,ought,our,ours,ourselves,out,over,own,same,shan't,she,she'd,she'll,she's,should,shouldn't,so,some,such,than,that,that's,the,their,theirs,them,themselves,then,there,there's,these,they,they'd,they'll,they're,they've,this,those,through,to,too,under,until,up,very,was,wasn't,we,we'd,we'll,we're,we've,were,weren't,what,what's,when,when's,where,where's,which,while,who,who's,whom,why,why's,with,won't,would,wouldn't,you,you'd,you'll,you're,you've,your,yours,yourself,yourselves"
   },
   "search": {
-    "search": "Ricerca:",
-    "results": "{{count}} risultato/i:",
-    "previous": "indietro",
-    "next": "avanti",
-    "suggestions": "Suggerimenti:",
-    "keywords": "Digita alcune parole chiave...",
+    "search": "Zoeken naar:",
+    "results": "{{count}} resultaten:",
+    "previous": "vorige",
+    "next": "volgende",
+    "suggestions": "Suggesties:",
+    "keywords": "Een aantal trefwoorden intypen...",
     "options": {
-      "advanced": "Avanzata",
-      "basic": "Di base"
+      "advanced": "Geavanceerd",
+      "basic": "Standaard"
     },
     "user": {
-      "loading": "caricamento in corso",
-      "assignee": "Assegnatario:"
+      "loading": "laden",
+      "assignee": "Medewerker:"
     },
     "type": {
-      "all": "tutto",
-      "tickets": "ticket",
-      "comments": "commenti",
-      "users": "utenti",
-      "organizations": "organizzazioni",
-      "groups": "gruppi",
-      "topics": "argomenti"
+      "all": "alles",
+      "tickets": "tickets",
+      "comments": "opmerkingen",
+      "users": "gebruikers",
+      "organizations": "organisaties",
+      "groups": "groepen",
+      "topics": "onderwerpen"
     },
     "result_type": {
-      "comment": "Commento",
-      "user": "Utente",
-      "organization": "Organizzazione",
-      "group": "Gruppo",
-      "topic": "Argomento"
+      "comment": "Opmerking",
+      "user": "Gebruiker",
+      "organization": "Organisatie",
+      "group": "Groep",
+      "topic": "Onderwerp"
     },
     "filter": {
-      "status": "Stato",
-      "created": "Creato",
-      "updated": "Aggiornato"
+      "status": "Status",
+      "created": "Gemaakt op",
+      "updated": "Bijgewerkt"
     },
     "condition": {
       "equal": "=",
@@ -70,12 +70,12 @@
       "less": "&lt;"
     },
     "value": {
-      "new": "Nuovo",
-      "open": "Aperta",
-      "pending": "In attesa",
-      "onhold": "In sospeso",
-      "solved": "Risolto",
-      "closed": "Chiuso"
+      "new": "Nieuw",
+      "open": "Open",
+      "pending": "In afwachting",
+      "onhold": "Geparkeerd",
+      "solved": "Opgelost",
+      "closed": "Gesloten"
     }
   }
 }

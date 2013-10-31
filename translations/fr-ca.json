@@ -1,68 +1,68 @@
 {
   "app": {
-    "description": "Søg",
-    "title": "Søg",
+    "description": "Rechercher",
+    "title": "Rechercher",
     "parameters": {
       "custom_fields": {
-        "label": "Brugerdefinerede felt-id'er"
+        "label": "ID de champs personnalisés"
       },
       "related_tickets": {
-        "label": "Vis nøgleord fra emne som søgeforslag?"
+        "label": "Afficher les mots-clés du sujet comme suggestion de recherche ?"
       }
     }
   },
   "global": {
     "error": {
-      "title": "Der forekom en fejl.",
-      "message": "Prøv forrige handling igen.",
-      "data": "Data kunne ikke læses."
+      "title": "Une erreur est survenue.",
+      "message": "Veuillez réessayer l’action précédente.",
+      "data": "Impossible de lire les données."
     },
-    "loading": "Initialiserer app...",
-    "searching": "Søger...",
-    "no_results": "Der blev ikke fundet resultater."
+    "loading": "Initialisation de l’application…",
+    "searching": "Recherche…",
+    "no_results": "Pas de résultats trouvés."
   },
   "ticket": {
-    "id": "Id",
-    "subject": "EMNE"
+    "id": "ID",
+    "subject": "SUJET"
   },
   "stopwords": {
     "exclusions": "zendesk,a,is,about,above,after,again,against,all,am,an,and,any,are,aren't,as,at,be,because,been,before,being,below,between,both,but,by,can't,cannot,could,couldn't,did,didn't,do,does,doesn't,doing,don't,down,during,each,few,for,from,further,had,hadn't,has,hasn't,have,haven't,having,he,he'd,he'll,he's,her,here,here's,hers,herself,him,himself,his,how,how's,i,i'd,i'll,i'm,i've,if,in,into,is,isn't,it,it's,its,itself,let's,me,more,most,mustn't,my,myself,no,nor,not,of,off,on,once,only,or,other,ought,our,ours,ourselves,out,over,own,same,shan't,she,she'd,she'll,she's,should,shouldn't,so,some,such,than,that,that's,the,their,theirs,them,themselves,then,there,there's,these,they,they'd,they'll,they're,they've,this,those,through,to,too,under,until,up,very,was,wasn't,we,we'd,we'll,we're,we've,were,weren't,what,what's,when,when's,where,where's,which,while,who,who's,whom,why,why's,with,won't,would,wouldn't,you,you'd,you'll,you're,you've,your,yours,yourself,yourselves"
   },
   "search": {
-    "search": "Søg efter:",
-    "results": "{{count}} resultat(er):",
-    "previous": "forrige",
-    "next": "næste ",
-    "suggestions": "Forslag:",
-    "keywords": "Indtast nogle nøgleord...",
+    "search": "Rechercher :",
+    "results": "{{count}} résultat(s):",
+    "previous": "précédente",
+    "next": "suivante ",
+    "suggestions": "Suggestions :",
+    "keywords": "Tapez des mots-clés…",
     "options": {
-      "advanced": "Advanced",
-      "basic": "Grundlæggende"
+      "advanced": "Avancée",
+      "basic": "De base"
     },
     "user": {
-      "loading": "indlæser",
-      "assignee": "Ansvarlig:"
+      "loading": "chargement en cours",
+      "assignee": "Assigné :"
     },
     "type": {
-      "all": "alt",
-      "tickets": "tickets",
-      "comments": "kommentarer",
-      "users": "brugere",
-      "organizations": "organisationer",
-      "groups": "grupper",
-      "topics": "emner"
+      "all": "tout",
+      "tickets": "billets",
+      "comments": "commentaires",
+      "users": "utilisateurs",
+      "organizations": "organisations",
+      "groups": "groupes",
+      "topics": "sujets"
     },
     "result_type": {
-      "comment": "Kommentar",
-      "user": "Bruger",
+      "comment": "Commentaire",
+      "user": "Utilisateur",
       "organization": "Organisation",
-      "group": "Gruppe",
-      "topic": "Emne"
+      "group": "Groupe",
+      "topic": "Sujet"
     },
     "filter": {
-      "status": "Status",
-      "created": "Oprettet",
-      "updated": "Opdateret"
+      "status": "Statut",
+      "created": "Heure de création",
+      "updated": "Heure de mise à jour"
     },
     "condition": {
       "equal": "=",
@@ -70,12 +70,12 @@
       "less": "&lt;"
     },
     "value": {
-      "new": "Ny",
-      "open": "Åben",
-      "pending": "Venter",
-      "onhold": "I bero",
-      "solved": "Løst",
-      "closed": "Lukket"
+      "new": "Nouveau",
+      "open": "Ouvert",
+      "pending": "En attente",
+      "onhold": "En pause",
+      "solved": "Résolu",
+      "closed": "Clos"
     }
   }
 }
