@@ -31,8 +31,8 @@
   "search": {
     "search": "Rechercher :",
     "results": "{{count}} résultat(s):",
-    "previous": "précédente",
-    "next": "suivante ",
+    "previous": "préc.",
+    "next": "suiv.",
     "suggestions": "Suggestions :",
     "keywords": "Tapez des mots-clés…",
     "options": {
