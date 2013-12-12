@@ -159,7 +159,7 @@ parts:
       value: "Updated"
   - translation:
       key: "txt.apps.search_app.search.filter.dateplaceholder"
-      title: "Dropdown option"
+      title: "Date placeholder where agents and admins can input the date range to search for a ticket"
       value: "YYYY-MM-DD"
   - translation:
       key: "txt.apps.search_app.search.condition.equal"
