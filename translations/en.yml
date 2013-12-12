@@ -158,6 +158,10 @@ parts:
       title: "Dropdown option"
       value: "Updated"
   - translation:
+      key: "txt.apps.search_app.search.filter.dateplaceholder"
+      title: "Dropdown option"
+      value: "YYYY-MM-DD"
+  - translation:
       key: "txt.apps.search_app.search.condition.equal"
       title: "equal sign should remain the same"
       value: "="
