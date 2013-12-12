@@ -15,7 +15,9 @@
     "error": {
       "title": "An error occurred.",
       "message": "Please try the previous action again.",
-      "data": "Data could not be read."
+      "data": "Data could not be read.",
+      "invalid": "Invalid search: Invalid date format.",
+      "unavailable": "Sorry, we could not complete your search query. Please try again in a moment."
     },
     "loading": "Initializing app...",
     "searching": "Searching...",

@@ -288,10 +288,19 @@
 
     handleFail: function (data) {
       var response = JSON.parse(data.responseText);
+      var message = "";
+
+      if (response.error) {
+        message = this.I18n.t("global.error.%@".fmt(response.error));
+      } else if (response.description) {
+        message = response.description;
+      } else {
+        message = this.I18n.t('global.error.message');
+      }
 
       var error = {
         title: this.I18n.t('global.error.title'),
-        message: response.description || this.I18n.t('global.error.message')
+        message: message
       };
 
       var errorTemplate = this.renderTemplate('error', error);
