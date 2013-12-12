@@ -62,7 +62,8 @@
     "filter": {
       "status": "Status",
       "created": "Created",
-      "updated": "Updated"
+      "updated": "Updated",
+      "dateplaceholder": "YYYY-MM-DD"
     },
     "condition": {
       "equal": "=",

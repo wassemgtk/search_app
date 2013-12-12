@@ -47,9 +47,9 @@
 						<option value="created">{{t "search.filter.created"}}</option>
 						<option value="updated">{{t "search.filter.updated"}}</option>
 					</select>
-					<input type="text" id="from" class="date" placeholder="YYYY-MM-DD">
+					<input type="text" id="from" class="date" placeholder="{{t "search.filter.dateplaceholder"}}">
 					 -
-					<input type="text" id="to" class="date" placeholder="YYYY-MM-DD">
+					<input type="text" id="to" class="date" placeholder="{{t "search.filter.dateplaceholder"}}">
 				</div>
 
 				<div class="advanced-option">
