@@ -200,4 +200,4 @@ parts:
   - translation:
       key: "txt.apps.search_app.global.error.unavailable"
       title: "Error message when the search server is unavailable"
-      value: "Sorry, we could not complete your search query. Please try again in a moment."
+      value: "Sorry, we could not complete your search query. Please try again."
