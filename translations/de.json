@@ -15,7 +15,9 @@
     "error": {
       "title": "Fehler aufgetreten.",
       "message": "Versuchen Sie die vorherige Aktion noch einmal.",
-      "data": "Daten konnten nicht gelesen werden."
+      "data": "Daten konnten nicht gelesen werden.",
+      "invalid": "Ungültige Suche: Ungültiges Datumsformat.",
+      "unavailable": "Ihre Suchanfrage konnte leider nicht abgeschlossen werden. Bitte versuchen Sie es erneut."
     },
     "loading": "App wird initialisiert...",
     "searching": "Suchen...",

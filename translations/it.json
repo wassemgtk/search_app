@@ -15,7 +15,9 @@
     "error": {
       "title": "Si è verificato un errore.",
       "message": "Riprova l’azione precedente.",
-      "data": "Impossibile leggere i dati."
+      "data": "Impossibile leggere i dati.",
+      "invalid": "Ricerca non valida: Formato data non valido.",
+      "unavailable": "Impossibile completare la query della ricerca. Riprovate."
     },
     "loading": "Inizializzazione app...",
     "searching": "Ricerca in corso...",
@@ -30,7 +32,7 @@
   },
   "search": {
     "search": "Ricerca:",
-    "results": "{{count}} risultato/i:",
+    "results": "{{count}} risultati:",
     "previous": "indietro",
     "next": "avanti",
     "suggestions": "Suggerimenti:",

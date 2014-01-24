@@ -15,7 +15,9 @@
     "error": {
       "title": "Une erreur est survenue.",
       "message": "Veuillez réessayer l’action précédente.",
-      "data": "Impossible de lire les données."
+      "data": "Impossible de lire les données.",
+      "invalid": "Recherche non valide : Format de date non valide. ",
+      "unavailable": "Désolés, nous n’avons pas pu terminer votre recherche. Merci de réessayer."
     },
     "loading": "Initialisation de l’application…",
     "searching": "Recherche…",

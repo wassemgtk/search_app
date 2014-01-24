@@ -7,7 +7,7 @@
         "label": "IDs de campo personalizado"
       },
       "related_tickets": {
-        "label": "Mostrar palavras-chave como sugestão de pesquisa?"
+        "label": "Mostrar palavras-chave do assunto como sugestão de pesquisa?"
       }
     }
   },
@@ -15,7 +15,9 @@
     "error": {
       "title": "Ocorreu um erro.",
       "message": "Repita a ação anterior.",
-      "data": "Não foi possível ler os dados."
+      "data": "Não foi possível ler os dados.",
+      "invalid": "Pesquisa inválida: formato de data inválido.",
+      "unavailable": "Não foi possível completar sua pesquisa. Tente novamente."
     },
     "loading": "Inicializando o aplicativo...",
     "searching": "Pesquisando...",
