@@ -15,7 +15,9 @@
     "error": {
       "title": "Der forekom en fejl.",
       "message": "Prøv forrige handling igen.",
-      "data": "Data kunne ikke læses."
+      "data": "Data kunne ikke læses.",
+      "invalid": "Ugyldig søgning: Ugyldigt datoformat.",
+      "unavailable": "Vi kunne desværre ikke afslutte din søgeforespørgsel. Prøv igen."
     },
     "loading": "Initialiserer app...",
     "searching": "Søger...",
@@ -36,7 +38,7 @@
     "suggestions": "Forslag:",
     "keywords": "Indtast nogle nøgleord...",
     "options": {
-      "advanced": "Advanced",
+      "advanced": "Avanceret",
       "basic": "Grundlæggende"
     },
     "user": {

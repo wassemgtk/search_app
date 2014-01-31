@@ -15,7 +15,9 @@
     "error": {
       "title": "Er is een fout opgetreden.",
       "message": "Probeer de vorige actie nog een keer.",
-      "data": "Kan gegevens niet lezen."
+      "data": "Kan gegevens niet lezen.",
+      "invalid": "Ongeldige zoekopdracht: Ongeldige datumnotatie.",
+      "unavailable": "Wij kunnen uw zoekopdracht niet uitvoeren. Probeer het opnieuw."
     },
     "loading": "App initialiseren...",
     "searching": "Zoeken...",
