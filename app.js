@@ -196,22 +196,24 @@
     handleResults: function (data) {
       var ticketId = this.ticket().id();
 
-      _.each(data.results, function(result, index) {
+      data.results = _.filter(data.results, function(result, index) {
         result["is_" + result.result_type] = true;
 
         // format descriptions
         if (result.is_ticket) {
-          // remove current ticket from results
-          if (result.id === ticketId) data.results.splice(index,1);
-          result.description = result.description.substr(0,300).concat("...");
+          if (result.id !== ticketId) {
+            result.description = result.description.substr(0,300).concat("...");
+            return result;
+          }
         }
         else if (this.is_topic) {
           result.body = result.body.substr(0,300).concat("...");
+          return result;
         }
 
       });
 
-      data.count = this.I18n.t('search.results', { count: data.count });
+      data.count = this.I18n.t('search.results', { count: data.results.length });
       var resultsTemplate = this.renderTemplate('results', data);
 
       this.$('.searching').hide();
