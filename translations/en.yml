@@ -3,7 +3,6 @@ title: "Sidebar Search App"
 packages:
   - default
   - app_search_app
-  - classic
 
 parts:
   - translation:
