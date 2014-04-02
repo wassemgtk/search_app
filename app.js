@@ -18,8 +18,8 @@
       'getUsers.done': 'handleUsers',
       'click .options a': 'toggleAdvanced',
       'click .suggestion': 'suggestionClicked',
-      'click .search-icon': 'doTheSearch',
-      'click .page': 'handleChangePage',
+      'click #search-submit': 'doTheSearch',
+      'click .page-link': 'fetchPage',
       'keydown .search-box': 'handleKeydown',
       'requiredProperties.ready': 'loadSearchSuggestions'
     },
@@ -77,6 +77,7 @@
     },
 
     toggleAdvanced: function(e){
+      e.preventDefault();
       var $advancedOptions = this.$('.advanced-options-wrapper');
       if($advancedOptions.is(':hidden')){
         this.$('.options .basic').show();
@@ -186,11 +187,27 @@
       }
     },
 
-    handleChangePage: function(e){
+    fetchPage: function(e) {
+      e.preventDefault();
       this.$('.results').empty();
       this.$('.searching').show();
+      var pageUrl = this.$(e.currentTarget).data('url');
+      this.ajax('searchDesk', { pageUrl: pageUrl });
+    },
 
-      this.ajax('searchDesk', { pageUrl: this.$(e.target).data('url') });
+    paginate: function(data) {
+      data.page_count = Math.ceil(data.count / this.PER_PAGE);
+      data.is_paged = (data.page_count > 1) ? true : false;
+
+      // determine current page number
+      if (data.previous_page === null) {
+        data.current_page = 1;
+      } else if (data.next_page === null) {
+        data.current_page = data.page_count;
+      } else {
+        var nextPageNum = this._getUrlParams(data.next_page).page;
+        data.current_page = nextPageNum - 1;
+      }
     },
 
     handleResults: function (data) {
@@ -205,17 +222,15 @@
             result.description = result.description.substr(0,300).concat("...");
             return result;
           }
-        }
-        else if (this.is_topic) {
-          result.body = result.body.substr(0,300).concat("...");
+        } else {
           return result;
         }
 
       });
 
-      data.count = this.I18n.t('search.results', { count: data.results.length });
+      this.paginate(data);
+      data.count = this.I18n.t('search.results', { count: data.count });
       var resultsTemplate = this.renderTemplate('results', data);
-
       this.$('.searching').hide();
       this.$('.results').html(resultsTemplate);
     },
@@ -338,6 +353,22 @@
     _validateRequiredProperty: function(propertyPath) {
       var value = this._safeGetPath(propertyPath);
       return value != null && value !== '' && value !== 'no';
+    },
+
+    _getUrlParams: function(url) {
+      var queryString = url.substring(url.indexOf('?') + 1) || "",
+          keyValPairs = [],
+          params      = {};
+
+      if (queryString.length) {
+        keyValPairs = queryString.split('&');
+        for (var pairNum = 0; pairNum < keyValPairs.length; pairNum++) {
+          var key = keyValPairs[pairNum].split('=')[0];
+          params[key] = (keyValPairs[pairNum].split('=')[1]);
+        }
+      }
+
+      return params;
     }
 
   };

@@ -8,14 +8,14 @@
         {{#if is_ticket}}
           <tr class="_tooltip" data-title="{{description}}">
             <td><a href="#/tickets/{{this.id}}"><b>#{{this.id}}</b> {{this.subject}}</a></td>
-            <td class="type"></td>
+            <td class="type">{{t "search.result_type.ticket"}}</td>
           </tr>
         {{/if}}
 
-        {{#if is_comment}}
+        {{#if is_article}}
           <tr>
-            <td><a href="#/tickets/{{this.id}}">{{this.subject}}</a></td>
-            <td class="type">{{t "search.result_type.comment"}}</td>
+            <td><a href="/hc/articles/{{this.id}}">{{this.name}}</a></td>
+            <td class="type">{{t "search.result_type.article"}}</td>
           </tr>
         {{/if}}
 
@@ -41,7 +41,7 @@
         {{/if}}
 
         {{#if is_topic}}
-          <tr class="_tooltip" data-title="{{body}}">
+          <tr>
             <td><a href="/entries/{{this.id}}" target="_blank">{{this.title}}</a></td>
             <td class="type">{{t "search.result_type.topic"}}</td>
           </tr>
@@ -52,12 +52,18 @@
     </tbody>
   </table>
 
-  {{#if previous_page}}
-    <span class="left page"><a data-url="{{previous_page}}" href="#">&larr; {{t "search.previous"}}</a></span>
+ {{#if is_paged}}
+    <div class="search-results-pagination clearfix">
+      <p class="paging-counter">Page {{current_page}} of {{page_count}}</p>
+      {{#if previous_page}}
+        <a data-url="{{previous_page}}" href="#" class="left page-link">&larr; {{t "search.previous"}}</a>
+      {{/if}}
+      {{#if next_page}}
+        <a data-url="{{next_page}}" href="#" class="right page-link">{{t "search.next"}} &rarr;</a>
+      {{/if}}
+    </div>
   {{/if}}
-  {{#if next_page}}
-    <span class="right page"><a data-url="{{next_page}}" href="#">{{t "search.next"}} &rarr;</a></span>
-  {{/if}}
+
 {{else}}
   {{t "global.no_results"}}
 {{/if}}

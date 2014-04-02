@@ -1,77 +1,77 @@
 <div class="search-container">
-	<form action="" class="search">
-		<div class="options">
-			<div class="left">
-				<span>{{t "search.search"}}</span>
-				<select name="type" id="type">
-					<option value="all">{{t "search.type.all"}}</option>
-					<option value="ticket">{{t "search.type.tickets"}}</option>
-					<option value="comment">{{t "search.type.comments"}}</option>
-					<option value="user">{{t "search.type.users"}}</option>
-					<option value="organization">{{t "search.type.organizations"}}</option>
-					<option value="entry">{{t "search.type.topics"}}</option>
-				</select>
-			</div>
-			<div class="toggle-advanced">
-				<a class="advanced" href="#">{{t "search.options.advanced"}}</a>
-				<a class="basic" href="#">{{t "search.options.basic"}}</a>
-			</div>
-		</div>
+  <form action="" class="search">
+    <div class="options">
+      <div class="left">
+        <span>{{t "search.search"}}</span>
+        <select name="type" id="type">
+          <option value="all">{{t "search.type.all"}}</option>
+          <option value="ticket">{{t "search.type.tickets"}}</option>
+          <option value="article">{{t "search.type.articles"}}</option>
+          <option value="user">{{t "search.type.users"}}</option>
+          <option value="organization">{{t "search.type.organizations"}}</option>
+          <option value="entry">{{t "search.type.topics"}}</option>
+        </select>
+      </div>
+      <div class="toggle-advanced">
+        <a class="advanced" href="#">{{t "search.options.advanced"}}</a>
+        <a class="basic" href="#">{{t "search.options.basic"}}</a>
+      </div>
+    </div>
 
-		<div class="advanced-options-wrapper">
-			<div class="advanced-options">
-				<div class="advanced-option">
-					<select name="filter" id="filter">
-						<option value="">-</option>
-						<option value="status">{{t "search.filter.status"}}</option>
-					</select>
-					<select name="condition" id="condition">
-						<option value="">-</option>
-						<option value=":">{{t "search.condition.equal"}}</option>
-						<option value=">">{{t "search.condition.greater"}}</option>
-						<option value="<">{{t "search.condition.less"}}</option>
-					</select>
-					<select name="value" id="value">
-					  <option value="">-</option>
-						<option value="new">{{t "search.value.new"}}</option>
-						<option value="open">{{t "search.value.open"}}</option>
-						<option value="pending">{{t "search.value.pending"}}</option>
-						<option value="solved">{{t "search.value.solved"}}</option>
-						<option value="closed">{{t "search.value.closed"}}</option>
-					</select>
-				</div>
+    <div class="advanced-options-wrapper">
+      <div class="advanced-options">
+        <div class="advanced-option">
+          <select name="filter" id="filter">
+            <option value="">-</option>
+            <option value="status">{{t "search.filter.status"}}</option>
+          </select>
+          <select name="condition" id="condition">
+            <option value="">-</option>
+            <option value=":">{{t "search.condition.equal"}}</option>
+            <option value=">">{{t "search.condition.greater"}}</option>
+            <option value="<">{{t "search.condition.less"}}</option>
+          </select>
+          <select name="value" id="value">
+            <option value="">-</option>
+            <option value="new">{{t "search.value.new"}}</option>
+            <option value="open">{{t "search.value.open"}}</option>
+            <option value="pending">{{t "search.value.pending"}}</option>
+            <option value="solved">{{t "search.value.solved"}}</option>
+            <option value="closed">{{t "search.value.closed"}}</option>
+          </select>
+        </div>
 
-				<div class="advanced-option">
-					<select name="range" id="range">
-						<option value="">-</option>
-						<option value="created">{{t "search.filter.created"}}</option>
-						<option value="updated">{{t "search.filter.updated"}}</option>
-					</select>
-					<input type="text" id="from" class="date" placeholder="YYYY-MM-DD">
-					 -
-					<input type="text" id="to" class="date" placeholder="YYYY-MM-DD">
-				</div>
+        <div class="advanced-option">
+          <select name="range" id="range">
+            <option value="">-</option>
+            <option value="created">{{t "search.filter.created"}}</option>
+            <option value="updated">{{t "search.filter.updated"}}</option>
+          </select>
+          <input type="text" id="from" class="date" placeholder="YYYY-MM-DD">
+           -
+          <input type="text" id="to" class="date" placeholder="YYYY-MM-DD">
+        </div>
 
-				<div class="advanced-option">
-					<label class="assignee-label" for="assignee">{{t "search.user.assignee"}}</label>
-					<select name="assignee" id="assignee">
-						<option value="loading">{{t "search.user.loading"}}</option>
-					</select>
-				</div>
-			</div>
-		</div>
+        <div class="advanced-option">
+          <label class="assignee-label" for="assignee">{{t "search.user.assignee"}}</label>
+          <select name="assignee" id="assignee">
+            <option value="loading">{{t "search.user.loading"}}</option>
+          </select>
+        </div>
+      </div>
+    </div>
 
-		<div class="search-bar">
-			<div class="search-wrapper">
-				<input class="search-box" type="text">
-				<span class="search-icon"></span>
-			</div>
-			<div class="suggestions"></div>
-		</div>
-	</form>
+    <div class="search-bar">
+      <div class="search-wrapper input-append">
+        <input class="search-box" type="text">
+        <button id="search-submit" class="btn" type="button">search</button>
+      </div>
+      <div class="suggestions"></div>
+    </div>
+  </form>
 </div>
 <div class="results-wrapper">
-	<div class="searching">{{t "global.searching"}}</div>
-	<div class="results">
-	</div>
+  <div class="searching">{{t "global.searching"}}</div>
+  <div class="results">
+  </div>
 </div>
