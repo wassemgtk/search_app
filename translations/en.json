@@ -130,6 +130,10 @@
         "title": "Dropdown option",
         "value": "tickets"
       },
+      "articles": {
+        "title": "Dropdown option",
+        "value": "articles"
+      },
       "comments": {
         "title": "Dropdown option",
         "value": "comments"
@@ -152,6 +156,14 @@
       }
     },
     "result_type": {
+      "ticket": {
+        "title": "Dropdown option",
+        "value": "Ticket"
+      },
+      "article": {
+        "title": "Dropdown option",
+        "value": "Article"
+      },
       "comment": {
         "title": "Dropdown option",
         "value": "Comment"
