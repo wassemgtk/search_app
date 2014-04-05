@@ -116,7 +116,7 @@ parts:
   - translation:
       key: "txt.apps.search_app.search.type.users"
       title: "Dropdown option"
-      value: "users"
+      value: "people"
   - translation:
       key: "txt.apps.search_app.search.type.organizations"
       title: "Dropdown option"
