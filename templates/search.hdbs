@@ -7,7 +7,7 @@
           <option value="all">{{t "search.type.all"}}</option>
           <option value="ticket">{{t "search.type.tickets"}}</option>
           <option value="article">{{t "search.type.articles"}}</option>
-          <option value="user">{{t "search.type.users"}}</option>
+          <option value="user">{{t "search.type.people"}}</option>
           <option value="organization">{{t "search.type.organizations"}}</option>
           <option value="entry">{{t "search.type.topics"}}</option>
         </select>
