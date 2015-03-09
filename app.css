@@ -125,3 +125,7 @@ select {
     }
   }
 }
+
+.brand-label {
+  margin-bottom: 7px;
+}

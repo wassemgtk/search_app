@@ -11,11 +11,12 @@
     agentOptions: [],
 
     events: {
-      'app.activated': 'init',
+      'app.created': 'init',
       '*.changed': 'handleChanged',
       'searchDesk.done': 'handleResults',
       'searchDesk.fail': 'handleFail',
       'getUsers.done': 'handleUsers',
+      'getBrands.done': 'getBrandsDone',
       'click .options a': 'toggleAdvanced',
       'click .suggestion': 'suggestionClicked',
       'click #search-submit': 'doTheSearch',
@@ -25,6 +26,11 @@
     },
 
     requests: {
+
+      getBrands: {
+        url: '/api/v2/brands.json',
+        type: 'GET'
+      },
 
       getUsers: function(pageUrl) {
         return {
@@ -43,9 +49,8 @@
     },
 
     init: function(data) {
-      if(!data.firstLoad){
-        return;
-      }
+      this.hasMultipleBrands = false;
+      this.ajax('getBrands');
 
       this.hasActivated = true;
       this.currAttempt = 0;
@@ -90,6 +95,7 @@
         $advancedOptions.addClass('visible');
       } else {
         $advancedOptions.slideUp();
+
         this.$('.options .advanced').show();
         this.$('.options .basic').hide();
         $advancedOptions.removeClass('visible');
@@ -122,6 +128,24 @@
         });
 
         this._populateSelectBox('#assignee', this.agentOptions);
+      }
+    },
+
+    getBrandsDone: function(data) {
+      this.hasMultipleBrands = data.brands.length > 1;
+
+      if (this.hasMultipleBrands) {
+        var options = _.map(data.brands, function(brand) {
+          return { value: brand.id, label: brand.name };
+        });
+
+        this.$('.advanced-options')
+            .append(this.renderTemplate('brand-filter', { options: options }))
+            .find('.brand-filter')
+            .zdSelectMenu();
+
+        // Set advanced search drop-down value to this current ticket's brand
+        this.$('.brand-filter').zdSelectMenu('setValue', this.ticket().brand().id());
       }
     },
 
@@ -167,6 +191,11 @@
           params.push( helpers.fmt('assignee:"%@"', assignee) );
         }
 
+        if (this.hasMultipleBrands) {
+          var brand = $search.find('.brand-filter').zdSelectMenu('value');
+
+          params.push( helpers.fmt('brand_id:"%@"', brand) );
+        }
       }
 
       return helpers.fmt('%@ %@', searchTerm, params.join(" "));

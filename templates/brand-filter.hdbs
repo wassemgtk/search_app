@@ -1,0 +1,9 @@
+<div class="advanced-option">
+  <label class="brand-label" for="brand">Brand:</label>
+  <select class="brand-filter" name="brand" data-zd-type="select_menu">
+    <option value="*">All brands</option>
+    {{#each options}}
+      <option value='{{value}}'>{{label}}</option>
+    {{/each}}
+  </select>
+</div>
