@@ -144,8 +144,9 @@
             .find('.brand-filter')
             .zdSelectMenu();
 
+        var brand = this.ticket().brand();
         // Set advanced search drop-down value to this current ticket's brand
-        this.$('.brand-filter').zdSelectMenu('setValue', this.ticket().brand().id());
+        this.$('.brand-filter').zdSelectMenu('setValue', brand && brand.id() || '*');
       }
     },
 
