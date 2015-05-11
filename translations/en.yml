@@ -173,14 +173,17 @@ parts:
       key: "txt.apps.search_app.search.condition.equal"
       title: "equal sign should remain the same"
       value: "="
+      hidden: true
   - translation:
       key: "txt.apps.search_app.search.condition.greater"
       title: "greater than operator should remain the same"
       value: ">"
+      hidden: true
   - translation:
       key: "txt.apps.search_app.search.condition.less"
       title: "smaller than operator should remain the same"
       value: "<"
+      hidden: true
   - translation:
       key: "txt.apps.search_app.search.value.new"
       title: "Dropdown option"
