@@ -14,7 +14,7 @@
 
         {{#if is_article}}
           <tr>
-            <td><a href="/hc/articles/{{this.id}}">{{this.name}}</a></td>
+            <td><a href="{{this.html_url}}" target="_blank">{{this.name}}</a></td>
             <td class="type">{{t "search.result_type.article"}}</td>
           </tr>
         {{/if}}
