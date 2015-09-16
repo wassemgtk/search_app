@@ -34,7 +34,7 @@
     "search": "Искать:",
     "results": "{{count}} результатов:",
     "previous": "пред.",
-    "next": "след.",
+    "next": "далее",
     "suggestions": "Предложения:",
     "keywords": "Введите ключевые слова...",
     "options": {
@@ -48,13 +48,16 @@
     "type": {
       "all": "все",
       "tickets": "тикеты",
+      "articles": "статьи",
       "comments": "комментарии",
-      "users": "пользователи",
+      "people": "люди",
       "organizations": "организации",
       "groups": "группы",
       "topics": "темы"
     },
     "result_type": {
+      "ticket": "Тикет",
+      "article": "Статья",
       "comment": "Комментарий",
       "user": "Пользователь",
       "organization": "Организация",
@@ -68,8 +71,8 @@
     },
     "condition": {
       "equal": "=",
-      "greater": ">",
-      "less": "&lt;"
+      "greater": "&gt;",
+      "less": ""
     },
     "value": {
       "new": "Новый",

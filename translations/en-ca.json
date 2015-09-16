@@ -19,7 +19,7 @@
       "invalid": "Invalid search: Invalid date format.",
       "unavailable": "Sorry, we could not complete your search query. Please try again."
     },
-    "loading": "Initializing app...",
+    "loading": "Initialising app...",
     "searching": "Searching...",
     "no_results": "No results found."
   },
@@ -48,16 +48,19 @@
     "type": {
       "all": "everything",
       "tickets": "tickets",
+      "articles": "articles",
       "comments": "comments",
-      "users": "users",
-      "organizations": "organizations",
+      "people": "people",
+      "organizations": "organisations",
       "groups": "groups",
       "topics": "topics"
     },
     "result_type": {
+      "ticket": "Ticket",
+      "article": "Article",
       "comment": "Comment",
       "user": "User",
-      "organization": "Organization",
+      "organization": "Organisation",
       "group": "Group",
       "topic": "Topic"
     },
@@ -68,8 +71,8 @@
     },
     "condition": {
       "equal": "=",
-      "greater": ">",
-      "less": "&lt;"
+      "greater": "&gt;",
+      "less": ""
     },
     "value": {
       "new": "New",

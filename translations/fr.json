@@ -1,7 +1,7 @@
 {
   "app": {
-    "description": "Rechercher",
-    "title": "Rechercher",
+    "description": "Recherche",
+    "title": "Recherche",
     "parameters": {
       "custom_fields": {
         "label": "ID de champs personnalisés"
@@ -48,13 +48,16 @@
     "type": {
       "all": "tout",
       "tickets": "tickets",
+      "articles": "articles",
       "comments": "commentaires",
-      "users": "utilisateurs",
+      "people": "utilisateurs",
       "organizations": "organisations",
       "groups": "groupes",
       "topics": "sujets"
     },
     "result_type": {
+      "ticket": "Ticket",
+      "article": "Article",
       "comment": "Commentaire",
       "user": "Utilisateur",
       "organization": "Organisation",
@@ -68,8 +71,8 @@
     },
     "condition": {
       "equal": "=",
-      "greater": ">",
-      "less": "&lt;"
+      "greater": "&gt;",
+      "less": ""
     },
     "value": {
       "new": "Nouveau",

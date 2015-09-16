@@ -1,83 +1,86 @@
 {
   "app": {
-    "description": "Search",
-    "title": "Search",
+    "description": "Arama",
+    "title": "Arama",
     "parameters": {
       "custom_fields": {
-        "label": "Custom field IDs"
+        "label": "Özel alan kimlikleri"
       },
       "related_tickets": {
-        "label": "Show keywords from subject as search suggestion?"
+        "label": "Arama önerisi olarak konudan anahtar sözcükler gösterilsin mi?"
       }
     }
   },
   "global": {
     "error": {
-      "title": "An error occurred.",
-      "message": "Please try the previous action again.",
-      "data": "Data could not be read.",
-      "invalid": "Invalid search: Invalid date format.",
-      "unavailable": "Sorry, we could not complete your search query. Please try again."
+      "title": "Bir hata oluştu.",
+      "message": "Lütfen önceki eylemi tekrar deneyin.",
+      "data": "Veriler okunamadı.",
+      "invalid": "Geçersiz arama: Geçersiz tarih formatı.",
+      "unavailable": "Üzgünüz, arama sorgunuzu tamamlayamadık. Lütfen tekrar deneyin."
     },
-    "loading": "Initializing app...",
-    "searching": "Searching...",
-    "no_results": "No results found."
+    "loading": "Uygulama başlatılıyor...",
+    "searching": "Arıyor...",
+    "no_results": "Hiçbir sonuç bulunamadı."
   },
   "ticket": {
-    "id": "ID",
-    "subject": "SUBJECT"
+    "id": "No",
+    "subject": "KONU"
   },
   "stopwords": {
     "exclusions": "zendesk,a,is,about,above,after,again,against,all,am,an,and,any,are,aren't,as,at,be,because,been,before,being,below,between,both,but,by,can't,cannot,could,couldn't,did,didn't,do,does,doesn't,doing,don't,down,during,each,few,for,from,further,had,hadn't,has,hasn't,have,haven't,having,he,he'd,he'll,he's,her,here,here's,hers,herself,him,himself,his,how,how's,i,i'd,i'll,i'm,i've,if,in,into,is,isn't,it,it's,its,itself,let's,me,more,most,mustn't,my,myself,no,nor,not,of,off,on,once,only,or,other,ought,our,ours,ourselves,out,over,own,same,shan't,she,she'd,she'll,she's,should,shouldn't,so,some,such,than,that,that's,the,their,theirs,them,themselves,then,there,there's,these,they,they'd,they'll,they're,they've,this,those,through,to,too,under,until,up,very,was,wasn't,we,we'd,we'll,we're,we've,were,weren't,what,what's,when,when's,where,where's,which,while,who,who's,whom,why,why's,with,won't,would,wouldn't,you,you'd,you'll,you're,you've,your,yours,yourself,yourselves"
   },
   "search": {
-    "search": "Search for:",
-    "results": "{{count}} result(s):",
-    "previous": "previous",
-    "next": "next",
-    "suggestions": "Suggestions:",
-    "keywords": "Type in some keywords...",
+    "search": "Şunu ara:",
+    "results": "{{count}} sonuç:",
+    "previous": "önceki",
+    "next": "sonraki",
+    "suggestions": "Öneriler:",
+    "keywords": "Birkaç anahtar sözcük yazın...",
     "options": {
-      "advanced": "Advanced",
-      "basic": "Basic"
+      "advanced": "Gelişmiş",
+      "basic": "Temel "
     },
     "user": {
-      "loading": "loading",
-      "assignee": "Assignee:"
+      "loading": "yükleniyor",
+      "assignee": "Atanan:"
     },
     "type": {
-      "all": "everything",
-      "tickets": "tickets",
-      "comments": "comments",
-      "users": "users",
-      "organizations": "organizations",
-      "groups": "groups",
-      "topics": "topics"
+      "all": "her şey",
+      "tickets": "kayıtlar",
+      "articles": "makaleler",
+      "comments": "yorumlar",
+      "people": "kişiler",
+      "organizations": "organizasyon birimleri",
+      "groups": "gruplar",
+      "topics": "konu başlıkları"
     },
     "result_type": {
-      "comment": "Comment",
-      "user": "User",
-      "organization": "Organization",
-      "group": "Group",
-      "topic": "Topic"
+      "ticket": "Kayıt",
+      "article": "Makale",
+      "comment": "Yorum",
+      "user": "Kullanıcı",
+      "organization": "Organizasyon birimi",
+      "group": "Grup",
+      "topic": "Konu başlığı"
     },
     "filter": {
-      "status": "Status",
-      "created": "Created",
-      "updated": "Updated"
+      "status": "Durum",
+      "created": "Oluşturma tarihi",
+      "updated": "Güncellendi"
     },
     "condition": {
       "equal": "=",
-      "greater": ">",
-      "less": "&lt;"
+      "greater": "&gt;",
+      "less": ""
     },
     "value": {
-      "new": "New",
-      "open": "Open",
-      "pending": "Pending",
-      "onhold": "On-hold",
-      "solved": "Solved",
-      "closed": "Closed"
+      "new": "Yeni",
+      "open": "Açık",
+      "pending": "Beklemede",
+      "onhold": "Askıda",
+      "solved": "Çözüldü",
+      "closed": "Kapalı"
     }
   }
 }

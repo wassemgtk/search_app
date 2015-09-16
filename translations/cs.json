@@ -1,0 +1,86 @@
+{
+  "app": {
+    "description": "Hledat",
+    "title": "Hledat",
+    "parameters": {
+      "custom_fields": {
+        "label": "ID vlastních polí"
+      },
+      "related_tickets": {
+        "label": "Zobrazit klíčová slova z předmětu jako návrhy hledání?"
+      }
+    }
+  },
+  "global": {
+    "error": {
+      "title": "Došlo k chybě.",
+      "message": "Zkuste prosím provést předchozí akci znovu.",
+      "data": "Nelze přečíst data.",
+      "invalid": "Neplatné hledání: Neplatný formát data.",
+      "unavailable": "Je nám líto, ale nemohli jsme dokončit vámi požadované hledání. Zkuste to prosím znovu."
+    },
+    "loading": "Probíhá inicializace aplikace...",
+    "searching": "Probíhá hledání...",
+    "no_results": "Nebyly nalezeny žádné výsledky."
+  },
+  "ticket": {
+    "id": "ID",
+    "subject": "PŘEDMĚT"
+  },
+  "stopwords": {
+    "exclusions": "zendesk,a,is,about,above,after,again,against,all,am,an,and,any,are,aren't,as,at,be,because,been,before,being,below,between,both,but,by,can't,cannot,could,couldn't,did,didn't,do,does,doesn't,doing,don't,down,during,each,few,for,from,further,had,hadn't,has,hasn't,have,haven't,having,he,he'd,he'll,he's,her,here,here's,hers,herself,him,himself,his,how,how's,i,i'd,i'll,i'm,i've,if,in,into,is,isn't,it,it's,its,itself,let's,me,more,most,mustn't,my,myself,no,nor,not,of,off,on,once,only,or,other,ought,our,ours,ourselves,out,over,own,same,shan't,she,she'd,she'll,she's,should,shouldn't,so,some,such,than,that,that's,the,their,theirs,them,themselves,then,there,there's,these,they,they'd,they'll,they're,they've,this,those,through,to,too,under,until,up,very,was,wasn't,we,we'd,we'll,we're,we've,were,weren't,what,what's,when,when's,where,where's,which,while,who,who's,whom,why,why's,with,won't,would,wouldn't,you,you'd,you'll,you're,you've,your,yours,yourself,yourselves"
+  },
+  "search": {
+    "search": "Hledat:",
+    "results": "{{count}} výsledků:",
+    "previous": "předchozí",
+    "next": "další ",
+    "suggestions": "Návrhy:",
+    "keywords": "Zadejte nějaká klíčová slova...",
+    "options": {
+      "advanced": "Pokročilé",
+      "basic": "Základní"
+    },
+    "user": {
+      "loading": "načítání",
+      "assignee": "Pověřený agent:"
+    },
+    "type": {
+      "all": "všechno",
+      "tickets": "tikety",
+      "articles": "články",
+      "comments": "komentáře",
+      "people": "lidé",
+      "organizations": "organizace",
+      "groups": "skupiny",
+      "topics": "témata"
+    },
+    "result_type": {
+      "ticket": "Tiket",
+      "article": "Článek",
+      "comment": "Komentář",
+      "user": "Uživatel",
+      "organization": "Organizace",
+      "group": "Skupina",
+      "topic": "Téma"
+    },
+    "filter": {
+      "status": "Stav",
+      "created": "Vytvořeno",
+      "updated": "Aktualizováno"
+    },
+    "condition": {
+      "equal": "=",
+      "greater": "&gt;",
+      "less": ""
+    },
+    "value": {
+      "new": "Nový",
+      "open": "Otevřený",
+      "pending": "Čekající",
+      "onhold": "Pozastavený",
+      "solved": "Vyřešený",
+      "closed": "Uzavřený"
+    }
+  }
+}

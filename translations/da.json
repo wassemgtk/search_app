@@ -48,13 +48,16 @@
     "type": {
       "all": "alt",
       "tickets": "tickets",
+      "articles": "artikler",
       "comments": "kommentarer",
-      "users": "brugere",
+      "people": "personer",
       "organizations": "organisationer",
       "groups": "grupper",
       "topics": "emner"
     },
     "result_type": {
+      "ticket": "Ticket",
+      "article": "Artikel",
       "comment": "Kommentar",
       "user": "Bruger",
       "organization": "Organisation",
@@ -68,8 +71,8 @@
     },
     "condition": {
       "equal": "=",
-      "greater": ">",
-      "less": "&lt;"
+      "greater": "&gt;",
+      "less": ""
     },
     "value": {
       "new": "Ny",

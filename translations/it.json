@@ -7,7 +7,7 @@
         "label": "ID campi personalizzati"
       },
       "related_tickets": {
-        "label": "Mostra parole chiave dall'oggetto come suggerimenti per la ricerca?"
+        "label": "Mostra parole chiave dall’oggetto come suggerimenti per la ricerca?"
       }
     }
   },
@@ -17,7 +17,7 @@
       "message": "Riprova l’azione precedente.",
       "data": "Impossibile leggere i dati.",
       "invalid": "Ricerca non valida: Formato data non valido.",
-      "unavailable": "Impossibile completare la query della ricerca. Riprovate."
+      "unavailable": "Impossibile completare la query della ricerca. Riprova."
     },
     "loading": "Inizializzazione app...",
     "searching": "Ricerca in corso...",
@@ -36,7 +36,7 @@
     "previous": "indietro",
     "next": "avanti",
     "suggestions": "Suggerimenti:",
-    "keywords": "Digita alcune parole chiave...",
+    "keywords": "Inserisci alcune parole chiave...",
     "options": {
       "advanced": "Avanzata",
       "basic": "Di base"
@@ -48,13 +48,16 @@
     "type": {
       "all": "tutto",
       "tickets": "ticket",
+      "articles": "articoli",
       "comments": "commenti",
-      "users": "utenti",
+      "people": "persone",
       "organizations": "organizzazioni",
       "groups": "gruppi",
       "topics": "argomenti"
     },
     "result_type": {
+      "ticket": "Ticket",
+      "article": "Articolo",
       "comment": "Commento",
       "user": "Utente",
       "organization": "Organizzazione",
@@ -68,8 +71,8 @@
     },
     "condition": {
       "equal": "=",
-      "greater": ">",
-      "less": "&lt;"
+      "greater": "&gt;",
+      "less": ""
     },
     "value": {
       "new": "Nuovo",

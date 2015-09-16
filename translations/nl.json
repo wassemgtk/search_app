@@ -48,13 +48,16 @@
     "type": {
       "all": "alles",
       "tickets": "tickets",
+      "articles": "artikelen",
       "comments": "opmerkingen",
-      "users": "gebruikers",
+      "people": "personen ",
       "organizations": "organisaties",
       "groups": "groepen",
       "topics": "onderwerpen"
     },
     "result_type": {
+      "ticket": "Ticket",
+      "article": "Artikel",
       "comment": "Opmerking",
       "user": "Gebruiker",
       "organization": "Organisatie",
@@ -68,8 +71,8 @@
     },
     "condition": {
       "equal": "=",
-      "greater": ">",
-      "less": "&lt;"
+      "greater": "&gt;",
+      "less": ""
     },
     "value": {
       "new": "Nieuw",
