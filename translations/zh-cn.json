@@ -48,13 +48,16 @@
     "type": {
       "all": "所有",
       "tickets": "工单",
+      "articles": "文章",
       "comments": "评论",
-      "users": "用户",
+      "people": "人员",
       "organizations": "组织",
       "groups": "组",
       "topics": "主题"
     },
     "result_type": {
+      "ticket": "工单",
+      "article": "文章",
       "comment": "评论",
       "user": "用户",
       "organization": "组织",
@@ -68,13 +71,13 @@
     },
     "condition": {
       "equal": "=",
-      "greater": ">",
-      "less": "&lt;"
+      "greater": "&gt;",
+      "less": ""
     },
     "value": {
       "new": "新建",
       "open": "已开启",
-      "pending": "未决",
+      "pending": "待回应",
       "onhold": "暂停",
       "solved": "已解决",
       "closed": "已关闭"

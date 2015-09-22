@@ -48,13 +48,16 @@
     "type": {
       "all": "todo",
       "tickets": "tickets",
+      "articles": "artículos",
       "comments": "comentarios",
-      "users": "usuarios",
+      "people": "personas",
       "organizations": "organizaciones",
       "groups": "grupos",
       "topics": "temas"
     },
     "result_type": {
+      "ticket": "Ticket",
+      "article": "Artículo",
       "comment": "Comentario",
       "user": "Usuario",
       "organization": "Organización",
@@ -68,8 +71,8 @@
     },
     "condition": {
       "equal": "=",
-      "greater": ">",
-      "less": "&lt;"
+      "greater": "&gt;",
+      "less": ""
     },
     "value": {
       "new": "Nuevo",

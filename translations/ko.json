@@ -4,7 +4,7 @@
     "title": "검색",
     "parameters": {
       "custom_fields": {
-        "label": "사용자 지정 필드 ID"
+        "label": "사용자 지정 필드 아이디"
       },
       "related_tickets": {
         "label": "검색 제안으로 제목에서 키워드를 표시하시겠습니까?"
@@ -14,17 +14,17 @@
   "global": {
     "error": {
       "title": "오류가 발생했습니다.",
-      "message": "다시 이전 작업을 시도하십시오.",
+      "message": "다시 이전 작업을 시도하세요.",
       "data": "데이터를 읽을 수 없습니다.",
       "invalid": "잘못된 검색: 잘못된 날짜 형식입니다.",
-      "unavailable": "죄송합니다. 검색 쿼리를 완료할 수 없습니다. 다시 시도하십시오."
+      "unavailable": "죄송합니다. 검색 쿼리를 완료할 수 없습니다. 다시 시도하세요."
     },
     "loading": "앱을 초기화하는 중…",
     "searching": "검색 중…",
     "no_results": "검색된 결과가 없습니다."
   },
   "ticket": {
-    "id": "ID",
+    "id": "아이디",
     "subject": "제목"
   },
   "stopwords": {
@@ -48,14 +48,17 @@
     "type": {
       "all": "모두",
       "tickets": "티켓",
-      "comments": "의견",
-      "users": "사용자",
+      "articles": "문서",
+      "comments": "댓글",
+      "people": "사람",
       "organizations": "조직",
       "groups": "그룹",
       "topics": "주제"
     },
     "result_type": {
-      "comment": "의견",
+      "ticket": "티켓",
+      "article": "문서",
+      "comment": "댓글",
       "user": "사용자",
       "organization": "조직",
       "group": "그룹",
@@ -68,8 +71,8 @@
     },
     "condition": {
       "equal": "=",
-      "greater": ">",
-      "less": "&lt;"
+      "greater": "&gt;",
+      "less": ""
     },
     "value": {
       "new": "신규",

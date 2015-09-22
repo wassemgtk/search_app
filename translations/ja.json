@@ -48,13 +48,16 @@
     "type": {
       "all": "すべて",
       "tickets": "チケット",
+      "articles": "記事",
       "comments": "コメント",
-      "users": "ユーザー",
+      "people": "人",
       "organizations": "組織",
       "groups": "グループ",
       "topics": "トピック"
     },
     "result_type": {
+      "ticket": "チケット",
+      "article": "記事",
       "comment": "コメント",
       "user": "ユーザー",
       "organization": "組織",
@@ -68,8 +71,8 @@
     },
     "condition": {
       "equal": "=",
-      "greater": ">",
-      "less": "&lt;"
+      "greater": "&gt;",
+      "less": ""
     },
     "value": {
       "new": "新規",

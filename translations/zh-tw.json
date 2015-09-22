@@ -48,13 +48,16 @@
     "type": {
       "all": "所有",
       "tickets": "工單",
+      "articles": "文章",
       "comments": "評論",
-      "users": "使用者",
+      "people": "人員",
       "organizations": "組織",
       "groups": "組",
       "topics": "主題"
     },
     "result_type": {
+      "ticket": "工單",
+      "article": "文章",
       "comment": "評論",
       "user": "使用者",
       "organization": "組織",
@@ -68,8 +71,8 @@
     },
     "condition": {
       "equal": "=",
-      "greater": ">",
-      "less": "&lt;"
+      "greater": "&gt;",
+      "less": ""
     },
     "value": {
       "new": "新建",
