@@ -32,7 +32,7 @@
   },
   "search": {
     "search": "Rechercher :",
-    "results": "{{count}} résultat(s) :",
+    "results": "{{count}} résultats :",
     "previous": "préc.",
     "next": "suiv.",
     "suggestions": "Suggestions :",
@@ -71,8 +71,8 @@
     },
     "condition": {
       "equal": "=",
-      "greater": "&gt;",
-      "less": ""
+      "greater": ">",
+      "less": "&lt;"
     },
     "value": {
       "new": "Nouveau",

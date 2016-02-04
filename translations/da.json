@@ -71,8 +71,8 @@
     },
     "condition": {
       "equal": "=",
-      "greater": "&gt;",
-      "less": ""
+      "greater": ">",
+      "less": "&lt;"
     },
     "value": {
       "new": "Ny",

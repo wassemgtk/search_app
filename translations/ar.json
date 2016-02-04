@@ -60,7 +60,7 @@
       "article": "موضوع",
       "comment": "تعليق",
       "user": "المستخدم",
-      "organization": "المؤسسة",
+      "organization": "المنظمة",
       "group": "مجموعة",
       "topic": "الموضوع"
     },
@@ -71,14 +71,14 @@
     },
     "condition": {
       "equal": "=",
-      "greater": "&gt;",
-      "less": ""
+      "greater": ">",
+      "less": "&lt;"
     },
     "value": {
       "new": "جديد",
       "open": "مفتوح",
-      "pending": "معلق",
-      "onhold": "معلق",
+      "pending": "قيد العمل",
+      "onhold": "معلقة",
       "solved": "تم حله",
       "closed": "مغلق"
     }
