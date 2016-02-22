@@ -66,13 +66,13 @@
     },
     "filter": {
       "status": "状态",
-      "created": "创建时间",
+      "created": "创建于",
       "updated": "更新时间"
     },
     "condition": {
       "equal": "=",
-      "greater": "&gt;",
-      "less": ""
+      "greater": ">",
+      "less": "&lt;"
     },
     "value": {
       "new": "新建",

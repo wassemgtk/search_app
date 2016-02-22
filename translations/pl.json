@@ -71,12 +71,12 @@
     },
     "condition": {
       "equal": "=",
-      "greater": "&gt;",
-      "less": ""
+      "greater": ">",
+      "less": "&lt;"
     },
     "value": {
       "new": "Nowe",
-      "open": "Przypisane",
+      "open": "Otwarte",
       "pending": "Oczekujące",
       "onhold": "Wstrzymane",
       "solved": "Załatwione",

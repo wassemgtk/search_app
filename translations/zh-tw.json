@@ -52,7 +52,7 @@
       "comments": "評論",
       "people": "人員",
       "organizations": "組織",
-      "groups": "組",
+      "groups": "小組",
       "topics": "主題"
     },
     "result_type": {
@@ -61,18 +61,18 @@
       "comment": "評論",
       "user": "使用者",
       "organization": "組織",
-      "group": "組",
+      "group": "小組",
       "topic": "主題"
     },
     "filter": {
       "status": "狀態",
-      "created": "建立時間",
+      "created": "建立於",
       "updated": "更新時間"
     },
     "condition": {
       "equal": "=",
-      "greater": "&gt;",
-      "less": ""
+      "greater": ">",
+      "less": "&lt;"
     },
     "value": {
       "new": "新建",
