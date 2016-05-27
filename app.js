@@ -1,7 +1,6 @@
 (function() {
 
   return {
-// Update code
     PER_PAGE: 10,
 
     MAX_ATTEMPTS: 20,

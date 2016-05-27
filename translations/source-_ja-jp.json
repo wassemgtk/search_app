@@ -1,0 +1,281 @@
+{
+  "app": {
+    "description": {
+      "title": "アプリのデモの説明",
+      "value": "サーチ"
+    },
+    "title": {
+      "title": "アプリの名前",
+      "value": "サーチ"
+    },
+    "parameters": {
+      "custom_fields": {
+        "label": {
+          "title": "アプリのパラメータで定義するカスタムフィールドID",
+          "value": "カスタムフィールドID"
+        }
+      },
+      "related_tickets": {
+        "label": {
+          "title": "これは、チケットの回答の提案としてキーワードを表示するためにそれらを示唆して設定ページに記入するユーザーのための設定です",
+          "value": "検索候補として対象からキーワードを表示しますか？"
+        }
+      }
+    },
+    "package": "Sea​​rch_app"
+  },
+  "global": {
+    "error": {
+      "title": {
+        "title": "エラーメッセージ",
+        "value": "エラーが発生しました。"
+      },
+      "message": {
+        "title": "エラーメッセージ",
+        "value": "再び前のアクションをお試しください。"
+      },
+      "data": {
+        "title": "エラーメッセージ",
+        "value": "データを読み取ることができませんでした。"
+      },
+      "invalid": {
+        "title": "エラーメッセージの日付が無効です",
+        "value": "無効な検索：無効な日付形式。"
+      },
+      "unavailable": {
+        "title": "エラーメッセージ検索サーバが利用できません",
+        "value": "申し訳ありませんが、検索クエリを完了できませんでした。もう一度やり直してください。"
+      }
+    },
+    "loading": {
+      "title": "読み込んメッセージ",
+      "value": "アプリを初期化しています..."
+    },
+    "searching": {
+      "title": "検索メッセージ",
+      "value": "検索中..."
+    },
+    "no_results": {
+      "title": "空の結果メッセージ",
+      "value": "結果が見つかりません。"
+    }
+  },
+  "ticket": {
+    "id": {
+      "title": "このチケットのIDは、アプリ上のフィールドです",
+      "value": "ID"
+    },
+    "subject": {
+      "title": "このチケットの主題は、アプリ上のフィールドです",
+      "value": "SUBJECT"
+    }
+  },
+  "stopwords": {
+    "exclusions": {
+      "title": "ストップワードは検索文字列から除外する",
+      "value": "Zendesk,a,is,about,above,after,again,against,all,am,an,and,any,are,aren't,as,at,be,because,been,before,being,below,between,both,but,by,can't,cannot,could,couldn't,did,didn't,do,does,doesn't,doing,don't,down,during,each,few,for,from,further,had,hadn't,has,hasn't,have,haven't,having,he,he'd,he'll,he's,her,here,here's,hers,herself,him,himself,his,how,how's,i,i'd,i'll,i'm,i've,if,in,into,is,isn't,it,it's,its,itself,let's,me,more,most,mustn't,my,myself,no,nor,not,of,off,on,once,only,or,other,ought,our,ours,ourselves,out,over,own,same,shan't,she,she'd,she'll,she's,should,shouldn't,so,some,such,than,that,that's,the,their,theirs,them,themselves,then,there,there's,these,they,they'd,they'll,they're,they've,this,those,through,to,too,under,until,up,very,was,wasn't,we,we'd,we'll,we're,we've,were,weren't,what,what's,when,when's,where,where's,which,while,who,who's,whom,why,why's,with,won't,would,wouldn't,you,you'd,you'll,you're,you've,your,yours,yourself,yourselves"
+    }
+  },
+  "search": {
+    "search": {
+      "title": "ユーザーはアプリで自分の検索語を入力するための検索フィールド",
+      "value": "検索する："
+    },
+    "results": {
+      "title": "ここでの結果プレースホルダの数が7の結果のようなものが表示されます",
+      "value": "{{count}} 結果）："
+    },
+    "previous": {
+      "title": "以前のボタン",
+      "value": "前"
+    },
+    "next": {
+      "title": "次のボタン",
+      "value": "次"
+    },
+    "suggestions": {
+      "title": "アプリによって返された提案一覧",
+      "value": "提案："
+    },
+    "keywords": {
+      "title": "入力するかを知るためのユーザーの検索ボックスにヘルプテキスト",
+      "value": "いくつかのキーワードを入力し..."
+    },
+    "options": {
+      "advanced": {
+        "title": "このリンクをクリックすると詳細オプション]リンクは、より多くの検索演算子オプションを開きます",
+        "value": "高度な"
+      },
+      "basic": {
+        "title": "高度とは対照的に、基本的な検索オプションに戻るためのリンク",
+        "value": "基本"
+      }
+    },
+    "user": {
+      "loading": {
+        "title": "読み込んメッセージ",
+        "value": "ローディング"
+      },
+      "assignee": {
+        "title": "譲受人ドロップダウン",
+        "value": "譲受人："
+      }
+    },
+    "type": {
+      "all": {
+        "title": "すべてを検索するドロップダウンオプション",
+        "value": "すべてのもの"
+      },
+      "tickets": {
+        "title": "ドロップダウンオプション",
+        "value": "チケット"
+      },
+      "articles": {
+        "title": "ドロップダウンオプション",
+        "value": "物品"
+      },
+      "comments": {
+        "title": "ドロップダウンオプション",
+        "value": "注釈"
+      },
+      "people": {
+        "title": "ドロップダウンオプション",
+        "value": "人"
+      },
+      "organizations": {
+        "title": "ドロップダウンオプション",
+        "value": "＃組織!!!"
+      },
+      "groups": {
+        "title": "ドロップダウンオプション",
+        "value": "グループ"
+      },
+      "topics": {
+        "title": "ドロップダウンオプション",
+        "value": "トピック"
+      }
+    },
+    "result_type": {
+      "ticket": {
+        "title": "ドロップダウンオプション",
+        "value": "チケット"
+      },
+      "article": {
+        "title": "ドロップダウンオプション",
+        "value": "記事"
+      },
+      "comment": {
+        "title": "ドロップダウンオプション",
+        "value": "コメント"
+      },
+      "user": {
+        "title": "ドロップダウンオプション",
+        "value": "ユーザー"
+      },
+      "organization": {
+        "title": "ドロップダウンオプション",
+        "value": "組織"
+      },
+      "group": {
+        "title": "ドロップダウンオプション",
+        "value": "グループ"
+      },
+      "topic": {
+        "title": "ドロップダウンオプション",
+        "value": "トピック"
+      }
+    },
+    "filter": {
+      "status": {
+        "title": "ドロップダウンオプション",
+        "value": "状態"
+      },
+      "created": {
+        "title": "ドロップダウンオプション",
+        "value": "作成した"
+      },
+      "updated": {
+        "title": "ドロップダウンオプション",
+        "value": "更新"
+      }
+    },
+    "condition": {
+      "equal": {
+        "title": "等号は同じままであるべきです",
+        "value": "="
+      },
+      "greater": {
+        "title": "オペレータより大きく変わらなければなりません",
+        "value": ">"
+      },
+      "less": {
+        "title": "オペレータよりも小さくは同じままであるべきです",
+        "value": "<"
+      }
+    },
+    "value": {
+      "new": {
+        "title": "ドロップダウンオプション",
+        "value": "新しい"
+      },
+      "open": {
+        "title": "ドロップダウンオプション",
+        "value": "開いた"
+      },
+      "pending": {
+        "title": "ドロップダウンオプション",
+        "value": "保留中"
+      },
+      "onhold": {
+        "title": "ドロップダウンオプション",
+        "value": "保留"
+      },
+      "solved": {
+        "title": "ドロップダウンオプション",
+        "value": "解決します"
+      },
+      "closed": {
+        "title": "ドロップダウンオプション",
+        "value": "閉まっている"
+      }
+    }
+  }
+}
+�",
+        "value": "="
+      },
+      "greater": {
+        "title": "オペレータより大きく変わらなければなりません",
+        "value": ">"
+      },
+      "less": {
+        "title": "オペレータよりも小さくは同じままであるべきです",
+        "value": "<"
+      }
+    },
+    "value": {
+      "new": {
+        "title": "ドロップダウンオプション",
+        "value": "新しい"
+      },
+      "open": {
+        "title": "ドロップダウンオプション",
+        "value": "開いた"
+      },
+      "pending": {
+        "title": "ドロップダウンオプション",
+        "value": "保留中"
+      },
+      "onhold": {
+        "title": "ドロップダウンオプション",
+        "value": "保留"
+      },
+      "solved": {
+        "title": "ドロップダウンオプション",
+        "value": "解決します"
+      },
+      "closed": {
+        "title": "ドロップダウンオプション",
+        "value": "閉まっている"
+      }
+    }
