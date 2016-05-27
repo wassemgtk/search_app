@@ -1,0 +1,272 @@
+{
+  "app": {
+    "description": {
+      "title": "Descripción de la aplicación",
+      "value": "Buscar"
+    },
+    "title": {
+      "title": "Nombre de la App",
+      "value": "Buscar"
+    },
+    "parameters": {
+      "custom_fields": {
+        "label": {
+          "title": "Identificadores de campos personalizados para definir en los parámetros de la aplicación",
+          "value": "Identificadores de campos personalizados"
+        }
+      },
+      "related_tickets": {
+        "label": {
+          "title": "Este es un ajuste para que el usuario rellene en la página de configuración que sugiere que muestren palabras clave como la sugerencia de respuestas para la compra de entradas",
+          "value": "Mostrar las palabras clave de búsqueda sujeto como sugerencia?"
+        }
+      }
+    },
+    "package": "Search_app"
+  },
+  "global": {
+    "error": {
+      "title": {
+        "title": "Mensaje de error",
+        "value": "Ocurrio un error."
+      },
+      "message": {
+        "title": "Mensaje de error",
+        "value": "Por favor, repita la operación anterior de nuevo."
+      },
+      "data": {
+        "title": "Mensaje de error",
+        "value": "Los datos no se puede leer."
+      },
+      "invalid": {
+        "title": "Mensaje de error cuando la fecha no es válida",
+        "value": "De búsqueda no válido: formato de fecha no válida."
+      },
+      "unavailable": {
+        "title": "Mensaje de error cuando el servidor de búsqueda no está disponible",
+        "value": "Lo sentimos, no pudimos completar el término de búsqueda. Por favor, inténtelo de nuevo."
+      }
+    },
+    "loading": {
+      "title": "Mensaje de carga",
+      "value": "La inicialización de aplicación ..."
+    },
+    "searching": {
+      "title": "Búsqueda de mensajes",
+      "value": "Buscando..."
+    },
+    "no_results": {
+      "title": "Mensaje de resultados vacíos",
+      "value": "No se han encontrado resultados."
+    }
+  },
+  "ticket": {
+    "id": {
+      "title": "Identificación del billete se trata de un campo en la aplicación",
+      "value": "CARNÉ DE IDENTIDAD"
+    },
+    "subject": {
+      "title": "Asunto del billete se trata de un campo en la aplicación",
+      "value": "TEMA"
+    }
+  },
+  "stopwords": {
+    "exclusions": {
+      "title": "Palabras vacías se deben excluir de la cadena de búsqueda",
+      "value": "Zendesk,a,is,about,above,after,again,against,all,am,an,and,any,are,aren't,as,at,be,because,been,before,being,below,between,both,but,by,can't,cannot,could,couldn't,did,didn't,do,does,doesn't,doing,don't,down,during,each,few,for,from,further,had,hadn't,has,hasn't,have,haven't,having,he,he'd,he'll,he's,her,here,here's,hers,herself,him,himself,his,how,how's,i,i'd,i'll,i'm,i've,if,in,into,is,isn't,it,it's,its,itself,let's,me,more,most,mustn't,my,myself,no,nor,not,of,off,on,once,only,or,other,ought,our,ours,ourselves,out,over,own,same,shan't,she,she'd,she'll,she's,should,shouldn't,so,some,such,than,that,that's,the,their,theirs,them,themselves,then,there,there's,these,they,they'd,they'll,they're,they've,this,those,through,to,too,under,until,up,very,was,wasn't,we,we'd,we'll,we're,we've,were,weren't,what,what's,when,when's,where,where's,which,while,who,who's,whom,why,why's,with,won't,would,wouldn't,you,you'd,you'll,you're,you've,your,yours,yourself,yourselves"
+    }
+  },
+  "search": {
+    "search": {
+      "title": "Campo de búsqueda para que el usuario introduzca sus términos de búsqueda en la aplicación",
+      "value": "Buscar:"
+    },
+    "results": {
+      "title": "Número de resultados el marcador de posición que aquí se mostrará algo así como 7 resultados",
+      "value": "{{count}} resultado (s):"
+    },
+    "previous": {
+      "title": "Botón anterior",
+      "value": "Anterior"
+    },
+    "next": {
+      "title": "Siguiente botón",
+      "value": "Next"
+    },
+    "suggestions": {
+      "title": "Lista de sugerencias devueltos por la aplicación",
+      "value": "Sugerencias:"
+    },
+    "keywords": {
+      "title": "Helptext en el cuadro de búsqueda para que el usuario sepa qué debe escribir",
+      "value": "Escribir algunas palabras clave ..."
+    },
+    "options": {
+      "advanced": {
+        "title": "Las opciones avanzadas de enlace hacer clic en este enlace se abre más opciones operadores de búsqueda",
+        "value": "Advanced"
+      },
+      "basic": {
+        "title": "Enlace a regresar a las opciones básicas de búsqueda en lugar de avanzada",
+        "value": "BASIC"
+      }
+    },
+    "user": {
+      "loading": {
+        "title": "Mensaje de carga",
+        "value": "Cargando"
+      },
+      "assignee": {
+        "title": "Desplegable cesionario",
+        "value": "Cesionario:"
+      }
+    },
+    "type": {
+      "all": {
+        "title": "Opción de menú desplegable para buscar todo lo",
+        "value": "Todo"
+      },
+      "tickets": {
+        "title": "Opción desplegable",
+        "value": "Entradas"
+      },
+      "articles": {
+        "title": "Opción desplegable",
+        "value": "Artículos"
+      },
+      "comments": {
+        "title": "Opción desplegable",
+        "value": "Comentarios"
+      },
+      "people": {
+        "title": "Opción desplegable",
+        "value": "Gente"
+      },
+      "organizations": {
+        "title": "Opción desplegable",
+        "value": "Organizaciones"
+      },
+      "groups": {
+        "title": "Opción desplegable",
+        "value": "Grupos"
+      },
+      "topics": {
+        "title": "Opción desplegable",
+        "value": "Temas"
+      }
+    },
+    "result_type": {
+      "ticket": {
+        "title": "Opción desplegable",
+        "value": "Boleto"
+      },
+      "article": {
+        "title": "Opción desplegable",
+        "value": "Artículo"
+      },
+      "comment": {
+        "title": "Opción desplegable",
+        "value": "Comentario"
+      },
+      "user": {
+        "title": "Opción desplegable",
+        "value": "Usuario"
+      },
+      "organization": {
+        "title": "Opción desplegable",
+        "value": "Organización"
+      },
+      "group": {
+        "title": "Opción desplegable",
+        "value": "Grupo"
+      },
+      "topic": {
+        "title": "Opción desplegable",
+        "value": "Tema"
+      }
+    },
+    "filter": {
+      "status": {
+        "title": "Opción desplegable",
+        "value": "Estado"
+      },
+      "created": {
+        "title": "Opción desplegable",
+        "value": "Creado"
+      },
+      "updated": {
+        "title": "Opción desplegable",
+        "value": "Actualizado"
+      }
+    },
+    "condition": {
+      "equal": {
+        "title": "Signo igual debe seguir siendo el mismo",
+        "value": "="
+      },
+      "greater": {
+        "title": "Mayor que el operador debe seguir siendo el mismo",
+        "value": ">"
+      },
+      "less": {
+        "title": "Más pequeño que el operador debe seguir siendo el mismo",
+        "value": "<"
+      }
+    },
+    "value": {
+      "new": {
+        "title": "Opción desplegable",
+        "value": "Nuevo"
+      },
+      "open": {
+        "title": "Opción desplegable",
+        "value": "Abierto"
+      },
+      "pending": {
+        "title": "Opción desplegable",
+        "value": "Pendiente"
+      },
+      "onhold": {
+        "title": "Opción desplegable",
+        "value": "En espera"
+      },
+      "solved": {
+        "title": "Opción desplegable",
+        "value": "Resuelto"
+      },
+      "closed": {
+        "title": "Opción desplegable",
+        "value": "Cerrado"
+      }
+    }
+  }
+}
+desplegable",
+        "value": "Actualizado"
+      }
+    },
+    "condition": {
+      "equal": {
+        "title": "Signo igual debe seguir siendo el mismo",
+        "value": "="
+      },
+      "greater": {
+        "title": "Mayor que el operador debe seguir siendo el mismo",
+        "value": ">"
+      },
+      "less": {
+        "title": "Más pequeño que el operador debe seguir siendo el mismo",
+        "value": "<"
+      }
+    },
+    "value": {
+      "new": {
+        "title": "Opción desplegable",
+        "value": "Nuevo"
+      },
+      "open": {
+        "title": "Opción desplegable",
+        "value": "Abierto"
+      },
+      "pending": {
+        "title": "Opci
