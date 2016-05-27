@@ -11,7 +11,7 @@
     "parameters": {
       "custom_fields": {
         "label": {
-          "title": "Identificadores de campos personalizados para definir en los parámetros de la aplicación",
+          "title": "Identificadores de campos personalizados para definir en los parámetros de la aplicación.",
           "value": "Identificadores de campos personalizados"
         }
       },
@@ -82,7 +82,7 @@
       "value": "Buscar:"
     },
     "results": {
-      "title": "Número de resultados el marcador de posición que aquí se mostrará algo así como 7 resultados",
+      "title": "Número de resultados el marcador de posición que aquí se mostrará algo así comoe 7 resultados",
       "value": "{{count}} resultado (s):"
     },
     "previous": {
@@ -269,4 +269,4 @@ desplegable",
         "value": "Abierto"
       },
       "pending": {
-        "title": "Opci
+        "title": "Op
